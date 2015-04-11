@@ -1,0 +1,25 @@
+package:
+  name: ruby-ffi
+  version: 1.9.8.1
+
+build:
+  number: 0
+
+source:
+  url: https://github.com/ffi/ffi/d9db89.tar.gz
+
+# test:
+#   commands:
+#     - ruby --version
+#     - ruby -e 'require "rubygems"'
+#     - gem --version
+
+requirements:
+  build:
+    - ruby ==1.9.3
+  run:
+    - ruby ==1.9.3
+
+about:
+  home: https://www.ruby-lang.org/
+  license: BSD
