@@ -5,7 +5,7 @@
         --disable-install-doc \
         --enable-shared \
         --with-opt-dir=$PREFIX \
-        --with-ffi_c-dir=$PREFIX \
+        --with-libyaml-dir=$PREFIX \
         --with-openssl-dir=$PREFIX \
         --with-readline-dir=$PREFIX \
         --with-zlib-dir=$PREFIX

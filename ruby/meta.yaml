@@ -21,11 +21,13 @@ requirements:
     - libffi
     - openssl
     - readline
+    - yaml
     - zlib
   run:
     - libffi
     - openssl
     - readline
+    - yaml
     - zlib
 
 about:

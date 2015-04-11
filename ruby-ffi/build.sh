@@ -1,2 +1,3 @@
 #!/bin/bash -eu
-gem install .
+gem build ffi.gemspec
+gem install ffi.gem --local
