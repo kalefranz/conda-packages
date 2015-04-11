@@ -19,6 +19,7 @@ env:
 
 before_script:
   - conda update -n root conda-build
+  - yum install -y patch
 
 script:
   - conda build .
