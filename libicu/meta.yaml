@@ -3,7 +3,7 @@ package:
   version: "{{ environ.get('ICU_VERSION') }}"
 
 build:
-  number: "{{ environ.get('BUILD_NUM') }}"
+  number: 0
 
 source:
   fn: "{{ 'icu_' + environ.get('ICU_VERSION') + '.orig.tar.gz' }}"

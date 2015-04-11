@@ -3,7 +3,7 @@ package:
   version: "{{ environ.get('RUBY_VERSION') }}"
 
 build:
-  number: 0
+  number: "{{ environ.get('RUBY_BUILD_NUM') }}"
 
 source:
   fn: "{{ environ.get('RUBY_FN') }}"
