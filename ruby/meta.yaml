@@ -19,8 +19,11 @@ test:
 requirements:
   build:
     - openssl
+    - readline
     - zlib
   run:
+    - openssl
+    - readline
     - zlib
 
 about:
