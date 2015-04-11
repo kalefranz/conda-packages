@@ -8,8 +8,14 @@ engine:
   - python=2
 
 env:
-  - ICU_VERSION=52.1 ICU_HASH=9e96ed4c1d99c0d14ac03c140f9f346c
-  - ICU_VERSION=4.2.1 ICU_HASH=e3738abd0d3ce1870dc1fd1f22bba5b1
+  - >
+    ICU_VERSION=52.1
+    ICU_HASH=9e96ed4c1d99c0d14ac03c140f9f346c
+    ICU_PATCH=icu_52.1-6ubuntu0.1_52.1-6ubuntu0.2.diff
+  - >
+    ICU_VERSION=4.2.1
+    ICU_HASH=e3738abd0d3ce1870dc1fd1f22bba5b1
+    ICU_PATCH=icu_4.2.1-3ubuntu0.10.04.1.diff
 
 before_script:
   - conda update -n root conda-build

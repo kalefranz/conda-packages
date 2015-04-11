@@ -1,7 +1,7 @@
 #/bin/bash -eu
 
-pushd source
-
-./configure --prefix=$PREFIX
+cd source
+chmod +x runConfigureICU configure install-sh
+./runConfigureICU Linux --prefix="$PREFIX" --prefix=$PREFIX
 make
 make install
