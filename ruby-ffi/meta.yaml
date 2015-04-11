@@ -15,8 +15,10 @@ test:
 
 requirements:
   build:
+    - libffi
     - ruby >=2.1.5
   run:
+    - libffi
     - ruby >=2.1.5
 
 about:

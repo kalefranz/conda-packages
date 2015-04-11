@@ -18,13 +18,11 @@ test:
 
 requirements:
   build:
-    - libffi
     - openssl
     - readline
     - yaml
     - zlib
   run:
-    - libffi
     - openssl
     - readline
     - yaml
