@@ -10,7 +10,7 @@ source:
   url: "{{ 'https://launchpad.net/ubuntu/+archive/primary/+files/icu_' + environ.get('ICU_VERSION') + '.orig.tar.gz' }}"
   md5: "{{ environ.get('ICU_HASH') }}"
   patches:
-    - "{{ environ.get('ICU_PATCH') }}"
+    - "{{ environ.get('ICU_PATCH', '') }}"
 
 about:
   home: https://www.ruby-lang.org/
