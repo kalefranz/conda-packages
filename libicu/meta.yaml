@@ -1,0 +1,15 @@
+package:
+  name: libicu
+  version: 52.1
+
+build:
+  number: 0
+
+source:
+  fn: icu_52.1.orig.tar.gz
+  url: https://launchpad.net/ubuntu/+archive/primary/+files/icu_52.1.orig.tar.gz
+  md5: 9e96ed4c1d99c0d14ac03c140f9f346c
+
+about:
+  home: https://www.ruby-lang.org/
+  license: BSD
