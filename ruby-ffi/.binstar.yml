@@ -19,3 +19,6 @@ build_targets:
 
 about:
   summary: Ruby FFI https://github.com/kalefranz/conda-packages/tree/master/ruby-ffi
+  description: >
+    Ruby FFI https://github.com/ffi/ffi
+    [Conda Recipe](https://github.com/kalefranz/conda-packages/tree/master/ruby-ffi)

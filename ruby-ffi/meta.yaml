@@ -16,10 +16,10 @@ test:
 requirements:
   build:
     - libffi
-    - ruby >=2.1.5
+    - ruby >=1.9.3
   run:
     - libffi
-    - ruby >=2.1.5
+    - ruby >=1.9.3
 
 about:
   home: https://github.com/ffi/ffi
