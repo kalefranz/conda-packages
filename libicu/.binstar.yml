@@ -7,6 +7,10 @@ platform:
 engine:
   - python=2
 
+env:
+  - ICU_VERSION=52.1 ICU_HASH=9e96ed4c1d99c0d14ac03c140f9f346c
+  - ICU_VERSION=4.2.1 ICU_HASH=e3738abd0d3ce1870dc1fd1f22bba5b1
+
 before_script:
   - conda update -n root conda-build
 

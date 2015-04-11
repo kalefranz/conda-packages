@@ -1,14 +1,14 @@
 package:
   name: libicu
-  version: 52.1
+  version: "{{ environ.get('ICU_VERSION') }}"
 
 build:
   number: 0
 
 source:
-  fn: icu_52.1.orig.tar.gz
-  url: https://launchpad.net/ubuntu/+archive/primary/+files/icu_52.1.orig.tar.gz
-  md5: 9e96ed4c1d99c0d14ac03c140f9f346c
+  fn: "{{ 'icu_' + environ.get('ICU_VERSION') + '.orig.tar.gz' }}"
+  url: "{{ 'https://launchpad.net/ubuntu/+archive/primary/+files/icu_' + environ.get('ICU_VERSION') + '.orig.tar.gz' }}"
+  md5: "{{ environ.get('ICU_HASH') }}"
 
 about:
   home: https://www.ruby-lang.org/
