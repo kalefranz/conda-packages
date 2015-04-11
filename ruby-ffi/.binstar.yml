@@ -16,3 +16,6 @@ script:
 
 build_targets:
   - conda
+
+about:
+  summary: Ruby FFI https://github.com/kalefranz/conda-packages/tree/master/ruby-ffi
