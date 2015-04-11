@@ -22,5 +22,5 @@ requirements:
     - ruby >=2.1.5
 
 about:
-  home: https://www.ruby-lang.org/
+  home: https://github.com/ffi/ffi
   license: BSD

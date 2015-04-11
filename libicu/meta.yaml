@@ -13,5 +13,5 @@ source:
   #   - "{{ environ.get('ICU_PATCH', '') }}"
 
 about:
-  home: https://www.ruby-lang.org/
-  license: BSD
+  home: http://site.icu-project.org/
+  license: ICU License
