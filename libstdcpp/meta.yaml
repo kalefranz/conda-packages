@@ -1,6 +1,6 @@
 package:
   name: libstdcpp
-  version: 3.4.15
+  version: 3.4.13  # binstar is currently using CentOS 6.5, so version 3.4.13
 
 about:
   home: https://gcc.gnu.org/libstdc++

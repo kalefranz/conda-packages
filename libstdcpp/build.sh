@@ -5,7 +5,6 @@ strings "$LIB_LOCATION" | grep LIBCXX
 
 cat /etc/redhat-release
 
-
 mkdir -p $PREFIX/lib
 cp "$LIB_LOCATION" $PREFIX/lib
 
