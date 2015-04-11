@@ -1,0 +1,15 @@
+package:
+  name: glibc
+  version: "{{ environ.get('GLIBC_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "{{ 'glibc-' + environ.get('GLIBC_VERSION') + '.tar.gz' }}"
+  url: "{{ 'https://ftp.gnu.org/gnu/glibc/glibc-' + environ.get('GLIBC_VERSION') + '.tar.gz' }}"
+  sha256: "{{ environ.get('GLIBC_HASH') }}"
+
+about:
+  home: https://www.ruby-lang.org/
+  license: BSD
