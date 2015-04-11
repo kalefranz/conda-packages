@@ -1,4 +1,6 @@
 #!/bin/bash -eu
-./configure --prefix=$PREFIX
+mkdir build-tree
+cd build-tree
+../configure --prefix=$PREFIX
 make
 make install

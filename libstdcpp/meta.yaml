@@ -1,0 +1,7 @@
+package:
+  name: libstdcpp
+  version: 3.4.15
+
+about:
+  home: https://gcc.gnu.org/libstdc++
+  license: LGPL
