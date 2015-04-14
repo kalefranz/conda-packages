@@ -14,7 +14,7 @@ env:
 
 before_script:
   - conda update -n root conda-build
-  - yum install -y autoconf
+  - conda install -c https://conda.binstar.org/asmeurer autoconf
 
 script:
   - conda build .
