@@ -5,6 +5,7 @@
 # make
 # make install
 
+cd rabbitmq-c-$PKG_VERSION
 
 cmake \
     -DENABLE_SSL_SUPPORT=ON \
