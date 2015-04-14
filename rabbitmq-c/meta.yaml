@@ -6,7 +6,7 @@ build:
   number: 0
 
 source:
-  fn: "{{ rabbitmq-c-' + environ.get('RABBITMQC_VERSION') + '.tar.gz' }}"
+  fn: "{{ 'rabbitmq-c-' + environ.get('RABBITMQC_VERSION') + '.tar.gz' }}"
   url: "{{ 'https://github.com/alanxz/rabbitmq-c/releases/download/v' + environ.get('RABBITMQC_VERSION') + '/rabbitmq-c-' + environ.get('RABBITMQC_VERSION') + '.tar.gz' }}"
   sha256: "{{ environ.get('RABBITMQC_HASH') }}"
 
