@@ -7,7 +7,7 @@
 
 ls -al
 
-cd rabbitmq-c-$PKG_VERSION
+pwd
 
 cmake \
     -DENABLE_SSL_SUPPORT=ON \
