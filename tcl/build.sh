@@ -1,8 +1,8 @@
 #!/bin/bash -eu
 
-ls -al
+pushd unix
 
-cd "tcl$PKG_VERSION/unix"
+ls -al
 
 ./configure --prefix=$PREFIX
 make
