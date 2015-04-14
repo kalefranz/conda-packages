@@ -1,6 +1,6 @@
 #!/bin/bash -eu
-mkdir build-tree
-cd build-tree
-../configure --prefix=$PREFIX
+
+$PYTHON ./configure --prefix=$PREFIX
 make
+make test
 make install
