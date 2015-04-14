@@ -1,0 +1,23 @@
+package: pyicu
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    PYICU_VERSION=1.8
+    PYICU_HASH=00c8d40e5400f52c8474aa9480e8dbc1
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

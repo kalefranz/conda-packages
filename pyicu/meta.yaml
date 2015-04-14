@@ -1,0 +1,26 @@
+package:
+  name: pyicu
+  version: "{{ environ.get('PYICU_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "amqp-{{ PYICU_VERSION }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/P/PyICU/PyICU-{{ PYICU_VERSION }}.tar.gz"
+  md5: "{{ environ.get('PYICU_HASH') }}"
+
+requirements:
+  build:
+    - python
+    - libicu
+  run:
+    - python
+    - libicu
+
+test:
+  commands:
+    - "python -c 'from icu import DateFormat, Formattable'"
+
+about:
+  home: https://pypi.python.org/pypi/PyICU/1.8
