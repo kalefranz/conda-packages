@@ -1,0 +1,15 @@
+package:
+  name: rabbitmq-c
+  version: "{{ environ.get('RABBITMQC_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "{{ rabbitmq-c-' + environ.get('RABBITMQC_VERSION') + '.tar.gz' }}"
+  url: "{{ 'https://github.com/alanxz/rabbitmq-c/releases/download/v' + environ.get('RABBITMQC_VERSION') + '/rabbitmq-c-' + environ.get('RABBITMQC_VERSION') + '.tar.gz' }}"
+  sha256: "{{ environ.get('RABBITMQC_HASH') }}"
+
+about:
+  home: https://github.com/alanxz/rabbitmq-c
+  license: MIT

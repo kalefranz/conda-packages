@@ -13,8 +13,10 @@ source:
 requirements:
   build:
     - python
+    - rabbitmq-c
   run:
     - python
+    - rabbitmq-c
 
 test:
   commands:
