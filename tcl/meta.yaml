@@ -1,0 +1,15 @@
+package:
+  name: tcl
+  version: "{{ environ.get('TCL_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "tcl{{ environ.get('TCL_VERSION') }}-src.tar.gz"
+  url: "http://prdownloads.sourceforge.net/tcl/tcl{{ environ.get('TCL_VERSION') }}-src.tar.gz"
+  sha256: "{{ environ.get('TCL_HASH') }}"
+
+about:
+  home: http://www.tcl.tk/
+  license: BSD-style
