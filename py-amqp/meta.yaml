@@ -1,5 +1,5 @@
 package:
-  name: librabbitmq
+  name: py-amqp
   version: "{{ environ.get('AMQP_VERSION') }}"
 
 build:
