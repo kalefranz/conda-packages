@@ -12,11 +12,13 @@ source:
 
 requirements:
   build:
-    - python
     - rabbitmq-c
+    - python
+    - py-amqp
   run:
-    - python
     - rabbitmq-c
+    - python
+    - py-amqp
 
 test:
   commands:

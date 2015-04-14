@@ -1,0 +1,23 @@
+package: py-amqp
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    AMQP_VERSION=1.4.6
+    AMQP_HASH=a061581b6864f838bffd62b6a3d0fb9f
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
