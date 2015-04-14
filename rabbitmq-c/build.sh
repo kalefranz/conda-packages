@@ -5,6 +5,8 @@
 # make
 # make install
 
+ls -al
+
 cd rabbitmq-c-$PKG_VERSION
 
 cmake \
