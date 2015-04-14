@@ -7,7 +7,7 @@ build:
 
 requirements:
   build:
-    - build
+    - python
 
 source:
   fn: "node-v{{ environ.get('NODE_VERSION') }}.tar.gz"
