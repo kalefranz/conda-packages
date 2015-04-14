@@ -1,0 +1,27 @@
+package:
+  name: librabbitmq
+  version: "{{ environ.get('AMQP_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "amqp-{{ AMQP_VERSION }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/a/amqp/amqp-{{ AMQP_VERSION }}.tar.gz"
+  md5: "{{ environ.get('AMQP_HASH') }}"
+
+requirements:
+  build:
+    - python
+    - rabbitmq-c
+  run:
+    - python
+    - rabbitmq-c
+
+test:
+  commands:
+    - python -c 'from amqp import Connection'
+
+about:
+  home: https://github.com/celery/librabbitmq
+  license: GPLv2
