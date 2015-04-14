@@ -14,6 +14,7 @@ env:
 
 before_script:
   - conda update -n root conda-build
+  - yum install -y autoconf
 
 script:
   - conda build .
