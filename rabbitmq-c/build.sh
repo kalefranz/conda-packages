@@ -6,7 +6,11 @@
 # make install
 
 ls -al
+pwd
 
+mkdir build && cd build
+
+ls -al
 pwd
 
 cmake \
