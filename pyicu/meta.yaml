@@ -6,7 +6,7 @@ build:
   number: 0
 
 source:
-  fn: "amqp-{{ PYICU_VERSION }}.tar.gz"
+  fn: "PyICU-{{ PYICU_VERSION }}.tar.gz"
   url: "https://pypi.python.org/packages/source/P/PyICU/PyICU-{{ PYICU_VERSION }}.tar.gz"
   md5: "{{ environ.get('PYICU_HASH') }}"
 
