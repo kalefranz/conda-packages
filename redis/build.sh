@@ -7,3 +7,5 @@ make hiredis jemalloc linenoise lua
 
 popd
 make
+make test
+make install
