@@ -1,0 +1,22 @@
+package: librabbitmq
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    LIBRABBITMQ_VERSION=1.6.1
+    LIBRABBITMQ_HASH=716f05388d4747ea605c1a31f8541e3b
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

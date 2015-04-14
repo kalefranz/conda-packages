@@ -1,0 +1,25 @@
+package:
+  name: librabbitmq
+  version: "{{ environ.get('LIBRABBITMQ_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "librabbitmq-{{ LIBRABBITMQ_VERSION }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/l/librabbitmq/librabbitmq-{{ LIBRABBITMQ_VERSION }}.tar.gz"
+  md5: "{{ environ.get('LIBRABBITMQ_HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - python -c 'from librabbitmq import Connection'
+
+about:
+  home: https://github.com/celery/librabbitmq
+  license: GPLv2
