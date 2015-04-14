@@ -12,6 +12,9 @@ env:
     ICU_VERSION=52.1
     ICU_HASH=9e96ed4c1d99c0d14ac03c140f9f346c
   - >
+    ICU_VERSION=4.8.1.1
+    ICU_HASH=ea93970a0275be6b42f56953cd332c17
+  - >
     ICU_VERSION=4.2.1
     ICU_HASH=e3738abd0d3ce1870dc1fd1f22bba5b1
     ICU_PATCH=icu_4.2.1-3ubuntu0.10.04.1.diff
