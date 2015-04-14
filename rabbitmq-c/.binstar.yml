@@ -7,6 +7,11 @@ platform:
 engine:
   - python=2
 
+env:
+  - >
+    RABBITMQC_VERSION=0.5.2
+    RABBITMQC_HASH=1ec3c1141593b91c57bf1051657a1d64fb87da38760c7128a9622b107990f2f2
+
 before_script:
   - conda update -n root conda-build
 
