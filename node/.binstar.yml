@@ -1,0 +1,22 @@
+package: noce
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    NODE_VERSION=0.12.2
+    NODE_HASH=a969f17a0a6c9238584f8946d96e8d39be8eb957
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

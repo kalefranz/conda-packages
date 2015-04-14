@@ -1,0 +1,19 @@
+package:
+  name: node
+  version: "{{ environ.get('NODE_VERSION') }}"
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - build
+
+source:
+  fn: "node-v{{ environ.get('NODE_VERSION') }}.tar.gz"
+  url: "http://nodejs.org/dist/v{{ environ.get('NODE_VERSION') }}/node-v{{ environ.get('NODE_VERSION') }}.tar.gz"
+  sha512: "{{ environ.get('NODE_HASH') }}"
+
+about:
+  home: https://nodejs.org
+  license: MIT
