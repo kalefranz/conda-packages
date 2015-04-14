@@ -4,5 +4,5 @@ pushd unix
 
 ./configure --prefix=$PREFIX
 make
-# make test
+make test
 make install

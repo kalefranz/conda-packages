@@ -1,6 +1,8 @@
 package: tcl
 user: kalefranz
 
+iotimeout: 120
+
 platform:
   - linux-64
 
