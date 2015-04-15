@@ -19,9 +19,9 @@ requirements:
     - python
     - "libicu =={{ LIBICU_VERSION }}"
 
-test:
-  commands:
-    - "python -c 'from icu import DateFormat, Formattable'"
+# test:
+#   commands:
+#     - "python -c 'from icu import DateFormat, Formattable'"
 
 about:
-  home: https://pypi.python.org/pypi/PyICU/1.8
+  home: https://pypi.python.org/pypi/PyICU
