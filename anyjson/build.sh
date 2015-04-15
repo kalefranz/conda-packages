@@ -1,2 +1,2 @@
 #/bin/bash -eu
-python setup.py install
+$python setup.py install
