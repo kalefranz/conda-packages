@@ -28,7 +28,7 @@
 
 ./configure \
     --prefix=$PREFIX \
-    --without-readline \
+    # --without-readline \
     --without-docs \
     --without-debug \
     --disable-dependency-tracking \
