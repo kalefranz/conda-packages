@@ -14,9 +14,11 @@ requirements:
   build:
     - python
     - librabbitmq
+    - anyjson
   run:
     - python
     - librabbitmq
+    - anyjson
 
 test:
   commands:
