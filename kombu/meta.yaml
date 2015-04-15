@@ -13,10 +13,12 @@ source:
 requirements:
   build:
     - python
+    - py-amqp
     - librabbitmq
     - anyjson
   run:
     - python
+    - py-amqp
     - librabbitmq
     - anyjson
 

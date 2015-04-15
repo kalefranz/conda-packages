@@ -13,6 +13,7 @@ source:
 requirements:
   build:
     - python
+    - py-amqp
     - librabbitmq
     - anyjson
     - billiard
@@ -20,6 +21,7 @@ requirements:
     - pytz
   run:
     - python
+    - py-amqp
     - librabbitmq
     - anyjson
     - billiard
