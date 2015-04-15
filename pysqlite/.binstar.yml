@@ -1,0 +1,17 @@
+package: python-cjson
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

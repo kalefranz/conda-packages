@@ -1,0 +1,27 @@
+package:
+  name: pysqlite
+  version: 2.6.3
+
+build:
+  number: 0
+
+source:
+  fn: pysqlite-2.6.3.tar.gz
+  url: https://pypi.python.org/packages/source/p/pysqlite/pysqlite-2.6.3.tar.gz
+  md5: 7ff1cedee74646b50117acff87aa1cfa
+
+requirements:
+  build:
+    - python
+    - sqlite >=3.8.4
+  run:
+    - python
+    - sqlite >=3.8.4
+
+test:
+  commands:
+    - "python -c 'from pysqlite2 import dbapi2 as sqlite3'"
+
+about:
+  home: https://github.com/ghaering/pysqlite
+  license: zlib License
