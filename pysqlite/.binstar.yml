@@ -1,4 +1,4 @@
-package: python-cjson
+package: pysqlite
 user: kalefranz
 
 platform:

@@ -24,4 +24,4 @@ test:
 
 about:
   home: https://github.com/ghaering/pysqlite
-  license: zlib License
+  license: zlib/libpng license
