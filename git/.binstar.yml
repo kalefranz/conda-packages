@@ -1,0 +1,22 @@
+package: git
+user: kalefranz
+
+platform:
+  - linux-32
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    GIT_VERSION=2.3.5
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
