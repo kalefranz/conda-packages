@@ -13,10 +13,10 @@ source:
 requirements:
   build:
     - python
-    - "libicu ={{ LIBICU_VERSION }}"
+    - "libicu =={{ LIBICU_VERSION }}"
   run:
     - python
-    - "libicu ={{ LIBICU_VERSION }}"
+    - "libicu =={{ LIBICU_VERSION }}"
 
 test:
   commands:
