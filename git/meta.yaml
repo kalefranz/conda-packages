@@ -7,8 +7,10 @@ build:
 
 requirements:
   build:
+    - openssl
     - zlib
   run:
+    - openssl
     - zlib
 
 source:
