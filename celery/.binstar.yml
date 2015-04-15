@@ -1,0 +1,23 @@
+package: celery
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    CELERY_VERSION=3.1.17
+    CELERY_HASH=e37f5d93b960bf68fc26c1325f30fd16
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

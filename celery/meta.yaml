@@ -1,0 +1,33 @@
+package:
+  name: celery
+  version: "{{ environ.get('CELERY_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "celery-{{ environ.get('CELERY_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/c/celery/celery-{{ environ.get('CELERY_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('CELERY_HASH') }}"
+
+requirements:
+  build:
+    - python
+    - librabbitmq
+    - anyjson
+    - billiard
+    - kombu
+  run:
+    - python
+    - librabbitmq
+    - anyjson
+    - billiard
+    - kombu
+
+test:
+  commands:
+    - python -c 'from celery import Celery'
+
+about:
+  home: http://github.com/celery/celery
+  license: New BSD
