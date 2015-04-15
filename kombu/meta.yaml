@@ -1,0 +1,27 @@
+package:
+  name: kombu
+  version: "{{ environ.get('KOMBU_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "anyjson-{{ environ.get('KOMBU_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/a/anyjson/anyjson-{{ environ.get('KOMBU_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('KOMBU_HASH') }}"
+
+requirements:
+  build:
+    - python
+    - librabbitmq
+  run:
+    - python
+    - librabbitmq
+
+test:
+  commands:
+    - python -c 'from kombu import Connection'
+
+about:
+  home: http://github.com/celery/kombu
+  license: New BSD
