@@ -16,10 +16,6 @@ requirements:
   run:
     - python >=2.7
 
-test:
-  commands:
-    - python -c 'from kombu import Connection'
-
 about:
   home: http://github.com/celery/billiard
   license: BSD
