@@ -1,5 +1,5 @@
 package:
-  name: glibc
+  name: cryptopp
   version: "{{ environ.get('CRYPTOPP_VERSION') }}"
 
 build:
