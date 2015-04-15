@@ -23,25 +23,30 @@
 # #!/bin/sh
 ./configure --help
 
-#     --without-readline \ # use detected readline instead of included readline"
-#     --without-docs
-#     --without-debug
-#     --disable-dependency-tracking
-#     --prefix=#{prefix}
-#     --localstatedir=#{var}/mysql
-#     --sysconfdir=#{etc}
-#     --with-plugins=innobase,myisam
-#     --with-extra-charsets=complex
-#     --without-readline
-#     --enable-assembler
-#     --enable-thread-safe-client
-#     --enable-local-infile
-#     --enable-shared
-#     --with-partition
-#     --without-server
-#     --with-ssl=$PREFIX
-# make
-# make install
+./configure \
+    --prefix=$PREFIX \
+    --without-readline \ # use detected readline instead of included readline"
+    --without-docs \
+    --without-debug \
+    --disable-dependency-tracking \
+    --libdir=$PREFIX \
+    --includedir=$PREFIX \
+    --with-plugins=innobase,myisam \
+    --with-extra-charsets=complex \
+    --enable-assembler \
+    --enable-thread-safe-client \
+    --enable-local-infile \
+    --enable-shared \
+    --with-partition \
+    --with-ssl=$PREFIX \
+    --without-server
+
+    # --localstatedir=#{var}/mysql
+    # --sysconfdir=#{etc}
+
+
+make
+make install
 
 
 # ./configure --prefix=$PREFIX
