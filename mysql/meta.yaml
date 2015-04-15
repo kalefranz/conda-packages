@@ -1,0 +1,21 @@
+package:
+  name: mysql
+  version: "{{ environ.get('MYSQL_VERSION') }}"
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake
+    - openssl
+  run:
+    - openssl
+
+source:
+  fn: "mysql-{{ environ.get('MYSQL_VERSION') }}.tar.gz"
+  url: "https://cdn.mysql.com/Downloads/MySQL-{{ environ.get('MYSQL_MAJOR_VERSION') }}/mysql-{{ environ.get('MYSQL_VERSION') }}.tar.gz"
+  sha256: 
+
+about:
+  home: https://dev.mysql.com/doc/refman/5.6/en
