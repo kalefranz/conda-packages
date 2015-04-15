@@ -23,9 +23,9 @@ before_script:
   - conda update -n root conda-build
   - conda install -c asmeurer ncurses
   - conda install -c asmeurer readline
-  - conda install -c asmeurer libtool
-  - conda install -c asmeurer automake
-  - conda install -c asmeurer autoconf
+  # - conda install -c asmeurer libtool
+  # - conda install -c asmeurer automake
+  # - conda install -c asmeurer autoconf
   - conda config --add channels asmeurer
 
 script:

@@ -7,10 +7,10 @@ build:
 
 requirements:
   build:
-    - cmake
-    - libtool
-    - automake
-    - autoconf
+    # - cmake
+    # - libtool
+    # - automake
+    # - autoconf
     - openssl
     - readline
     - ncurses
