@@ -1,0 +1,19 @@
+package:
+  name: anyjson
+  version: "{{ environ.get('ANYJSON_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "anyjson-{{ environ.get('ANYJSON_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/a/anyjson/anyjson-{{ environ.get('ANYJSON_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('ANYJSON_HASH') }}"
+
+test:
+  commands:
+    - python -c 'import anyjson'
+
+about:
+  home: http://bitbucket.org/runeh/anyjson
+  license: BSD
