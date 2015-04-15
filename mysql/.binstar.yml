@@ -25,6 +25,7 @@ before_script:
   - conda install -c https://conda.binstar.org/asmeurer readline
   - conda install -c https://conda.binstar.org/asmeurer automake
   - conda install -c https://conda.binstar.org/asmeurer autoconf
+  - conda config --add channels asmeurer
 
 script:
   - conda build .
