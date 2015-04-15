@@ -5,6 +5,12 @@ package:
 build:
   number: 0
 
+requirements:
+  build:
+    - zlib
+  run:
+    - zlib
+
 source:
   git_url: https://github.com/git/git.git
   git_tag: "v{{ environ.get('GIT_VERSION') }}"
