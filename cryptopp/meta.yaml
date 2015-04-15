@@ -1,0 +1,15 @@
+package:
+  name: glibc
+  version: "{{ environ.get('CRYPTOPP_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "cryptopp{{ environ.get('CRYPTOPP_VERSION')|replace('.', '') }}.zip"
+  url: "http://prdownloads.sourceforge.net/cryptopp/cryptopp{{ environ.get('CRYPTOPP_VERSION')|replace('.', '') }}.zip"
+  sha256: "{{ environ.get('CRYPTOPP_HASH') }}"
+
+about:
+  home: http://www.cryptopp.com
+  license: Boost Software License 1.0
