@@ -7,7 +7,7 @@ build:
 
 source:
   git_url: https://github.com/git/git.git
-  git_tag: "{{ environ.get('GIT_VERSION') }}"
+  git_tag: "v{{ environ.get('GIT_VERSION') }}"
 
 about:
   home: http://git-scm.com
