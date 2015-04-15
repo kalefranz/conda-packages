@@ -8,6 +8,7 @@ build:
 requirements:
   build:
     - cmake
+    - libtool
     - automake
     - autoconf
     - openssl
