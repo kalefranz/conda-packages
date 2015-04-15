@@ -2,7 +2,6 @@ package: git
 user: kalefranz
 
 platform:
-  - linux-32
   - linux-64
 
 engine:
