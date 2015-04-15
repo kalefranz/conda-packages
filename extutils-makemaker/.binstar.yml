@@ -1,4 +1,4 @@
-package: git
+package: extutils-makemaker
 user: kalefranz
 
 platform:
@@ -6,9 +6,6 @@ platform:
 
 engine:
   - python=2
-
-env:
-  - GIT_VERSION=2.3.5
 
 before_script:
   - conda update -n root conda-build

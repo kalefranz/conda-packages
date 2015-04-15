@@ -1,0 +1,21 @@
+package:
+  name: extutils-makemaker
+  version: "7.04"
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - perl
+  run:
+    - perl
+
+source:
+  fn: ExtUtils-MakeMaker-7.04.tar.gz
+  url: https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.04.tar.gz
+  sha256: 98126b012d70c2af0f8e33a07ebe0d6f2340281b2460981b959a9fb31d5ad97f
+
+about:
+  home: https://metacpan.org/pod/ExtUtils::MakeMaker
+  license: Artistic License
