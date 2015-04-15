@@ -1,5 +1,5 @@
 #!/bin/bash -eu
 make configure
 ./configure --prefix=$PREFIX
-make
-make install
+make all doc
+make install install-doc
