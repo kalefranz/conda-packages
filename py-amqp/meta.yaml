@@ -23,5 +23,5 @@ test:
     - python -c 'from amqp import Connection'
 
 about:
-  home: https://github.com/celery/librabbitmq
+  home: https://pypi.python.org/pypi/amqp/
   license: GPLv2
