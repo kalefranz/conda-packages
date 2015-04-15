@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 cmake . \
-    -DBUILD_CONFIG=mysql_release \
+    # -DBUILD_CONFIG=mysql_release \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_FIND_FRAMEWORK=LAST \
     -DCMAKE_VERBOSE_MAKEFILE=ON \
