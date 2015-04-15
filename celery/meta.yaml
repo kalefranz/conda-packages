@@ -17,12 +17,14 @@ requirements:
     - anyjson
     - billiard
     - kombu
+    - pytz
   run:
     - python
     - librabbitmq
     - anyjson
     - billiard
     - kombu
+    - pytz
 
 test:
   commands:
