@@ -23,9 +23,12 @@
 # #!/bin/sh
 ./configure --help
 
+
+ # --without-readline  use detected readline instead of included readline"
+
 ./configure \
     --prefix=$PREFIX \
-    --without-readline \ # use detected readline instead of included readline"
+    --without-readline \
     --without-docs \
     --without-debug \
     --disable-dependency-tracking \
