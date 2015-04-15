@@ -1,0 +1,23 @@
+package: billiard
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    BILLIARD_VERSION=3.3.0.19
+    BILLIARD_HASH=7e473b9da01956ce91a650f99fe8d4ad
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

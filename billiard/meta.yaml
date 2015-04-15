@@ -1,0 +1,25 @@
+package:
+  name: billiard
+  version: "{{ environ.get('BILLIARD_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "anyjson-{{ environ.get('BILLIARD_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/b/billiard/billiard-{{ environ.get('BILLIARD_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('BILLIARD_HASH') }}"
+
+requirements:
+  build:
+    - python >=2.7
+  run:
+    - python >=2.7
+
+test:
+  commands:
+    - python -c 'from kombu import Connection'
+
+about:
+  home: http://github.com/celery/billiard
+  license: BSD
