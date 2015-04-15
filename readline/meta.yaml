@@ -2,6 +2,15 @@ package:
   name: readline
   version: 6.2.5
 
+build:
+  number: 1
+
+requirements:
+  build:
+    - ncurses
+  run:
+    - ncurses
+
 source:
   fn: readline-6.2.5.tar.gz
   url: https://github.com/tpn/readline/archive/6.2.5.tar.gz

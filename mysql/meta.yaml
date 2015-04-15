@@ -8,14 +8,22 @@ build:
 requirements:
   build:
     - cmake
+    - automake
+    - autoconf
     - openssl
+    - readline
+    - ncurses
+    - zlib
   run:
     - openssl
+    - readline
+    - ncurses
+    - zlib
 
 source:
-  fn: "mysql-{{ environ.get('MYSQL_VERSION') }}.tar.gz"
-  url: "https://cdn.mysql.com/Downloads/MySQL-{{ environ.get('MYSQL_MAJOR_VERSION') }}/mysql-{{ environ.get('MYSQL_VERSION') }}.tar.gz"
-  sha256: 
+  fn: "{{ environ.get('MYSQL_FILENAME') }}"
+  url: "{{ environ.get('MYSQL_URL') }}"
+  sha256: "{{ environ.get('MYSQL_HASH') }}"
 
 about:
   home: https://dev.mysql.com/doc/refman/5.6/en
