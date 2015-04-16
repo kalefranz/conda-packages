@@ -28,6 +28,11 @@ env:
     MYSQL_FILENAME=mysql-5.5.41.tar.gz
     MYSQL_URL=https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.41.tar.gz
     MYSQL_HASH=ec642fc5be5ea03b24a0c5189204675fb3794dee772314ace650623c1c994844
+  - >
+    MYSQL_VERSION=5.5.40
+    MYSQL_FILENAME=mysql-5.5.40.tar.gz
+    MYSQL_URL=https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.40.tar.gz
+    MYSQL_HASH=4d3721761a31c28866e8ee0fde47558a3e9047aaef3b89135ae8d45eebb74960
 
   # - >
   #   MYSQL_VERSION=5.1.73

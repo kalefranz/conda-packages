@@ -36,6 +36,7 @@
 # 5.5.x
 ############
 cmake --help
+cmake . -LH
 
 cmake . \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
