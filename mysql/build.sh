@@ -35,32 +35,12 @@
 ############
 # 5.5.x
 ############
-
-cmake --help
-
 cmake . \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_VERBOSE_MAKEFILE=ON \
     -DWITH_UNIT_TESTS=OFF \
+    # -DWITHOUT_SERVER=ON \
     -DWITH_READLINE=ON
-    # -DMYSQL_DATADIR=#{datadir} \
-    # -DSYSCONFDIR=#{etc} \
-    # -DINSTALL_MANDIR=share/man \
-    # -DINSTALL_DOCDIR=share/doc/mysql \
-    # -DINSTALL_INFODIR=share/info \
-    # -DINSTALL_MYSQLSHAREDIR=share/mysql \
-    # -DINSTALL_INCLUDEDIR=include/mysql \
-    # -DWITH_EDITLINE=system \
-    # -DCMAKE_FIND_FRAMEWORK=LAST \
-
-
-
-    # -DWITH_SSL=yes \
-    # -DWITH_SSL=system \
-    # -DDEFAULT_CHARSET=utf8 \
-    # -DDEFAULT_COLLATION=utf8_general_ci \
-
-
 make
 make install
 
