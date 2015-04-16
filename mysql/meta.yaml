@@ -8,10 +8,12 @@ build:
 requirements:
   build:
     - cmake
+    - ncurses
     - openssl
     - zlib
   run:
     - openssl
+    - ncurses
     - zlib
 
 source:
