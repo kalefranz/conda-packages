@@ -14,10 +14,10 @@ env:
   #   MYSQL_URL=https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.24.tar.gz
   #   MYSQL_HASH=37e27305b67d76883c5902dce59c89d596beee9dca7dbadd4a2e117f8101dfeb
   - >
-    MYSQL_VERSION=5.5.41
-    MYSQL_FILENAME=mysql-5.5_5.5.41.orig.tar.gz
-    MYSQL_URL=https://launchpad.net/ubuntu/+archive/primary/+files/mysql-5.5_5.5.41.orig.tar.gz
-    MYSQL_HASH=211ace59652eed6fb0e5cfd76834afab
+    MYSQL_VERSION=5.5.43
+    MYSQL_FILENAME=mysql-5.5.43.tar.gz
+    MYSQL_URL=https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.43.tar.gz
+    MYSQL_HASH=43d3df79e5c839a2749deb6e056a4589e49c903e09034c18653ec56e6e4774cd
 
   # - >
   #   MYSQL_VERSION=5.1.73

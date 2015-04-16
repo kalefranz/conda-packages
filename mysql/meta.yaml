@@ -19,7 +19,7 @@ requirements:
 source:
   fn: "{{ environ.get('MYSQL_FILENAME') }}"
   url: "{{ environ.get('MYSQL_URL') }}"
-  md5: "{{ environ.get('MYSQL_HASH') }}"
+  sha256: "{{ environ.get('MYSQL_HASH') }}"
 
 about:
   home: https://dev.mysql.com/doc/refman/5.6/en
