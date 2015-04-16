@@ -7,7 +7,7 @@ build:
 
 requirements:
   build:
-    # - cmake
+    - cmake
     # - libtool
     # - automake
     # - autoconf
