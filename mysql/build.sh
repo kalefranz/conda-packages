@@ -35,6 +35,8 @@
 ############
 # 5.5.x
 ############
+cmake --help
+
 cmake . \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_VERBOSE_MAKEFILE=ON \
