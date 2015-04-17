@@ -23,11 +23,10 @@ requirements:
     - ncurses
     - python
     - "mysql-client {{ environ.get('MYSQL_VERSION') }}"
-    - "mysql-server {{ environ.get('MYSQL_VERSION') }}"  # because mysql_config not in mysql-client
 
 test:
   commands:
-    - python -c 'import MySQLdb'
+    - python -c "import os; os.environ['LD_LIBRARY_PATH']=os.environ['LIBRARY_PATH']; import MySQLdb"
 
 about:
   home: https://github.com/farcepest/MySQLdb1
