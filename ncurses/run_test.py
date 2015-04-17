@@ -1,6 +1,9 @@
+import os
 import curses
 
 if __name__ == '__main__':
+    print os.environ
+    os.environ["TERM"] = 'xterm-256color'
     screen = curses.initscr()
     try:
         curses.cbreak()
