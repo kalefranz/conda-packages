@@ -10,5 +10,5 @@ make configure
     --with-openssl=$PREFIX \
     --prefix=$PREFIX
 
-make all doc NO_PERL=YesPlease NO_TCLTK=YesPlease NO_GETTEXT=YesPlease
-make install install-doc
+make all NO_PERL=YesPlease NO_TCLTK=YesPlease NO_GETTEXT=YesPlease
+make install
