@@ -10,12 +10,10 @@ requirements:
     - cmake
     - ncurses
     - openssl
-    # - readline
     - zlib
   run:
     - ncurses
     - openssl
-    # - readline
     - zlib
 
 source:

@@ -33,23 +33,31 @@
 
 
 ############
-# 5.5.x
+# 5.5.x   $PKG_VERSION
 ############
-cmake . \
-    -DCMAKE_INSTALL_PREFIX=$PREFIX \
-    -DCMAKE_VERBOSE_MAKEFILE=ON \
-    -DWITH_UNIT_TESTS=OFF \
-    -DWITH_READLINE=ON
-    # -DWITHOUT_SERVER=ON \
-make
-make install
-
+if [[ $PKG_VERSION == 5.5* ]]; then
+    cmake . \
+        -DCMAKE_INSTALL_PREFIX=$PREFIX \
+        -DCMAKE_VERBOSE_MAKEFILE=ON \
+        -DWITH_UNIT_TESTS=OFF \
+        -DWITH_READLINE=ON
+        # -DWITHOUT_SERVER=ON \
+    make
+    make install
+fi
 
 
 
 ############
 # 5.1.x
 ############
+if [[ $PKG_VERSION == 5.5* ]]; then
+    ./configure \
+        --prefix=$PREFIX
+        # --without-server
+    make
+    make install
+fi
 
 
 # # #!/bin/sh
@@ -58,8 +66,7 @@ make install
 
 #  # --without-readline  use detected readline instead of included readline"
 
-# ./configure \
-#     --prefix=$PREFIX \
+
 #     --without-docs \
 #     --without-debug \
 #     --disable-dependency-tracking \
@@ -73,7 +80,7 @@ make install
 #     --enable-shared \
 #     --with-partition \
 #     --with-ssl=$PREFIX \
-#     --without-server
+
 
 #     # --without-readline \
 #     # --localstatedir=#{var}/mysql
