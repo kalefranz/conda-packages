@@ -1,18 +1,9 @@
 #!/bin/bash -eu
 
-printenv
-
-
-export LD_LIBRARY_PATH=$LIBRARY_PATH
-
-
 ############
 # 5.5.x
 ############
 if [[ $PKG_VERSION == 5.5* ]]; then
-    ls -al $LIBRARY_PATH
-    ls -al $INCLUDE_PATH
-
     cmake . \
         -DCURSES_LIBRARY=$LIBRARY_PATH/libncurses.so \
         -DCURSES_INCLUDE_PATH=$INCLUDE_PATH \
@@ -34,7 +25,7 @@ fi
 # 5.1.x
 ############
 if [[ $PKG_VERSION == 5.1* ]]; then
-    ./configure --help
+    export LD_LIBRARY_PATH=$LIBRARY_PATH
     ./configure \
         --without-server \
         --prefix=$PREFIX
