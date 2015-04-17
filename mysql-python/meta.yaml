@@ -3,24 +3,26 @@ package:
   version: "{{ environ.get('MYSQL_PYTHON_VERSION') }}"
 
 build:
-  number: 0
+  number: 1
 
 source:
   fn: "mysql-python-{{ environ.get('MYSQL_PYTHON_VERSION') }}.zip"
   url: "https://pypi.python.org/packages/source/M/MySQL-python/MySQL-python-{{ environ.get('MYSQL_PYTHON_VERSION') }}.zip"
   md5: "{{ environ.get('MYSQL_PYTHON_HASH') }}"
+  patches:
+    - "MySQL-python-{{ environ.get('MYSQL_PYTHON_VERSION') }}-timeout.patch"
 
 requirements:
   build:
     - ncurses
     - python
     - ncurses
-    - mysql-client
-    - mysql-server  # because mysql_config not in mysql-client
+    - mysql-client >=5.1*
+    - mysql-server 5.1*  # because mysql_config not in mysql-client
   run:
     - ncurses
     - python
-    - mysql-client
+    - mysql-client >=5.1*
 
 test:
   commands:

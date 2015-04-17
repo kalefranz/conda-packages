@@ -1,0 +1,47 @@
+diff -aru MySQL-python-1.2.4.orig/_mysql.c MySQL-python-1.2.4/_mysql.c
+--- MySQL-python-1.2.4.orig/_mysql.c	2013-09-03 03:07:07.000000000 -0700
++++ MySQL-python-1.2.4/_mysql.c	2013-09-03 03:09:51.000000000 -0700
+@@ -567,12 +567,13 @@
+ 				  "client_flag", "ssl",
+ 				  "local_infile",
+ #ifdef HAVE_MYSQL_OPT_READ_TIMEOUT
+-                                  "read_timeout",
++                                  "read_timeout", "write_timeout",
+ #endif
+ 				  NULL } ;
+ 	int connect_timeout = 0;
+ #ifdef HAVE_MYSQL_OPT_READ_TIMEOUT
+         int read_timeout = 0;
++        int write_timeout = 0;
+ #endif
+ 	int compress = -1, named_pipe = -1, local_infile = -1;
+ 	char *init_command=NULL,
+@@ -585,7 +586,7 @@
+ 
+ 	if (!PyArg_ParseTupleAndKeywords(args, kwargs,
+ #ifdef HAVE_MYSQL_OPT_READ_TIMEOUT
+-                                         "|ssssisOiiisssiOii:connect",
++                                         "|ssssisOiiisssiOiii:connect",
+ #else
+                                          "|ssssisOiiisssiOi:connect",
+ #endif
+@@ -600,6 +601,7 @@
+                      &local_infile
+ #ifdef HAVE_MYSQL_OPT_READ_TIMEOUT
+                      , &read_timeout
++                     , &write_timeout
+ #endif
+ 	))
+ 		return -1;
+@@ -642,6 +644,11 @@
+ 		mysql_options(&(self->connection), MYSQL_OPT_READ_TIMEOUT,
+ 				(char *)&timeout);
+ 	}
++       if (write_timeout) {
++               unsigned int timeout = write_timeout;
++               mysql_options(&(self->connection), MYSQL_OPT_WRITE_TIMEOUT,
++                               (char *)&timeout);
++       }
+ #endif
+ 	if (compress != -1) {
+ 		mysql_options(&(self->connection), MYSQL_OPT_COMPRESS, 0);

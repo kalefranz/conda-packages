@@ -1,0 +1,27 @@
+package: django
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    DJANGO_VERSION=1.6.11
+    DJANGO_URL=https://pypi.python.org/packages/source/D/Django/Django-1.6.11.tar.gz
+    DJANGO_HASH=3bf6086c3b923876d283dc3404e32fdd
+  - >
+    DJANGO_VERSION=1.4.20
+    DJANGO_URL=https://pypi.python.org/packages/source/D/Django/Django-1.4.20.tar.gz
+    DJANGO_HASH=4a3710921fb51422c9083e52e012ca33
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
