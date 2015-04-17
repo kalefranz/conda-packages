@@ -6,8 +6,8 @@ build:
   number: 0
 
 source:
-  fn: "mysql-python-{{ environ.get('MYSQL_PYTHON_VERSION') }}.tar.gz"
-  url: "https://pypi.python.org/packages/source/M/MySQL-python/MySQL-python-{{ environ.get('MYSQL_PYTHON_VERSION') }}.tar.gz"
+  fn: "mysql-python-{{ environ.get('MYSQL_PYTHON_VERSION') }}.zip"
+  url: "https://pypi.python.org/packages/source/M/MySQL-python/MySQL-python-{{ environ.get('MYSQL_PYTHON_VERSION') }}.zip"
   md5: "{{ environ.get('MYSQL_PYTHON_HASH') }}"
 
 requirements:
