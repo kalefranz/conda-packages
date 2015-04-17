@@ -14,8 +14,7 @@ make configure
     --with-zlib=$PREFIX \
     --with-python=$PYTHON \
     --with-openssl=$PREFIX \
-    --disable-PERL \
+    --disable-perl \
     --prefix=$PREFIX
-    # --with-curl
 make all doc
 make install install-doc
