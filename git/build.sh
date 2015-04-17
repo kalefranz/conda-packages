@@ -8,7 +8,7 @@ echo "$PREFIX"
 pwd
 ls -al
 
-export PERL5LIB=$LIBRARY_LIB/perl5/5.18.2
+export PERL5LIB=$LIBRARY_PATH/perl5/5.18.2
 
 ./configure \
     --with-zlib=$PREFIX \
