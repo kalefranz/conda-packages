@@ -1,5 +1,5 @@
 package:
-  name: django
+  name: django096
   version: "{{ environ.get('DJANGO_VERSION') }}"
 
 build:
