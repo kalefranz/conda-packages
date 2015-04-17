@@ -23,6 +23,7 @@ requirements:
     - ncurses
     - python
     - "mysql-client {{ environ.get('MYSQL_VERSION') }}"
+    - "mysql-server {{ environ.get('MYSQL_VERSION') }}"  # because mysql_config not in mysql-client
 
 test:
   commands:
