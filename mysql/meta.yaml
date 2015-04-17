@@ -8,14 +8,14 @@ build:
 requirements:
   build:
     - cmake
-    - ncurses
+    # - ncurses
     - openssl
-    - readline
+    # - readline
     - zlib
   run:
+    # - ncurses
     - openssl
-    - ncurses
-    - readline
+    # - readline
     - zlib
 
 source:

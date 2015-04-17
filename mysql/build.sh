@@ -43,10 +43,9 @@ cmake . \
     -DCMAKE_VERBOSE_MAKEFILE=ON \
     -DWITH_UNIT_TESTS=OFF \
     -DWITH_READLINE=ON
+    # -DWITHOUT_SERVER=ON \
 make
 make install
-
-    # -DWITHOUT_SERVER=ON \
 
 
 
