@@ -51,7 +51,7 @@ fi
 ############
 # 5.1.x
 ############
-if [[ $PKG_VERSION == 5.5* ]]; then
+if [[ $PKG_VERSION == 5.1* ]]; then
     ./configure \
         --prefix=$PREFIX
         # --without-server
