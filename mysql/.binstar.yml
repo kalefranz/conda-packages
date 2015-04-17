@@ -42,6 +42,8 @@ env:
 
 before_script:
   - conda update -n root conda-build
+  - conda install -c asmeurer ncurses
+  - conda install -c asmeurer readline
   - conda config --add channels asmeurer
 
 script:
