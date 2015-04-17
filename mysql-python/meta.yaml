@@ -26,7 +26,7 @@ requirements:
 
 test:
   commands:
-    - 'printenv && export LD_LIBRARY_PATH=$LIBRARY_PATH && ls -al $LD_LIBRARY_PATH && python -c "import MySQLdb"'
+    - 'printenv && export LD_LIBRARY_PATH=$LIBRARY_PATH:$LIBRARY_PATH/mysql && ls -al $LIBRARY_PATH/mysql && python -c "import MySQLdb"'
 
 about:
   home: https://github.com/farcepest/MySQLdb1
