@@ -4,9 +4,9 @@ user: kalefranz
 platform:
   - linux-64
 
-engine:
-  - ruby=1.9
-  - ruby=2.1
+# engine:
+#   - ruby=1.9
+#   - ruby=2.1
 
 before_script:
   - conda update -n root conda-build
