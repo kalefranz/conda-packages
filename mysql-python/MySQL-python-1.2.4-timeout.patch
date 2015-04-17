@@ -1,6 +1,5 @@
-diff -aru MySQL-python-1.2.4.orig/_mysql.c MySQL-python-1.2.4/_mysql.c
---- MySQL-python-1.2.4.orig/_mysql.c	2013-09-03 03:07:07.000000000 -0700
-+++ MySQL-python-1.2.4/_mysql.c	2013-09-03 03:09:51.000000000 -0700
+--- _mysql.c	2013-09-03 03:07:07.000000000 -0700
++++ _mysql.c	2013-09-03 03:09:51.000000000 -0700
 @@ -567,12 +567,13 @@
  				  "client_flag", "ssl",
  				  "local_infile",
