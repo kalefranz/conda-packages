@@ -1,0 +1,27 @@
+package:
+  name: mysql-python
+  version: "{{ environ.get('MYSQL_PYTHON_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "mysql-python-{{ environ.get('MYSQL_PYTHON_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/M/MySQL-python/MySQL-python-{{ environ.get('MYSQL_PYTHON_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('MYSQL_PYTHON_HASH') }}"
+
+requirements:
+  build:
+    - python
+    - mysql-client
+  run:
+    - python
+    - mysql-client
+
+test:
+  commands:
+    - python -c 'import MySQLdb'
+
+about:
+  home: https://github.com/farcepest/MySQLdb1
+  license: GPL

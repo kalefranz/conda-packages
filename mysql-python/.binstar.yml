@@ -1,0 +1,23 @@
+package: celery
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    MYSQL_PYTHON_VERSION=1.2.5
+    MYSQL_PYTHON_HASH=654f75b302db6ed8dc5a898c625e030c
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
