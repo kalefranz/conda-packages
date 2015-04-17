@@ -8,6 +8,9 @@ build:
 requirements:
   build:
     - cmake
+    - openssl
+  run:
+    - openssl
 
 source:
   fn: "{{ 'rabbitmq-c-' + environ.get('RABBITMQC_VERSION') + '.tar.gz' }}"
