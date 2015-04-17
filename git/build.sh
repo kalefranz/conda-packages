@@ -8,9 +8,9 @@ make configure
     --with-zlib=$PREFIX \
     --with-python=$PYTHON \
     --with-openssl=$PREFIX \
+    --without-perl \
+    --without-tcltk \
     --prefix=$PREFIX
-    # --without-perl \
-    # --without-tcltk \
 
-make all doc NO_PERL=YesPlease NO_TCLTK=YesPlease
+make all doc NO_GETTEXT=YesPlease
 make install install-doc
