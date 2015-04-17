@@ -1,5 +1,8 @@
 #!/bin/bash -eu
 make configure
+
+./configure --help
+
 ./configure \
     --with-zlib=$PREFIX \
     --with-openssl=$PREFIX \
