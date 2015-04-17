@@ -15,7 +15,7 @@ requirements:
     - ncurses
     - python
     - ncurses
-    - mysql-server
+    - mysql-server  # because mysql_config not in mysql-client
   run:
     - ncurses
     - python
