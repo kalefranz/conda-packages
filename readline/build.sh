@@ -1,6 +1,9 @@
 #!/bin/bash
 
 
+./configure --help
+
+
 env CPPFLAGS=-I$INCLUDE_PATH LDFLAGS=-s ./configure --prefix=$PREFIX --with-curses
 make
 make install

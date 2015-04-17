@@ -2,7 +2,7 @@
 
 mkdir $PREFIX/lib
 
-sh ./configure --prefix=$PREFIX \
+./configure --prefix=$PREFIX \
     --without-debug \
     --without-ada \
     --without-manpages \
