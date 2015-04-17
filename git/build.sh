@@ -10,5 +10,9 @@ make configure
     --with-openssl=$PREFIX \
     --prefix=$PREFIX
 
-make all NO_PERL=YesPlease NO_TCLTK=YesPlease NO_GETTEXT=YesPlease
+export NO_PERL=YesPlease
+export NO_TCLTK=YesPlease
+export NO_GETTEXT=YesPlease
+
+make all
 make install
