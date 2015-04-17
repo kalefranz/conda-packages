@@ -4,16 +4,17 @@ make configure
 ./configure --help
 
 
-echo "$PREFIX"
-pwd
-ls -al
+# echo "$PREFIX"
+# pwd
+# ls -al
 
-export PERL5LIB=$LIBRARY_PATH/perl5/5.18.2:$LIBRARY_PATH/perl5/5.18.2/x86_64-linux
+# export PERL5LIB=$LIBRARY_PATH/perl5/5.18.2:$LIBRARY_PATH/perl5/5.18.2/x86_64-linux
 
 ./configure \
     --with-zlib=$PREFIX \
     --with-python=$PYTHON \
     --with-openssl=$PREFIX \
+    --NO_PERL=YesPlease \
     --prefix=$PREFIX
     # --with-curl
 make all doc
