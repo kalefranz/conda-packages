@@ -15,11 +15,12 @@ requirements:
     - ncurses
     - python
     - ncurses
+    - mysql-client
     - mysql-server  # because mysql_config not in mysql-client
   run:
     - ncurses
     - python
-    - mysql-server
+    - mysql-client
 
 test:
   commands:
