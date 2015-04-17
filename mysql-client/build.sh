@@ -12,7 +12,12 @@ export LD_LIBRARY_PATH=$LIBRARY_PATH
 if [[ $PKG_VERSION == 5.5* ]]; then
     cmake -LH
 
+    ls -al $LIBRARY_PATH
+    ls -al $INCLUDE_PATH
+
     cmake . \
+        -DCURSES_LIBRARY=$LIBRARY_PATH/libncurses.so \
+        -DCURSES_INCLUDE_PATH=$INCLUDE_PATH \
         -DCMAKE_INCLUDE_PATH=$INCLUDE_PATH \
         -DCMAKE_LIBRARY_PATH=$LIBRARY_PATH \
         -DCMAKE_INSTALL_PREFIX=$PREFIX \
