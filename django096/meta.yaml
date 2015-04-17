@@ -9,6 +9,13 @@ source:
   fn: "Django-{{ environ.get('DJANGO_VERSION') }}.tar.gz"
   url: "{{ environ.get('DJANGO_URL') }}"
   md5: "{{ environ.get('DJANGO_HASH') }}"
+  patches:
+    - ttam-django0.96.patch
+    - ttam-django0.96.patch1
+    - ttam-django0.96-tzinfo.patch
+    - ttam-django0.96-md5-to-hashlib.patch
+    - ttam-django0.96-wsgi-is-secure.patch
+    - ttam-django0.96-wsgi-handler-lock.patch
 
 requirements:
   build:
