@@ -10,8 +10,6 @@ export LD_LIBRARY_PATH=$LIBRARY_PATH
 # 5.5.x
 ############
 if [[ $PKG_VERSION == 5.5* ]]; then
-    cmake -LH
-
     ls -al $LIBRARY_PATH
     ls -al $INCLUDE_PATH
 
