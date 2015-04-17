@@ -14,8 +14,6 @@ if [[ $PKG_VERSION == 5.5* ]]; then
     ls -al $INCLUDE_PATH
 
     cmake . \
-        -DCURSES_LIBRARY=$LIBRARY_PATH/libncurses.so \
-        -DCURSES_INCLUDE_PATH=$INCLUDE_PATH \
         -DCMAKE_INCLUDE_PATH=$INCLUDE_PATH \
         -DCMAKE_LIBRARY_PATH=$LIBRARY_PATH \
         -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -23,6 +21,9 @@ if [[ $PKG_VERSION == 5.5* ]]; then
         -DWITH_UNIT_TESTS=OFF \
         -DWITHOUT_SERVER=ON \
         -DWITH_READLINE=ON
+        # -DCURSES_LIBRARY=$LIBRARY_PATH/libncurses.so \
+        # -DCURSES_INCLUDE_PATH=$INCLUDE_PATH \
+
     make
     make install
 fi
