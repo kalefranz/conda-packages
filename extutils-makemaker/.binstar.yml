@@ -9,8 +9,6 @@ engine:
 
 before_script:
   - conda update -n root conda-build
-  # - conda install -c dan_blanchard perl=5.18.2
-  # - conda install -c dan_blanchard perl-cpan
   - conda config --add channels dan_blanchard
 
 script:
