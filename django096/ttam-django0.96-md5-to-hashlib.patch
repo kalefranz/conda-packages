@@ -1,0 +1,191 @@
+--- django/contrib/admin/views/decorators.py
++++ django/contrib/admin/views/decorators.py
+@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
+ from django.contrib.auth import authenticate, login
+ from django.shortcuts import render_to_response
+ from django.utils.translation import gettext_lazy
+-import base64, datetime, md5
++import base64, datetime
++from hashlib import md5
+ import cPickle as pickle
+ 
+ ERROR_MESSAGE = gettext_lazy("Please enter a correct username and password. Note that both fields are case-sensitive.")
+@@ -29,13 +30,13 @@ def _display_login_form(request, error_message=''):
+ 
+ def _encode_post_data(post_data):
+     pickled = pickle.dumps(post_data)
+-    pickled_md5 = md5.new(pickled + settings.SECRET_KEY).hexdigest()
++    pickled_md5 = md5(pickled + settings.SECRET_KEY).hexdigest()
+     return base64.encodestring(pickled + pickled_md5)
+ 
+ def _decode_post_data(encoded_data):
+     encoded_data = base64.decodestring(encoded_data)
+     pickled, tamper_check = encoded_data[:-32], encoded_data[-32:]
+-    if md5.new(pickled + settings.SECRET_KEY).hexdigest() != tamper_check:
++    if md5(pickled + settings.SECRET_KEY).hexdigest() != tamper_check:
+         from django.core.exceptions import SuspiciousOperation
+         raise SuspiciousOperation, "User may have tampered with session cookie."
+     return pickle.loads(pickled)
+--- django/contrib/auth/models.py
++++ django/contrib/auth/models.py
+@@ -12,8 +12,8 @@ def check_password(raw_password, enc_password):
+     """
+     algo, salt, hsh = enc_password.split('$')
+     if algo == 'md5':
+-        import md5
+-        return hsh == md5.new(salt+raw_password).hexdigest()
++        from hashlib import md5
++        return hsh == md5(salt+raw_password).hexdigest()
+     elif algo == 'sha1':
+         import sha
+         return hsh == sha.new(salt+raw_password).hexdigest()
+@@ -152,8 +152,8 @@ class User(models.Model):
+         # Backwards-compatibility check. Older passwords won't include the
+         # algorithm or salt.
+         if '$' not in self.password:
+-            import md5
+-            is_correct = (self.password == md5.new(raw_password).hexdigest())
++            from hashlib import md5
++            is_correct = (self.password == md5(raw_password).hexdigest())
+             if is_correct:
+                 # Convert the password to the new, more secure format.
+                 self.set_password(raw_password)
+--- django/contrib/comments/models.py
++++ django/contrib/comments/models.py
+@@ -27,8 +27,8 @@ class CommentManager(models.Manager):
+         'pa,ra') and target (something like 'lcom.eventtimes:5157'). Used to
+         validate that submitted form options have not been tampered-with.
+         """
+-        import md5
+-        return md5.new(options + photo_options + rating_options + target + settings.SECRET_KEY).hexdigest()
++        from hashlib import md5
++        return md5(options + photo_options + rating_options + target + settings.SECRET_KEY).hexdigest()
+ 
+     def get_rating_options(self, rating_string):
+         """
+--- django/contrib/csrf/middleware.py
++++ django/contrib/csrf/middleware.py
+@@ -7,7 +7,7 @@ against request forgeries from other sites.
+ """
+ from django.conf import settings
+ from django.http import HttpResponseForbidden
+-import md5
++from hashlib import md5
+ import re
+ import itertools
+ 
+@@ -19,7 +19,7 @@ _POST_FORM_RE = \
+ _HTML_TYPES = ('text/html', 'application/xhtml+xml')    
+ 
+ def _make_token(session_id):
+-    return md5.new(settings.SECRET_KEY + session_id).hexdigest()
++    return md5(settings.SECRET_KEY + session_id).hexdigest()
+ 
+ class CsrfMiddleware(object):
+     """Django middleware that adds protection against Cross Site
+--- django/contrib/formtools/preview.py
++++ django/contrib/formtools/preview.py
+@@ -50,7 +50,7 @@ from django.http import Http404
+ from django.shortcuts import render_to_response
+ from django.template.context import RequestContext
+ import cPickle as pickle
+-import md5
++from hashlib import md5
+ 
+ AUTO_ID = 'formtools_%s' # Each form here uses this as its auto_id parameter.
+ 
+@@ -152,7 +152,7 @@ class FormPreview(object):
+         # Use HIGHEST_PROTOCOL because it's the most efficient. It requires
+         # Python 2.3, but Django requires 2.3 anyway, so that's OK.
+         pickled = pickle.dumps(data, protocol=pickle.HIGHEST_PROTOCOL)
+-        return md5.new(pickled).hexdigest()
++        return md5(pickled).hexdigest()
+ 
+     def failed_hash(self, request):
+         "Returns an HttpResponse in the case of an invalid security hash."
+--- django/contrib/sessions/models.py
++++ django/contrib/sessions/models.py
+@@ -1,4 +1,5 @@
+-import base64, md5, random, sys, datetime
++import base64, random, sys, datetime
++from hashlib import md5
+ import cPickle as pickle
+ from django.db import models
+ from django.utils.translation import gettext_lazy as _
+@@ -8,7 +9,7 @@ class SessionManager(models.Manager):
+     def encode(self, session_dict):
+         "Returns the given session dictionary pickled and encoded as a string."
+         pickled = pickle.dumps(session_dict)
+-        pickled_md5 = md5.new(pickled + settings.SECRET_KEY).hexdigest()
++        pickled_md5 = md5(pickled + settings.SECRET_KEY).hexdigest()
+         return base64.encodestring(pickled + pickled_md5)
+ 
+     def get_new_session_key(self):
+@@ -16,7 +17,7 @@ class SessionManager(models.Manager):
+         # The random module is seeded when this Apache child is created.
+         # Use person_id and SECRET_KEY as added salt.
+         while 1:
+-            session_key = md5.new(str(random.randint(0, sys.maxint - 1)) + str(random.randint(0, sys.maxint - 1)) + settings.SECRET_KEY).hexdigest()
++            session_key = md5(str(random.randint(0, sys.maxint - 1)) + str(random.randint(0, sys.maxint - 1)) + settings.SECRET_KEY).hexdigest()
+             try:
+                 self.get(session_key=session_key)
+             except self.model.DoesNotExist:
+@@ -77,7 +78,7 @@ class Session(models.Model):
+     def get_decoded(self):
+         encoded_data = base64.decodestring(self.session_data)
+         pickled, tamper_check = encoded_data[:-32], encoded_data[-32:]
+-        if md5.new(pickled + settings.SECRET_KEY).hexdigest() != tamper_check:
++        if md5(pickled + settings.SECRET_KEY).hexdigest() != tamper_check:
+             from django.core.exceptions import SuspiciousOperation
+             raise SuspiciousOperation, "User tampered with session cookie."
+         try:
+--- django/middleware/common.py
++++ django/middleware/common.py
+@@ -1,7 +1,7 @@
+ from django.conf import settings
+ from django import http
+ from django.core.mail import mail_managers
+-import md5
++from hashlib import md5
+ import re
+ 
+ class CommonMiddleware(object):
+@@ -72,7 +72,7 @@ class CommonMiddleware(object):
+ 
+         # Use ETags, if requested.
+         if settings.USE_ETAGS:
+-            etag = md5.new(response.content).hexdigest()
++            etag = md5(response.content).hexdigest()
+             if request.META.get('HTTP_IF_NONE_MATCH') == etag:
+                 response = http.HttpResponseNotModified()
+             else:
+--- django/utils/cache.py
++++ django/utils/cache.py
+@@ -17,7 +17,8 @@ A example: i18n middleware would need to distinguish caches by the
+ "Accept-language" header.
+ """
+ 
+-import datetime, md5, re
++import datetime, re
++from hashlib import md5
+ from django.conf import settings
+ from django.core.cache import cache
+ 
+@@ -74,7 +75,7 @@ def patch_response_headers(response, cache_timeout=None):
+         cache_timeout = settings.CACHE_MIDDLEWARE_SECONDS
+     now = datetime.datetime.utcnow()
+     if not response.has_header('ETag'):
+-        response['ETag'] = md5.new(response.content).hexdigest()
++        response['ETag'] = md5(response.content).hexdigest()
+     if not response.has_header('Last-Modified'):
+         response['Last-Modified'] = now.strftime('%a, %d %b %Y %H:%M:%S GMT')
+     if not response.has_header('Expires'):
+@@ -111,7 +112,7 @@ def patch_vary_headers(response, newheaders):
+ 
+ def _generate_cache_key(request, headerlist, key_prefix):
+     "Returns a cache key from the headers given in the header list."
+-    ctx = md5.new()
++    ctx = md5()
+     for header in headerlist:
+         value = request.META.get(header, None)
+         if value is not None:

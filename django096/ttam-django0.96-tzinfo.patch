@@ -1,0 +1,14 @@
+--- django/utils/tzinfo.py.bak	2013-11-13 16:01:33.036478000 -0800
++++ django/utils/tzinfo.py	2013-11-13 16:01:31.640020000 -0800
+@@ -24,8 +24,9 @@
+ class LocalTimezone(tzinfo):
+     "Proxy timezone information from time module."
+     def __init__(self, dt):
+-        tzinfo.__init__(self, dt)
+-        self._tzname = time.tzname[self._isdst(dt)]
++        tzinfo.__init__(self)
++        self.__dt = dt
++        self._tzname = self.tzname(dt)
+ 
+     def __repr__(self):
+         return self._tzname

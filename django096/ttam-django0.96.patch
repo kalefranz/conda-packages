@@ -1,0 +1,298 @@
+--- django/bin/django-admin.py	2006-12-29 22:25:49.000000000 -0800
++++ django/bin/django-admin.py	2013-08-30 17:37:16.478402000 -0700
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/local/bin/python2.7
+ from django.core import management
+ 
+ if __name__ == "__main__":
+--- django/core/handlers/base.py	2006-12-29 22:25:49.000000000 -0800
++++ django/core/handlers/base.py	2013-08-30 16:50:20.295620000 -0700
+@@ -113,14 +113,17 @@
+                 # Get the exception info now, in case another exception is thrown later.
+                 exc_info = sys.exc_info()
+                 receivers = dispatcher.send(signal=signals.got_request_exception)
++                #
++                # 23andMe patch - kill this sillyness
++                #
+                 # When DEBUG is False, send an error message to the admins.
+-                subject = 'Error (%s IP): %s' % ((request.META.get('REMOTE_ADDR') in settings.INTERNAL_IPS and 'internal' or 'EXTERNAL'), request.path)
+-                try:
+-                    request_repr = repr(request)
+-                except:
+-                    request_repr = "Request repr() unavailable"
+-                message = "%s\n\n%s" % (self._get_traceback(exc_info), request_repr)
+-                mail_admins(subject, message, fail_silently=True)
++                #subject = 'Error (%s IP): %s' % ((request.META.get('REMOTE_ADDR') in settings.INTERNAL_IPS and 'internal' or 'EXTERNAL'), request.path)
++                #try:
++                #    request_repr = repr(request)
++                #except:
++                #    request_repr = "Request repr() unavailable"
++                #message = "%s\n\n%s" % (self._get_traceback(exc_info), request_repr)
++                #mail_admins(subject, message, fail_silently=True)
+                 # Return an HttpResponse that displays a friendly error message.
+                 callback, param_dict = resolver.resolve500()
+                 return callback(request, **param_dict)
+--- django/core/handlers/modpython.py	2006-12-29 22:25:49.000000000 -0800
++++ django/core/handlers/modpython.py	2013-08-30 16:50:20.296622000 -0700
+@@ -167,6 +167,13 @@
+         try:
+             for chunk in response:
+                 req.write(chunk)
++
++        # 23andMe patch: don't let common IOErrors due to client dropping the ball
++        # go all the way to mod_python handler - it logs way more than we want
++        except IOError, e:
++            if not str(e).startswith('Write failed, client closed connection.'):
++                raise
++        
+         finally:
+             response.close()
+ 
+--- django/db/backends/dummy/base.py	2007-03-01 05:11:08.000000000 -0800
++++ django/db/backends/dummy/base.py	2013-08-30 16:50:19.587874000 -0700
+@@ -9,8 +9,14 @@
+ 
+ from django.core.exceptions import ImproperlyConfigured
+ 
++#def complain(*args, **kwargs):
++#    raise ImproperlyConfigured, "You haven't set the DATABASE_ENGINE setting yet."
++
++#
++# 23andMe patch: we are not using any database backend, these exceptions are bogus
++#
+ def complain(*args, **kwargs):
+-    raise ImproperlyConfigured, "You haven't set the DATABASE_ENGINE setting yet."
++    pass
+ 
+ class DatabaseError(Exception):
+     pass
+--- django/template/defaultfilters.py	2007-03-10 00:11:28.000000000 -0800
++++ django/template/defaultfilters.py	2013-08-30 16:50:25.201992000 -0700
+@@ -15,13 +15,13 @@
+ def smart_string(obj):
+     # FUTURE: Unicode strings should probably be normalized to a specific
+     # encoding and non-unicode strings should be converted to unicode too.
+-#    if isinstance(obj, unicode):
+-#        obj = obj.encode(settings.DEFAULT_CHARSET)
+-#    else:
+-#        obj = unicode(obj, settings.DEFAULT_CHARSET)
++    if isinstance(obj, unicode):
++        obj = obj.encode(settings.DEFAULT_CHARSET)
++    else:
++        obj = unicode(obj).encode(settings.DEFAULT_CHARSET)
+     # FUTURE: Replace dumb string logic below with cool unicode logic above.
+-    if not isinstance(obj, basestring):
+-        obj = str(obj)
++    #if not isinstance(obj, basestring):
++    #    obj = str(obj)
+     return obj
+ 
+ def stringfilter(func):
+--- django/template/defaulttags.py	2007-03-16 08:20:37.000000000 -0700
++++ django/template/defaulttags.py	2013-08-30 16:50:25.318890000 -0700
+@@ -10,7 +10,7 @@
+ 
+ class CommentNode(Node):
+     def render(self, context):
+-        return ''
++        return self.encode_output('')
+ 
+ class CycleNode(Node):
+     def __init__(self, cyclevars, variable_name=None):
+@@ -24,7 +24,7 @@
+         value = self.cyclevars[self.counter % self.cyclevars_len]
+         if self.variable_name:
+             context[self.variable_name] = value
+-        return value
++        return self.encode_output(value)
+ 
+ class DebugNode(Node):
+     def render(self, context):
+@@ -32,7 +32,7 @@
+         output = [pformat(val) for val in context]
+         output.append('\n\n')
+         output.append(pformat(sys.modules))
+-        return ''.join(output)
++        return self.encode_output(''.join(output))
+ 
+ class FilterNode(Node):
+     def __init__(self, filter_expr, nodelist):
+@@ -41,7 +41,7 @@
+     def render(self, context):
+         output = self.nodelist.render(context)
+         # apply filters
+-        return self.filter_expr.resolve(Context({'var': output}))
++        return self.encode_output(self.filter_expr.resolve(Context({'var': output})))
+ 
+ class FirstOfNode(Node):
+     def __init__(self, vars):
+@@ -54,8 +54,8 @@
+             except VariableDoesNotExist:
+                 continue
+             if value:
+-                return str(value)
+-        return ''
++                return self.encode_output(value)
++        return self.encode_output('')
+ 
+ class ForNode(Node):
+     def __init__(self, loopvar, sequence, reversed, nodelist_loop):
+@@ -151,7 +151,7 @@
+             context.pop()
+             return content
+         else:
+-            return ''
++            return self.encode_output('')
+ 
+ class IfEqualNode(Node):
+     def __init__(self, var1, var2, nodelist_true, nodelist_false, negate):
+@@ -231,7 +231,7 @@
+         obj_list = self.target.resolve(context, True)
+         if obj_list == None: # target_var wasn't found in context; fail silently
+             context[self.var_name] = []
+-            return ''
++            return self.encode_output('')
+         output = [] # list of dictionaries in the format {'grouper': 'key', 'list': [list of contents]}
+         for obj in obj_list:
+             grouper = self.expression.resolve(Context({'var': obj}), True)
+@@ -241,7 +241,7 @@
+             else:
+                 output.append({'grouper': grouper, 'list': [obj]})
+         context[self.var_name] = output
+-        return ''
++        return self.encode_output('')
+ 
+ def include_is_allowed(filepath):
+     for root in settings.ALLOWED_INCLUDE_ROOTS:
+@@ -274,7 +274,7 @@
+                     return "[Included template had syntax error: %s]" % e
+                 else:
+                     return '' # Fail silently for invalid included templates.
+-        return output
++        return self.encode_output(output)
+ 
+ class LoadNode(Node):
+     def render(self, context):
+@@ -288,7 +288,7 @@
+         from datetime import datetime
+         from django.utils.dateformat import DateFormat
+         df = DateFormat(datetime.now())
+-        return df.format(self.format_string)
++        return self.encode_output(df.format(self.format_string))
+ 
+ class SpacelessNode(Node):
+     def __init__(self, nodelist):
+@@ -296,7 +296,7 @@
+ 
+     def render(self, context):
+         from django.utils.html import strip_spaces_between_tags
+-        return strip_spaces_between_tags(self.nodelist.render(context).strip())
++        return self.encode_output(strip_spaces_between_tags(self.nodelist.render(context).strip()))
+ 
+ class TemplateTagNode(Node):
+     mapping = {'openblock': BLOCK_TAG_START,
+@@ -313,7 +313,7 @@
+         self.tagtype = tagtype
+ 
+     def render(self, context):
+-        return self.mapping.get(self.tagtype, '')
++        return self.encode_output(self.mapping.get(self.tagtype, ''))
+ 
+ class URLNode(Node):
+     def __init__(self, view_name, args, kwargs):
+@@ -326,13 +326,13 @@
+         args = [arg.resolve(context) for arg in self.args]
+         kwargs = dict([(k, v.resolve(context)) for k, v in self.kwargs.items()])
+         try:
+-            return reverse(self.view_name, args=args, kwargs=kwargs)
++            return self.encode_output(reverse(self.view_name, args=args, kwargs=kwargs))
+         except NoReverseMatch:
+             try:
+                 project_name = settings.SETTINGS_MODULE.split('.')[0]
+-                return reverse(project_name + '.' + self.view_name, args=args, kwargs=kwargs)
++                return self.encode_output(reverse(project_name + '.' + self.view_name, args=args, kwargs=kwargs))
+             except NoReverseMatch:
+-                return ''
++                return self.encode_output('')
+ 
+ class WidthRatioNode(Node):
+     def __init__(self, val_expr, max_expr, max_width):
+@@ -345,14 +345,14 @@
+             value = self.val_expr.resolve(context)
+             maxvalue = self.max_expr.resolve(context)
+         except VariableDoesNotExist:
+-            return ''
++            return self.encode_output('')
+         try:
+             value = float(value)
+             maxvalue = float(maxvalue)
+             ratio = (value / maxvalue) * int(self.max_width)
+         except (ValueError, ZeroDivisionError):
+-            return ''
+-        return str(int(round(ratio)))
++            return self.encode_output('')
++        return self.encode_output(int(round(ratio)))
+ 
+ #@register.tag
+ def comment(parser, token):
+--- django/template/__init__.py	2007-03-08 22:12:15.000000000 -0800
++++ django/template/__init__.py	2013-08-30 16:50:25.198992000 -0700
+@@ -697,6 +697,19 @@
+             nodes.extend(self.nodelist.get_nodes_by_type(nodetype))
+         return nodes
+ 
++    def encode_output(self, output):
++        # Check type so that we don't run str() on a Unicode object
++        if not isinstance(output, basestring):
++            try:
++                return str(output)
++            except UnicodeEncodeError:
++                # If __str__() returns a Unicode object, convert it to bytestring.
++                return unicode(output).encode(settings.DEFAULT_CHARSET)
++        elif isinstance(output, unicode):
++            return output.encode(settings.DEFAULT_CHARSET)
++        else:
++            return output
++
+ class NodeList(list):
+     def render(self, context):
+         bits = []
+@@ -741,7 +754,7 @@
+         return "<Text Node: '%s'>" % self.s[:25]
+ 
+     def render(self, context):
+-        return self.s
++        return self.encode_output(self.s)
+ 
+ class VariableNode(Node):
+     def __init__(self, filter_expression):
+@@ -750,19 +763,6 @@
+     def __repr__(self):
+         return "<Variable Node: %s>" % self.filter_expression
+ 
+-    def encode_output(self, output):
+-        # Check type so that we don't run str() on a Unicode object
+-        if not isinstance(output, basestring):
+-            try:
+-                return str(output)
+-            except UnicodeEncodeError:
+-                # If __str__() returns a Unicode object, convert it to bytestring.
+-                return unicode(output).encode(settings.DEFAULT_CHARSET)
+-        elif isinstance(output, unicode):
+-            return output.encode(settings.DEFAULT_CHARSET)
+-        else:
+-            return output
+-
+     def render(self, context):
+         output = self.filter_expression.resolve(context)
+         return self.encode_output(output)
+@@ -853,7 +853,7 @@
+ 
+             def render(self, context):
+                 resolved_vars = [resolve_variable(var, context) for var in self.vars_to_resolve]
+-                return func(*resolved_vars)
++                return self.encode_output(func(*resolved_vars))
+ 
+         compile_func = curry(generic_tag_compiler, params, defaults, getattr(func, "_decorated_function", func).__name__, SimpleNode)
+         compile_func.__doc__ = func.__doc__

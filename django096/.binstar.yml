@@ -1,0 +1,24 @@
+package: django
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    DJANGO_VERSION=0.96
+    DJANGO_URL=https://www.djangoproject.com/download/0.96/tarball
+    DJANGO_HASH=b4aedad1e90dd38d58ff9fc756180c7d
+
+before_script:
+  - conda update -n root conda-build
+  - conda install -c https://conda.binstar.org/rustychris patch
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

@@ -1,0 +1,25 @@
+package:
+  name: django
+  version: "{{ environ.get('DJANGO_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "Django-{{ environ.get('DJANGO_VERSION') }}.tar.gz"
+  url: "{{ environ.get('DJANGO_URL') }}"
+  md5: "{{ environ.get('DJANGO_HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - python -c 'import django'
+
+about:
+  home: https://www.djangoproject.com
+  license: BSD
