@@ -15,11 +15,11 @@ requirements:
     - ncurses
     - python
     - ncurses
-    - mysql-client
+    - mysql-server
   run:
     - ncurses
     - python
-    - mysql-client
+    - mysql-server
 
 test:
   commands:
