@@ -8,8 +8,8 @@ if [[ $PKG_VERSION == 5.5* ]]; then
         -DCMAKE_INSTALL_PREFIX=$PREFIX \
         -DCMAKE_VERBOSE_MAKEFILE=ON \
         -DWITH_UNIT_TESTS=OFF \
+        -DWITHOUT_SERVER=ON \
         -DWITH_READLINE=ON
-        # -DWITHOUT_SERVER=ON \
     make
     make install
 fi
@@ -21,8 +21,8 @@ fi
 ############
 if [[ $PKG_VERSION == 5.1* ]]; then
     ./configure \
+        --without-server \
         --prefix=$PREFIX
-        # --without-server
     make
     make install
 fi

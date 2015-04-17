@@ -1,0 +1,25 @@
+package:
+  name: mysql-server
+  version: "{{ environ.get('MYSQL_VERSION') }}"
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake
+    - ncurses
+    - openssl
+    - zlib
+  run:
+    - ncurses
+    - openssl
+    - zlib
+
+source:
+  fn: "{{ environ.get('MYSQL_FILENAME') }}"
+  url: "{{ environ.get('MYSQL_URL') }}"
+  sha256: "{{ environ.get('MYSQL_HASH') }}"
+
+about:
+  home: https://dev.mysql.com/doc/refman/5.6/en

@@ -1,0 +1,32 @@
+package: mysql-client
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+iotimeout: 120
+
+env:
+  - >
+    MYSQL_VERSION=5.5.43
+    MYSQL_FILENAME=mysql-5.5.43.tar.gz
+    MYSQL_URL=https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.43.tar.gz
+    MYSQL_HASH=43d3df79e5c839a2749deb6e056a4589e49c903e09034c18653ec56e6e4774cd
+  - >
+    MYSQL_VERSION=5.1.73
+    MYSQL_FILENAME=mysql-5.1.73.tar.gz
+    MYSQL_URL=http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.73.tar.gz
+    MYSQL_HASH=05ebe21305408b24407d14b77607a3e5ffa3c300e03f1359d3066f301989dcb5
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels asmeurer
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

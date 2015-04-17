@@ -1,5 +1,5 @@
 package:
-  name: mysql
+  name: mysql-client
   version: "{{ environ.get('MYSQL_VERSION') }}"
 
 build:
