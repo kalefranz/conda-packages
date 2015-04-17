@@ -12,5 +12,6 @@ if __name__ == '__main__':
         pad.refresh(0, 0, 0, 0, size[0] - 1, size[1] - 1)
 
     finally:
+        del os.environ["TERM"]
         curses.nocbreak()
         curses.endwin()
