@@ -16,5 +16,5 @@ make configure
     --with-openssl=$PREFIX \
     --disable-perl \
     --prefix=$PREFIX
-make all doc
+make all doc NO_PERL=YesPlease
 make install install-doc
