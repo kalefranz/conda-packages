@@ -1,5 +1,11 @@
 #!/bin/bash -eu
 
+printenv
+
+
+export LD_LIBRARY_PATH=$LIBRARY_PATH
+
+
 ############
 # 5.5.x
 ############
