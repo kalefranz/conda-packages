@@ -12,9 +12,12 @@ source:
 
 requirements:
   build:
+    - ncurses
     - python
+    - ncurses
     - mysql-client
   run:
+    - ncurses
     - python
     - mysql-client
 
