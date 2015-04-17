@@ -7,7 +7,6 @@ build:
 
 requirements:
   build:
-    - -c asmeurer autoconf
     - perl
     - extutils-makemaker
     - openssl
