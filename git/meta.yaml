@@ -5,6 +5,8 @@ package:
 build:
   number: 0
 
+iotimeout: 120
+
 requirements:
   build:
     - openssl
