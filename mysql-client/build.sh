@@ -14,7 +14,6 @@ if [[ $PKG_VERSION == 5.5* ]]; then
         -DWITH_READLINE=ON
         # -DCMAKE_INCLUDE_PATH=$INCLUDE_PATH \
         # -DCMAKE_LIBRARY_PATH=$LIBRARY_PATH \
-
     make
     make install
 fi
@@ -26,8 +25,11 @@ fi
 ############
 if [[ $PKG_VERSION == 5.1* ]]; then
     export LD_LIBRARY_PATH=$LIBRARY_PATH
+    ./configure --help
+
     ./configure \
         --without-server \
+        --disable-thread-safe-client \
         --prefix=$PREFIX
     make
     make install

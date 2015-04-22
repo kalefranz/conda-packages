@@ -27,6 +27,7 @@ fi
 if [[ $PKG_VERSION == 5.1* ]]; then
     export LD_LIBRARY_PATH=$LIBRARY_PATH
     ./configure \
+        --disable-thread-safe-client \
         --prefix=$PREFIX
     make
     make install

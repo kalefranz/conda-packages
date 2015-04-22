@@ -15,7 +15,7 @@ env:
   - >
     MYSQL_PYTHON_VERSION=1.2.4
     MYSQL_PYTHON_HASH=ddf2386daf10a97af115ffad2ed4a9a0
-    MYSQL_VERSION=5.1*
+    MYSQL_VERSION=5.5*
 
 before_script:
   - conda update -n root conda-build
