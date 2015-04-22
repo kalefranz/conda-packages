@@ -3,7 +3,7 @@ package:
   version: "{{ environ.get('MYSQL_PYTHON_VERSION') }}"
 
 build:
-  number: 1
+  number: 2
 
 source:
   fn: "mysql-python-{{ environ.get('MYSQL_PYTHON_VERSION') }}.zip"
@@ -16,7 +16,6 @@ requirements:
   build:
     - ncurses
     - python
-    - ncurses
     - "mysql-client {{ environ.get('MYSQL_VERSION') }}"
     - "mysql-server {{ environ.get('MYSQL_VERSION') }}"  # because mysql_config not in mysql-client
   run:
