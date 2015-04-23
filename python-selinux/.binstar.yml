@@ -1,0 +1,22 @@
+package: python-selinux
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    PYTHON_SELINUX_VERSION=2.16
+    PYTHON_SELINUX_HASH=16fa50d63f80aadc280bc63f6869e27cc35a3251c6dc597582bfaffc733119a4
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

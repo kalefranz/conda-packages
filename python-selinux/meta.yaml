@@ -1,0 +1,31 @@
+package:
+  name: python-selinux
+  version: "{{ environ.get('PYTHON_SELINUX_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "python-selinux-{{ environ.get('PYTHON_SELINUX_VERSION') }}.tar.bz2"
+  url: "http://downloads.sourceforge.net/project/python-selinux/python-selinux/{{ environ.get('PYTHON_SELINUX_VERSION') }}/python-selinux-{{ environ.get('PYTHON_SELINUX_VERSION') }}.tar.bz2"
+  sha256: "{{ environ.get('PYTHON_SELINUX_HASH') }}"
+
+# requirements:
+#   build:
+#     - ncurses
+#     - python
+#     - "mysql-client {{ environ.get('MYSQL_VERSION') }}"
+#     - "mysql-server {{ environ.get('MYSQL_VERSION') }}"  # because mysql_config not in mysql-client
+#   run:
+#     - ncurses
+#     - python
+#     - "mysql-client {{ environ.get('MYSQL_VERSION') }}"
+
+test:
+  commands:
+    - 'python -c "import selinux"'
+
+about:
+  home: http://sourceforge.net/projects/python-selinux/
+
+
