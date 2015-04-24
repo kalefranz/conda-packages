@@ -16,8 +16,9 @@ test:
     - ls -al
     - printenv
     - cat run_test.sh
-    - which java
-    - java -version
+    - ls -al /opt/miniconda/envs/_test/bin
+    - ls -al /home/binstar/env/bin
+    - /opt/miniconda/envs/_test/bin/java -version
 
 about:
   home: http://www.azulsystems.com/products/zulu
