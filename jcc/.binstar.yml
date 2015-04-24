@@ -1,0 +1,22 @@
+package: jcc
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    JCC_VERSION=2.21
+    JCC_HASH=18772811c1c9181e6f7512169828f840
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

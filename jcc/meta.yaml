@@ -1,0 +1,26 @@
+package:
+  name: jcc
+  version: "{{ environ.get('JCC_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "JCC-{{ environ.get('JCC_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/J/JCC/JCC-{{ environ.get('JCC_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('JCC_HASH') }}"
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - jcc
+
+about:
+  home: http://lucene.apache.org/pylucene/jcc/index.html
+  license: Apache
