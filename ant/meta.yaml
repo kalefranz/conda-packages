@@ -7,7 +7,7 @@ build:
 
 source:
   fn: "apache-ant-{{ environ.get('ANT_VERSION') }}-src.tar.gz"
-  url: "http://mirrors.gigenet.com/apache/ant/source/apache-ant-{{ environ.get('ANT_VERSION') }}-src.tar.gz"
+  url: "https://archive.apache.org/dist/ant/source/apache-ant-{{ environ.get('ANT_VERSION') }}-src.tar.gz"
   md5: "{{ environ.get('ANT_HASH') }}"
 
 requirements:
