@@ -1,0 +1,22 @@
+package: net-snmp
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    NET_SNMP_VERSION=5.4.4
+    NET_SNMP_HASH=1e4e3828f55b16ed2222962942098f3017d25afc9271346804991a924bdbab75
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

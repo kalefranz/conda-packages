@@ -1,0 +1,21 @@
+package:
+  name: net-snmp
+  version: "{{ environ.get('NET_SNMP_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "net-snmp-{{ environ.get('NET_SNMP_VERSION') }}.tar.gz"
+  url: "http://downloads.sourceforge.net/project/net-snmp/net-snmp/{{ environ.get('NET_SNMP_VERSION') }}/net-snmp-{{ environ.get('NET_SNMP_VERSION') }}.tar.gz"
+  sha256: "{{ environ.get('NET_SNMP_HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+about:
+  home: http://www.net-snmp.org
+  license: BSD
