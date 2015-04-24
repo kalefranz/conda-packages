@@ -1,7 +1,10 @@
 #!/bin/bash -eu
 
 # -fPIC to the end of CXXFLAGS
-./configure --help
-./configure
+
+ls -al
+
+cat Makefile
+
 make
 make install PREFIX=$PREFIX
