@@ -1,5 +1,7 @@
 #/bin/bash -eu
 
+# resource: https://github.com/cyclus/ciclus/tree/master/java-jdk
+
 # # this must exist because ln does not have the -r option in Mac. Apple, unix - but not!
 relpath(){ python -c "import os.path; print(os.path.relpath('$1','${2:-$PWD}'))" ; }
 LINKLOC="$PREFIX/lib/*/jli"
