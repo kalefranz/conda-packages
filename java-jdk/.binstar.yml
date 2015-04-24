@@ -22,7 +22,6 @@ before_script:
   - pwd
   - ls -al
   - export BUILD_CACHE="$RECIPE_DIR/../build/cache"
-  # - mkdir -p $BUILD_CACHE
   - curl -L -C - --referer http://www.azulsystems.com/products/zulu/downloads -o $JAVA_JDK_FN $JAVA_JDK_URL
 
 script:
