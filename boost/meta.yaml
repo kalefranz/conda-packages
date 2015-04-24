@@ -15,11 +15,10 @@ build:
 requirements:
   build:
     - python
-    - libicu      [unix]
-    - bzip2       [unix]
-    - libpython   [win]
+    - "libicu {{ environ.get('LIBICU_VERSION') }}"
+    - bzip2
   run:
-    - libicu      [unix]
+    - "libicu {{ environ.get('LIBICU_VERSION') }}"
 
 about:
   home: http://www.boost.org/
