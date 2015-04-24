@@ -12,11 +12,11 @@ source:
 
 requirements:
   build:
-    - java-jdk =7*
+    - java-jdk 7.*
     - python
     - setuptools
   run:
-    - java-jdk =7*
+    - java-jdk 7.*
     - python
 
 test:
