@@ -28,15 +28,20 @@ LINKLOC="$PREFIX/lib/*/jli"
 rm -rf release README readme.txt Welcome.html *jli.* demo sample *.zip
 mv * $PREFIX
 ls -al $PREFIX
+ls -al $PREFIX/bin
 
 # Install
 # mv $PREFIX/zulu1*/* $PREFIX
 # rm -rf $PREFIX/zulu1*
 JLI_REL=$(relpath $LINKLOC/*jli.* $PREFIX/lib)
 ln -s $JLI_REL $PREFIX/lib
+chmod +x $PREFIX/bin/*
+chmod +x $PREFIX/lib/jexec
+
 
 # Some clean up
-rm -rf $PREFIX/release $PREFIX/README $PREFIX/Welcome.html 
+rm -rf $PREFIX/release $PREFIX/README $PREFIX/Welcome.html
+rm -rf $PREFIX/jre  # this is jdk, so don't need jre?
 # rm -rf $PREFIX/*jli.*
 chmod og+w $PREFIX/DISCLAIMER $PREFIX/LICENSE $PREFIX/THIRD_PARTY_README $PREFIX/ASSEMBLY_EXCEPTION
 mv $PREFIX/DISCLAIMER $PREFIX/DISCLAIMER-JDK
