@@ -6,14 +6,9 @@ build:
   number: 0
 
 source:
-  # fn: "{{ environ.get('JAVA_JDK_FN') }}"
-  # md5: "{{ environ.get('JAVA_JDK_HASH') }}"
-  path: src
-#   fn: "{{ environ.get('JAVA_JDK_FN') }}"
-#   url: "{{ environ.get('JAVA_JDK_URL') }}"
-#   
-#   headers:
-#     Referer: http://www.azulsystems.com/products/zulu/downloads
+  fn: "{{ environ.get('JAVA_JDK_FN') }}"
+  md5: "{{ environ.get('JAVA_JDK_HASH') }}"
+  url: "{{ environ.get('JAVA_JDK_URL') }}"
 
 test:
   commands:
