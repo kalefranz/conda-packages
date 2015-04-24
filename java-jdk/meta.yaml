@@ -14,6 +14,9 @@ test:
   commands:
     - pwd
     - ls -al
+    - printenv
+    - cat run_test.sh
+    - which java
     - java -version
 
 about:
