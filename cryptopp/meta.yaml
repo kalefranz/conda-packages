@@ -3,7 +3,7 @@ package:
   version: "{{ environ.get('CRYPTOPP_VERSION') }}"
 
 build:
-  number: 0
+  number: 1
 
 source:
   fn: "cryptopp{{ environ.get('CRYPTOPP_VERSION')|replace('.', '') }}.zip"
