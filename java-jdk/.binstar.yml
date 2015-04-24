@@ -1,0 +1,29 @@
+package: java-jdk
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  # - >
+  #   JAVA_JDK_VERSION=8.6.0.1
+  #   JAVA_JDK_FN=zulu1.8.0_40-8.6.0.1-x86lx64.zip
+  #   JAVA_JDK_URL=http://cdn.azulsystems.com/zulu/2015-03-8.6-bin/zulu1.8.0_40-8.6.0.1-x86lx64.zip
+  #   JAVA_JDK_HASH=fe83a01f250db02a759ad9dca27a7f0c
+  - >
+    JAVA_JDK_VERSION=7.8.0.3
+    JAVA_JDK_FN=zulu1.7.0_76-7.8.0.3-x86lx64.zip
+    JAVA_JDK_URL=http://cdn.azulsystems.com/zulu/2015-01-8.5-bin/zulu1.7.0_76-7.8.0.3-x86lx64.zip
+    JAVA_JDK_HASH=6661d32656eed9640a52ee41250a64c8
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
