@@ -6,7 +6,6 @@ export JRE_HOME=$JAVA_HOME/jre
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
 export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 
-
 export JCC_JDK=$JAVA_HOME
 
 # JCC_JDK
@@ -14,13 +13,8 @@ export JCC_JDK=$JAVA_HOME
 
 
 #/opt/miniconda/envs/_build/jre/lib/amd64/libnio.so
+ls -al /opt/miniconda/envs/_build/jre/lib/amd64
+ls -al /opt/miniconda/envs/_build/jre/lib/amd64/libnio.so
 
-echo $PREFIX
-ls -al $PREFIX
-
-echo $JAVA_HOME
-ls -al $JAVA_HOME
-
-ls -al $JAVA_HOME/jre/lib/amd64
-
+$PYTHON setup.py build
 $PYTHON setup.py install
