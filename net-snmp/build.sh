@@ -2,6 +2,7 @@
 
 ./configure --help
 
-./configure --prefix=$prefix
+./configure --prefix=$PREFIX
 make
 make install
+    
