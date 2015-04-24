@@ -1,0 +1,25 @@
+package:
+  name: guppy
+  version: "{{ environ.get('GUPPY_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "guppy-{{ environ.get('GUPPY_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/g/guppy/guppy-{{ environ.get('GUPPY_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('GUPPY_HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - python -c 'from guppy import hpy'
+
+about:
+  home: http://guppy-pe.sourceforge.net
+  license: MIT

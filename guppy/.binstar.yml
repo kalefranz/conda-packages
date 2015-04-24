@@ -1,0 +1,22 @@
+package: guppy
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    GUPPY_VERSION=0.1.10
+    GUPPY_HASH=08942f467160a3559f76ea622256d699
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
