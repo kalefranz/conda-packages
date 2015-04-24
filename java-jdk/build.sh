@@ -23,10 +23,15 @@ ls -al
 relpath(){ python -c "import os.path; print(os.path.relpath('$1','${2:-$PWD}'))" ; }
 LINKLOC="$PREFIX/lib/*/jli"
 
+
+# clean up
+rm -rf release README readme.txt Welcome.html *jli.* demo sample *.zip
+mv * $PREFIX
+ls -al $PREFIX
+
 # Install
-unzip -d $PREFIX $JAVA_JDK_FN
-mv $PREFIX/zulu1*/* $PREFIX
-rm -rf $PREFIX/zulu1*
+# mv $PREFIX/zulu1*/* $PREFIX
+# rm -rf $PREFIX/zulu1*
 JLI_REL=$(relpath $LINKLOC/*jli.* $PREFIX/lib)
 ln -s $JLI_REL $PREFIX/lib
 
