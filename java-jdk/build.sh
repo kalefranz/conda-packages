@@ -1,5 +1,7 @@
 #/bin/bash -eu
 
+printenv
+
 BUILD_CACHE="$RECIPE_DIR/../build/cache"
 mkdir -p $BUILD_CACHE
 
