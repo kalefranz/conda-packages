@@ -15,6 +15,7 @@ env:
 before_script:
   - conda update -n root conda-build
   - conda config --add channels kalefranz
+  - conda config --add channels dan_blanchard
 
 script:
   - conda build .
