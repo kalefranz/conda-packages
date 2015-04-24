@@ -4,9 +4,6 @@ user: kalefranz
 platform:
   - linux-64
 
-engine:
-  - python=2
-
 env:
   # - >
   #   JAVA_JDK_VERSION=8.6.0.1
