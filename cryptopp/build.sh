@@ -1,12 +1,5 @@
 #!/bin/bash -eu
 
-# -fPIC to the end of CXXFLAGS
-
-ls -al
-
-cat GNUmakefile
-
-make help
-
+sed 's/CXXFLAGS = -DNDEBUG -g -O2/CXXFLAGS = -DNDEBUG -g -O2 -fPIC/' GNUmakefile
 make
 make install PREFIX=$PREFIX
