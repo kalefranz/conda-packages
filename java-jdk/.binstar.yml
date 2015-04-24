@@ -21,8 +21,11 @@ before_script:
   - printenv
   - pwd
   - ls -al
-  - export BUILD_CACHE="$RECIPE_DIR/../build/cache"
+  # - export BUILD_CACHE="$RECIPE_DIR/../build/cache"
   - curl -L -C - --referer http://www.azulsystems.com/products/zulu/downloads -o $JAVA_JDK_FN $JAVA_JDK_URL
+  - unzip $JAVA_JDK_FN
+  - mkdir src
+  - mv zulu1*/* src
 
 script:
   - conda build .

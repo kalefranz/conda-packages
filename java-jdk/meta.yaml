@@ -8,7 +8,7 @@ build:
 source:
   # fn: "{{ environ.get('JAVA_JDK_FN') }}"
   # md5: "{{ environ.get('JAVA_JDK_HASH') }}"
-  path: "{{ environ.get('JAVA_JDK_FN') }}"
+  path: src
 #   fn: "{{ environ.get('JAVA_JDK_FN') }}"
 #   url: "{{ environ.get('JAVA_JDK_URL') }}"
 #   
