@@ -12,9 +12,9 @@ source:
 
 requirements:
   build:
-    - java-jdk 7.*
+    - java-jdk
   run:
-    - java-jdk 7.*
+    - java-jdk
 
 # test:
 #   commands:
