@@ -7,6 +7,14 @@ platform:
 engine:
   - python=2
 
+env:
+  - >
+    BOOST_VERSION=1.57.0
+    BOOST_HASH=910c8c022a33ccec7f088bd65d4f14b466588dda94ba2124e78b8c57db264967
+  - >
+    BOOST_VERSION=1.53.0
+    BOOST_HASH=f88a041b01882b0c9c5c05b39603ec8383fb881f772f6f9e6e6fd0e0cddb9196
+
 before_script:
   - conda update -n root conda-build
   - conda config --add channels kalefranz

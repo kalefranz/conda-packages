@@ -2,23 +2,24 @@
 
 package:
   name: boost
-  version: 1.57.0
+  version: "{{ environ.get('BOOST_VERSION') }}"
 
 source:
-  fn: boost_1_57_0.tar.bz2
-  url: http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.tar.bz2
+  fn: "boost_{{ environ.get('BOOST_VERSION')|replace('.', '_') }}.tar.bz2"
+  url: "http://sourceforge.net/projects/boost/files/boost/{{ environ.get('BOOST_VERSION') }}/boost_{{ environ.get('BOOST_VERSION')|replace('.', '_') }}.tar.bz2"
+  sha256: "{{ environ.get('BOOST_HASH') }}"
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
     - python
-    - libicu               [unix]
-    - bzip2             [unix]
-    - libpython         [win]
+    - libicu      [unix]
+    - bzip2       [unix]
+    - libpython   [win]
   run:
-    - libicu               [unix]
+    - libicu      [unix]
 
 about:
   home: http://www.boost.org/
