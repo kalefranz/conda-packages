@@ -6,7 +6,7 @@
 
 ./configure \
     --prefix=$PREFIX \
-    --disable-embedded-perl \
+    --enable-embedded-perl \
     --enable-shared
 make
 make install
