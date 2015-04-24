@@ -12,6 +12,8 @@ source:
 
 test:
   commands:
+    - pwd
+    - ls -al
     - java -version
 
 about:
