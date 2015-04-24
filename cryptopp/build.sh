@@ -4,7 +4,9 @@
 
 ls -al
 
-cat Makefile
+cat GNUmakefile
+
+make help
 
 make
 make install PREFIX=$PREFIX
