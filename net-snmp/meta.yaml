@@ -10,11 +10,10 @@ source:
   url: "http://downloads.sourceforge.net/project/net-snmp/net-snmp/{{ environ.get('NET_SNMP_VERSION') }}/net-snmp-{{ environ.get('NET_SNMP_VERSION') }}.tar.gz"
   sha256: "{{ environ.get('NET_SNMP_HASH') }}"
 
-requirements:
-  build:
-    - python
-  run:
-    - python
+# requirements:
+#   build:
+#     - perl
+#     - extutils-makemaker
 
 about:
   home: http://www.net-snmp.org
