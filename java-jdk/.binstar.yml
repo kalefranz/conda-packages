@@ -18,6 +18,7 @@ env:
 
 before_script:
   - conda update -n root conda-build
+  - printenv
 
 script:
   - conda build .
