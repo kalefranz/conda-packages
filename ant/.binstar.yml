@@ -1,0 +1,20 @@
+package: ant
+user: kalefranz
+
+platform:
+  - linux-64
+
+env:
+  - >
+    ANT_VERSION=1.9.4
+    ANT_HASH=fe83a01f250db02a759ad9dca27a7f0c
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

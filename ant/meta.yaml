@@ -1,0 +1,25 @@
+package:
+  name: ant
+  version: "{{ environ.get('ANT_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "apache-ant-{{ environ.get('ANT_VERSION') }}-src.tar.gz"
+  url: "http://mirrors.gigenet.com/apache/ant/source/apache-ant-{{ environ.get('ANT_VERSION') }}-src.tar.gz"
+  md5: "{{ environ.get('ANT_HASH') }}"
+
+requirements:
+  build:
+    - java-jdk 7.*
+  run:
+    - java-jdk 7.*
+
+# test:
+#   commands:
+#     - java -version
+
+about:
+  home: https://ant.apache.org
+  license: Apache
