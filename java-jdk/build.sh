@@ -35,13 +35,12 @@ ls -al $PREFIX/bin
 # rm -rf $PREFIX/zulu1*
 JLI_REL=$(relpath $LINKLOC/*jli.* $PREFIX/lib)
 ln -s $JLI_REL $PREFIX/lib
-chmod +x $PREFIX/bin/*
-chmod +x $PREFIX/lib/jexec
-
+chmod +x $PREFIX/bin/* $PREFIX/jre/bin/*
+chmod +x $PREFIX/lib/jexec $PREFIX/jre/lib/jexec
+find $PREFIX -type f -name '*.so' -exec chmod +x {} \;
 
 # Some clean up
 rm -rf $PREFIX/release $PREFIX/README $PREFIX/Welcome.html
-rm -rf $PREFIX/jre  # this is jdk, so don't need jre?
 # rm -rf $PREFIX/*jli.*
 chmod og+w $PREFIX/DISCLAIMER $PREFIX/LICENSE $PREFIX/THIRD_PARTY_README $PREFIX/ASSEMBLY_EXCEPTION
 mv $PREFIX/DISCLAIMER $PREFIX/DISCLAIMER-JDK
