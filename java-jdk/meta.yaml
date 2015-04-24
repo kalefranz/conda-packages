@@ -12,13 +12,8 @@ source:
 
 test:
   commands:
-    - pwd
-    - ls -al
-    - printenv
-    - cat run_test.sh
-    - ls -al /opt/miniconda/envs/_test/bin
-    - ls -al /home/binstar/env/bin
-    - /opt/miniconda/envs/_test/bin/java -version
+    # - /opt/miniconda/envs/_test/bin/java -version
+    - java -version
 
 about:
   home: http://www.azulsystems.com/products/zulu
