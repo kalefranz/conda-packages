@@ -4,12 +4,14 @@ user: kalefranz
 platform:
   - linux-64
 
+# JAVA_JDK_URL=http://cdn.azulsystems.com/zulu/2015-03-8.6-bin/zulu1.8.0_40-8.6.0.1-x86lx64.zip
+#   needs Referer=http://www.azulsystems.com/products/zulu/downloads header
 env:
-  # - >
-  #   JAVA_JDK_VERSION=8.6.0.1
-  #   JAVA_JDK_FN=zulu1.8.0_40-8.6.0.1-x86lx64.zip
-  #   JAVA_JDK_URL=https://s3-us-west-2.amazonaws.com/repo.public.23andme.io/zulu1.8.0_40-8.6.0.1-x86lx64.zip
-  #   JAVA_JDK_HASH=fe83a01f250db02a759ad9dca27a7f0c
+  - >
+    JAVA_JDK_VERSION=8.6.0.1
+    JAVA_JDK_FN=zulu1.8.0_40-8.6.0.1-x86lx64.zip
+    JAVA_JDK_URL=https://s3-us-west-2.amazonaws.com/repo.public.23andme.io/zulu1.8.0_40-8.6.0.1-x86lx64.zip
+    JAVA_JDK_HASH=fe83a01f250db02a759ad9dca27a7f0c
   - >
     JAVA_JDK_VERSION=7.8.0.3
     JAVA_JDK_FN=zulu1.7.0_76-7.8.0.3-x86lx64.zip
