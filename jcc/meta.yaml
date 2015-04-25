@@ -22,7 +22,7 @@ requirements:
 test:
   commands:
     - export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
-    - export LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH
+    - export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/jre/lib:$LD_LIBRARY_PATH
     - printenv
     - python -c 'import jcc'
 
