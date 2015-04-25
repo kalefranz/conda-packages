@@ -24,6 +24,7 @@ test:
     - export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
     - export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/jre/lib:$LD_LIBRARY_PATH
     - printenv
+    - ls -al /opt/miniconda/envs/_test/lib/python2.7/site-packages/jcc
     - python -c 'import jcc'
 
 about:
