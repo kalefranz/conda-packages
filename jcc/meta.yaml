@@ -26,6 +26,7 @@ test:
     - printenv
     - ls -al /opt/miniconda/envs/_test/lib/python2.7/site-packages/jcc
     - cat /opt/miniconda/envs/_test/lib/python2.7/site-packages/jcc/config.py
+    - ls -al /opt/miniconda/envs/_test/jre/lib/amd64
     - python -c 'import jcc'
 
 about:
