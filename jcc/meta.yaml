@@ -25,6 +25,7 @@ test:
     - export LD_LIBRARY_PATH=$PREFIX/lib:$PREFIX/jre/lib:$LD_LIBRARY_PATH
     - printenv
     - ls -al /opt/miniconda/envs/_test/lib/python2.7/site-packages/jcc
+    - cat /opt/miniconda/envs/_test/lib/python2.7/site-packages/jcc/config.py
     - python -c 'import jcc'
 
 about:
