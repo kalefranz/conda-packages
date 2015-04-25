@@ -20,8 +20,10 @@ requirements:
     - python
 
 test:
-  imports:
-    - jcc
+  commands:
+    - export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
+    - printenv
+    - python -c 'import jcc'
 
 about:
   home: http://lucene.apache.org/pylucene/jcc/index.html
