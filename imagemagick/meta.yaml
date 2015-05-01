@@ -20,6 +20,10 @@ source:
 #     - python
 #     - py-amqp
 
+test:
+  commands:
+    - make check
+
 about:
   home: http://www.imagemagick.org/
   license: Apache
