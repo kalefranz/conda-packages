@@ -10,7 +10,7 @@ env:
     IMAGEMAGICK_FN=ImageMagick-6.9.1-2.tar.gz
     IMAGEMAGICK_HASH=a12b4ba3898de8641f3e7ad4aa536f08f441f276d8ed39c51bb818fe8af5b808
 
-iotimeout: 120
+iotimeout: 240
 
 before_script:
   - conda update -n root conda-build
