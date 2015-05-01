@@ -10,16 +10,6 @@ source:
   url: "http://www.imagemagick.org/download/{{ IMAGEMAGICK_FN }}"
   sha256: "{{ environ.get('IMAGEMAGICK_HASH') }}"
 
-# requirements:
-#   build:
-#     - rabbitmq-c
-#     - python
-#     - py-amqp
-#   run:
-#     - rabbitmq-c
-#     - python
-#     - py-amqp
-
 test:
   commands:
     - make check
