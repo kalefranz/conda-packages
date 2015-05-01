@@ -43,6 +43,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PREFIX/lib:$PREFIX/jre/lib:$PREFIX/jre/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PREFIX/lib/python2.7/site-packages
 printenv
 
+ls -al /opt/miniconda/envs/_build/lib/python2.7/site-packages
+
 make
 make test
 make install

@@ -24,7 +24,7 @@ requirements:
 
 test:
   commands:
-    - python -c 'from lucene import IndexReader'
+    - python -c 'import lucene; lucene.initVM()'
 
 about:
   home: https://lucene.apache.org/pylucene/
