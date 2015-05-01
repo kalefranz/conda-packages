@@ -1,19 +1,16 @@
 #/bin/bash -eu
 
 # Download APR
-mkdir -p srclib/apr
-curl http://mirrors.gigenet.com/apache/apr/apr-1.5.2.tar.gz | tar -xz -C srclib/apr --strip-components=1
-mkdir -p srclib/apr-util
-curl http://mirrors.gigenet.com/apache/apr/apr-util-1.5.4.tar.gz | tar -xz -C srclib/apr-util --strip-components=1
+mkdir -p $PREFIX/srclib/apr
+curl http://mirrors.gigenet.com/apache/apr/apr-1.5.2.tar.gz | tar -xz -C $PREFIX/srclib/apr --strip-components=1
+mkdir -p $PREFIX/srclib/apr-util
+curl http://mirrors.gigenet.com/apache/apr/apr-util-1.5.4.tar.gz | tar -xz -C $PREFIX/srclib/apr-util --strip-components=1
 
 ./configure --help
 
-pwd
-echo $PREFIX/srclib/apr
 ls -al $PREFIX
 ls -al $PREFIX/srclib
-ls -al $PREFIX/srclib/apr
-
+ls -al $PREFIX/srclib/apr-util
 
 ./configure \
     --prefix=$PREFIX \
