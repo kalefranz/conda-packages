@@ -40,10 +40,7 @@
 
 export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PREFIX/lib:$PREFIX/jre/lib:$PREFIX/jre/lib/amd64:$PREFIX/jre/lib/amd64/server
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PREFIX/lib/python2.7/site-packages
-printenv
-
-ls -al /opt/miniconda/envs/_build/lib/python2.7/site-packages
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SP_DIR
 
 make
 make test
