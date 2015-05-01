@@ -1,0 +1,31 @@
+package:
+  name: httpd
+  version: "{{ environ.get('HTTPD_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "httpd-{{ HTTPD_VERSION }}.tar.gz"
+  url: "http://apache.osuosl.org/httpd/httpd-{{ HTTPD_VERSION }}.tar.gz"
+  md5: "{{ environ.get('HTTPD_HASH') }}"
+
+# requirements:
+#   build:
+#     - rabbitmq-c
+#     - python
+#     - py-amqp
+#   run:
+#     - rabbitmq-c
+#     - python
+#     - py-amqp
+
+test:
+  commands:
+    - ./bin/apachectl -k start
+    - curl http://localhost
+    - ./bin/apachectl -k stop
+
+about:
+  home: http://httpd.apache.org/
+  license: Apache

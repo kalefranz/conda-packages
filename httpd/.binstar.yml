@@ -1,0 +1,23 @@
+package: httpd
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    HTTPD_VERSION=2.4.12
+    HTTPD_HASH=ec8676a7fe62433883868b8341da6734
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
