@@ -8,6 +8,12 @@ build:
 source:
   path: src
 
+requirements:
+  build:
+    - python
+  run:
+    - python
+
 test:
   commands:
     - python -c "from bazaarvoice import BV"
