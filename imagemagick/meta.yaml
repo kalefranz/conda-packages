@@ -8,7 +8,7 @@ build:
 source:
   fn: "{{ IMAGEMAGICK_FN }}"
   url: "http://www.imagemagick.org/download/{{ IMAGEMAGICK_FN }}"
-  md5: "{{ environ.get('IMAGEMAGICK_HASH') }}"
+  sha256: "{{ environ.get('IMAGEMAGICK_HASH') }}"
 
 # requirements:
 #   build:
