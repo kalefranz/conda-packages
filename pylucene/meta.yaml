@@ -21,6 +21,7 @@ requirements:
   run:
     - python
     - "java-jdk {{ environ.get('PYLUCENE_JAVA_VERSION') }}"  # TODO: switch to java-jre
+    - jcc
 
 test:
   commands:
