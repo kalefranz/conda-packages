@@ -37,6 +37,9 @@
 # %define UPSTREAM_VERSION %{LUCENE_VERSION}-1
 # %define JCC "%{__python} %{python_sitearch}/jcc/__init__.py"
 
+
+export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
+
 make
 make test
 make install
