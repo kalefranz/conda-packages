@@ -1,0 +1,26 @@
+package:
+  name: imagemagick
+  version: "{{ environ.get('IMAGEMAGICK_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "{{ IMAGEMAGICK_FN }}"
+  url: "http://www.imagemagick.org/download/{{ IMAGEMAGICK_FN }}"
+  url: "https://pypi.python.org/packages/source/l/librabbitmq/librabbitmq-{{ LIBRABBITMQ_VERSION }}.tar.gz"
+  md5: "{{ environ.get('IMAGEMAGICK_HASH') }}"
+
+# requirements:
+#   build:
+#     - rabbitmq-c
+#     - python
+#     - py-amqp
+#   run:
+#     - rabbitmq-c
+#     - python
+#     - py-amqp
+
+about:
+  home: http://www.imagemagick.org/
+  license: Apache
