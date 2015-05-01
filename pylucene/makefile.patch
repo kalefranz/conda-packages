@@ -1,0 +1,17 @@
+--- Makefile
++++ Makefile
+--- Makefile.bak    2015-05-01 00:20:24.700299669 -0700
++++ Makefile    2015-05-01 00:23:39.428400461 -0700
+@@ -45,6 +45,11 @@
+ # limit.
+ #
+
++PREFIX_PYTHON=$(PREFIX)
++ANT=ant
++JCC=$(PYTHON) -m jcc --shared
++NUM_FILES=8
++
+ # Mac OS X 10.6 (64-bit Python 2.6, Java 1.6)
+ #PREFIX_PYTHON=/usr
+ #ANT=ant
+ 

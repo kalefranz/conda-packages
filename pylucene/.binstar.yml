@@ -11,9 +11,11 @@ env:
   - >
     PYLUCENE_VERSION=4.9.0
     PYLUCENE_HASH=8578ebc8e9da06321d42b5622b6f5ac5db340123f99955d86190171c13f01a07
+    PYLUCENE_JAVA_VERSION=8*
 
 before_script:
   - conda update -n root conda-build
+  - conda install -c https://conda.binstar.org/rustychris patch
   - conda config --add channels kalefranz
 
 script:

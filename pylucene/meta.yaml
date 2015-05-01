@@ -9,16 +9,18 @@ source:
   fn: "pylucene-{{ environ.get('PYLUCENE_VERSION') }}-0-src.tar.gz"
   url: "http://apache.cs.utah.edu/lucene/pylucene/pylucene-{{ environ.get('PYLUCENE_VERSION') }}-0-src.tar.gz"
   sha256: "{{ environ.get('PYLUCENE_HASH') }}"
+  patches:
+    - makefile.patch
 
 requirements:
   build:
     - python
-    - "java-jdk {{ environ.get('ANT_JAVA_VERSION') }}"
+    - "java-jdk {{ environ.get('PYLUCENE_JAVA_VERSION') }}"
     - jcc
     - ant
   run:
     - python
-    - "java-jdk {{ environ.get('ANT_JAVA_VERSION') }}"
+    - "java-jdk {{ environ.get('PYLUCENE_JAVA_VERSION') }}"
 
 test:
   commands:
