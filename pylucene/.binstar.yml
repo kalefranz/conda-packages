@@ -9,6 +9,11 @@ engine:
 
 env:
   - >
+    PYLUCENE_VERSION=2.9.4
+    PYLUCENE_FN=pylucene-2.9.4-1-src.tar.gz
+    PYLUCENE_HASH=f5974b104fabe093698abdf9b03207d2c812ebb0b9af42e3bcdcafd18213cab7
+    PYLUCENE_JAVA_VERSION=8*
+  - >
     PYLUCENE_VERSION=3.6.2
     PYLUCENE_FN=pylucene-3.6.2-1-src.tar.gz
     PYLUCENE_HASH=d3cf4c3850b2da784def272999e94463be381b620d131d3b933ca0af65fadf9b
