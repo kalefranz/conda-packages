@@ -7,7 +7,7 @@ build:
 
 source:
   fn: "{{ environ.get('PYLUCENE_FN') }}"
-  url: "https://www.us.apache.org/dist/lucene/pylucene/{{ environ.get('PYLUCENE_FN') }}"
+  url: "https://s3-us-west-2.amazonaws.com/repo.public.23andme.io/{{ environ.get('PYLUCENE_FN') }}"
   sha256: "{{ environ.get('PYLUCENE_HASH') }}"
   patches:
     - makefile.patch
