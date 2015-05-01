@@ -16,11 +16,11 @@ requirements:
   run:
     - pcre
 
-test:
-  commands:
-    - ./bin/apachectl -k start
-    - curl http://localhost
-    - ./bin/apachectl -k stop
+# test:
+#   commands:
+#     - ./bin/apachectl -k start
+#     - curl http://localhost
+#     - ./bin/apachectl -k stop
 
 about:
   home: http://httpd.apache.org/
