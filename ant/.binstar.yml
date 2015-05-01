@@ -12,7 +12,7 @@ env:
   - >
     ANT_VERSION=1.8.4
     ANT_HASH=4e05e1cc4ea4b56d85bbbc4fe29d1c29
-    ANT_JAVA_VERSION=7*
+    ANT_JAVA_VERSION=8*
 
   # - >
   #   ANT_VERSION=1.9.3
