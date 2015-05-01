@@ -6,3 +6,5 @@
 make
 make install
 make check
+
+cat test-suite.log
