@@ -6,9 +6,8 @@ build:
   number: 0
 
 source:
-  fn: "mod_python-{{ environ.get('MOD_PYTHON_VERSION') }}.tgz"
-  url: "http://dist.modpython.org/dist/mod_python-{{ environ.get('MOD_PYTHON_VERSION') }}.tgz"
-  sha256: "{{ environ.get('MOD_PYTHON_HASH') }}"
+  git_url: https://github.com/grisha/mod_python.git
+  git_tag: aa9e288e661a3e3d7c3d572b193f00ce28f82a51
 
 requirements:
   build:
