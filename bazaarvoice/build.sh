@@ -9,4 +9,8 @@ ls -al
 
 ls -al /opt/miniconda/envs/_build
 
+printenv
+
+cd $SRC_DIR
+
 $PYTHON setup.py install
