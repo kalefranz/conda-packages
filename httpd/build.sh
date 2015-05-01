@@ -7,8 +7,6 @@ mkdir -p $PREFIX/srclib/apr-util
 curl http://mirrors.gigenet.com/apache/apr/apr-util-1.5.4.tar.gz | tar -xz -C $PREFIX/srclib/apr-util
 
 
-http://dist.modpython.org/dist/
-
 ./configure --help
 
 ./configure \
