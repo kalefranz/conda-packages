@@ -1,0 +1,15 @@
+package:
+  name: pcre
+  version: "{{ environ.get('PCRE_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "pcre-{{ PCRE_VERSION }}.tar.gz"
+  url: "https://s3-us-west-2.amazonaws.com/repo.public.23andme.io/pcre-{{ PCRE_VERSION }}.tar.gz"
+  sha256: "{{ environ.get('PCRE_HASH') }}"
+
+about:
+  home: http://www.pcre.org/
+  license: BSD

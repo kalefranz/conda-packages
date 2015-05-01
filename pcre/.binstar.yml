@@ -1,0 +1,20 @@
+package: pcre
+user: kalefranz
+
+platform:
+  - linux-64
+
+env:
+  - >
+    PCRE_VERSION=8.37
+    PCRE_HASH=19d490a714274a8c4c9d131f651489b8647cdb40a159e9fb7ce17ba99ef992ab
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
