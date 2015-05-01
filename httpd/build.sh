@@ -6,8 +6,14 @@ curl http://mirrors.gigenet.com/apache/apr/apr-1.5.2.tar.gz | tar -xz -C $PREFIX
 mkdir -p $PREFIX/srclib/apr-util
 curl http://mirrors.gigenet.com/apache/apr/apr-util-1.5.4.tar.gz | tar -xz -C $PREFIX/srclib/apr-util
 
-
 ./configure --help
+
+pwd
+echo $PREFIX/srclib/apr
+ls -al $PREFIX
+ls -al $PREFIX/srclib
+ls -al $PREFIX/srclib/apr
+
 
 ./configure \
     --prefix=$PREFIX \
