@@ -4,6 +4,9 @@ user: kalefranz
 platform:
   - linux-64
 
+engine:
+  - python=2
+
 before_script:
   - conda update -n root conda-build
 
