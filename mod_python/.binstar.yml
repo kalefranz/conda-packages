@@ -1,13 +1,16 @@
-package: httpd
+package: mod_python
 user: kalefranz
 
 platform:
   - linux-64
 
+engine:
+  - python=2
+
 env:
   - >
-    HTTPD_VERSION=2.4.12
-    HTTPD_HASH=ec8676a7fe62433883868b8341da6734
+    MOD_PYTHON_VERSION=3.4.1
+    MOD_PYTHON_HASH=3e338ac12bd870e53ce0a1d2c118917d76b0fb339189c1c388f0b442ec17f95a
 
 before_script:
   - conda update -n root conda-build

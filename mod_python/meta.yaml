@@ -1,0 +1,23 @@
+package:
+  name: mod_python
+  version: "{{ environ.get('MOD_PYTHON_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "mod_python-{{ environ.get('MOD_PYTHON_VERSION') }}.tgz"
+  url: "http://dist.modpython.org/dist/mod_python-{{ environ.get('MOD_PYTHON_VERSION') }}.tgz"
+  sha256: "{{ environ.get('MOD_PYTHON_HASH') }}"
+
+requirements:
+  build:
+    - python
+    - httpd
+  run:
+    - python
+    - httpd
+
+about:
+  home: http://modpython.org/
+  license: Apache

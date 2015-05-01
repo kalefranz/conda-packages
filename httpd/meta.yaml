@@ -10,9 +10,11 @@ source:
   url: "http://apache.osuosl.org/httpd/httpd-{{ HTTPD_VERSION }}.tar.gz"
   md5: "{{ environ.get('HTTPD_HASH') }}"
 
-# requirements:
-#   build:
-#   run:
+requirements:
+  build:
+    - pcre
+  run:
+    - pcre
 
 test:
   commands:
