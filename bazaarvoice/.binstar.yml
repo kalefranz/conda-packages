@@ -1,0 +1,14 @@
+package: bazaarvoice
+user: kalefranz
+
+platform:
+  - linux-64
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

@@ -1,0 +1,22 @@
+package:
+  name: bazaarvoice
+  version: 2014.11.19
+
+build:
+  number: 1
+
+source:
+  path: src
+
+test:
+  commands:
+    - python -c "from bazaarvoice import BV"
+
+about:
+  home: https://github.com/bazaarvoice/HostedUIResources/blob/master/SEOIntegration/examples/python/bvseosdk/bv.py
+
+
+
+
+
+
