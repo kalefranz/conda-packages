@@ -20,7 +20,7 @@ requirements:
     - ant
   run:
     - python
-    - "java-jdk {{ environ.get('PYLUCENE_JAVA_VERSION') }}"
+    - "java-jdk {{ environ.get('PYLUCENE_JAVA_VERSION') }}"  # TODO: switch to java-jre
 
 test:
   commands:
