@@ -5,7 +5,7 @@
  #
 
 +PREFIX_PYTHON=$(PREFIX)
-+ANT=ant
++ANT=$(JAVA_HOME)/bin/ant
 +JCC=$(PYTHON) -m jcc --shared
 +NUM_FILES=8
 +

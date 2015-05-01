@@ -40,6 +40,8 @@
 
 export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
 
+printenv
+
 make
 make test
 make install
