@@ -7,12 +7,12 @@ build:
 
 source:
   fn: "{{ IMAGEMAGICK_FN }}"
-  url: "http://www.imagemagick.org/download/{{ IMAGEMAGICK_FN }}"
+  url: "http://www.imagemagick.org/download/releases/{{ IMAGEMAGICK_FN }}"
   sha256: "{{ environ.get('IMAGEMAGICK_HASH') }}"
 
-test:
-  commands:
-    - make check
+# test:
+#   commands:
+#     - make check
 
 about:
   home: http://www.imagemagick.org/
