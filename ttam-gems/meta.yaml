@@ -1,9 +1,9 @@
 package:
   name: ttam-gems
-  version: 0.0.1
+  version: 0.0.2
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
