@@ -8,6 +8,8 @@ platform:
 #   - ruby=1.9
 #   - ruby=2.1
 
+iotimeout: 480
+
 before_script:
   - conda update -n root conda-build
   - conda config --add channels kalefranz
