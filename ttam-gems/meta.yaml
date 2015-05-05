@@ -1,0 +1,12 @@
+package:
+  name: ttam-gems
+  version: 0.0.1
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - ruby
+  run:
+    - ruby
