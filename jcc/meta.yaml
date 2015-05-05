@@ -3,7 +3,7 @@ package:
   version: "{{ environ.get('JCC_VERSION') }}"
 
 build:
-  number: 1
+  number: 2
 
 source:
   fn: "JCC-{{ environ.get('JCC_VERSION') }}.tar.gz"
