@@ -7,6 +7,6 @@ build:
 
 requirements:
   build:
-    - ruby
+    - ruby 1.9*
   run:
-    - ruby
+    - ruby 1.9*
