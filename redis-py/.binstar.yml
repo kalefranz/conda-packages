@@ -1,0 +1,23 @@
+package: redis-py
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    REDISPY_VERSION=2.10.3
+    REDISPY_HASH=7619221ad0cbd124a5687458ea3f5289
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

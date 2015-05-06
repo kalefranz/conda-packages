@@ -1,0 +1,25 @@
+package:
+  name: redis-py
+  version: "{{ environ.get('REDISPY_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "redis-{{ environ.get('REDISPY_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/r/redis/redis-{{ environ.get('REDISPY_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('REDISPY_HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - python -c 'import redis'
+
+about:
+  home: https://pypi.python.org/pypi/redis
+  license: MIT
