@@ -1,0 +1,20 @@
+package: apache
+user: kalefranz
+
+platform:
+  - linux-64
+
+env:
+  - >
+    APACHE_VERSION=2.4.12.5
+    APACHE_HASH=1efb6ce48efd7f474e432399a5c16a14
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

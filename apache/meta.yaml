@@ -1,0 +1,21 @@
+package:
+  name: apache
+  version: "{{ environ.get('APACHE_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "mod_wsgi-httpd-{{ APACHE_VERSION }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/m/mod_wsgi-httpd/mod_wsgi-httpd-{{ APACHE_VERSION }}.tar.gz"
+  md5: "{{ environ.get('APACHE_HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+about:
+  home: https://pypi.python.org/pypi/mod_wsgi-httpd
+  license: Apache
