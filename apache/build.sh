@@ -1,7 +1,7 @@
 #/bin/bash -eu
 
 # install httpd
-$PYTHON setup.py intall
+$PYTHON setup.py install
 
 
 # install mod_wsgi
