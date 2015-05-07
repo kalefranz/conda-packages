@@ -3,10 +3,10 @@ package:
   version: 0.0.2
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
-    - ruby 2.1*
+    - ruby 1.9*
   run:
-    - ruby 2.1*
+    - ruby 1.9*
