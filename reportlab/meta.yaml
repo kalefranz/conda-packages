@@ -1,0 +1,27 @@
+package:
+  name: reportlab
+  version: "{{ environ.get('REPORTLAB_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "reportlab-{{ environ.get('REPORTLAB_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/r/reportlab/reportlab-{{ environ.get('REPORTLAB_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('REPORTLAB_HASH') }}"
+
+requirements:
+  build:
+    - python
+    - pillow >=2.4.0
+  run:
+    - python
+    - pillow >=2.4.0
+
+test:
+  commands:
+    - python -c 'import reporlab'
+
+about:
+  home: https://pypi.python.org/pypi/reportlab
+  license: BSD

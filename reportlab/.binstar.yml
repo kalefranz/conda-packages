@@ -1,0 +1,23 @@
+package: reportlab
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    CELERY_VERSION=2.7
+    CELERY_HASH=34f13c50b416c6bea12e3d8cb23ec7d7
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
