@@ -9,8 +9,8 @@ engine:
 
 env:
   - >
-    CELERY_VERSION=2.7
-    CELERY_HASH=34f13c50b416c6bea12e3d8cb23ec7d7
+    REPORTLAB_VERSION=2.7
+    REPORTLAB_VERSION=78300e6fe8a0d020fc16734a3de80cc4
 
 before_script:
   - conda update -n root conda-build
