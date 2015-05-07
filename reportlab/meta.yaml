@@ -20,7 +20,7 @@ requirements:
 
 test:
   commands:
-    - python -c 'import reporlab'
+    - python -c 'import reportlab'
 
 about:
   home: https://pypi.python.org/pypi/reportlab
