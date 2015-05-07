@@ -1,11 +1,15 @@
 #!/bin/bash -eu
 
-gem install compass -v 0.12.2
-gem install modular-scale -v 1.0.6
-# gem install rake
 gem install sass -v 3.2.19
 gem install sassy-math -v 1.5
+gem install compass -v 0.12.2
+gem install modular-scale -v 1.0.6
 gem install zurb-foundation -v 3.2.5
+
+
+
+# gem uninstall sass
+# gem install sass
 
 
 # gem install chunky_png -v 1.2.6
