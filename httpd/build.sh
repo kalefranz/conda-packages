@@ -11,6 +11,7 @@ curl https://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz | tar -xz -C $SRC
 ./configure \
     --prefix=$PREFIX \
     --enable-ssl \
+    --with-ssl=$PREFIX \
     --with-included-apr
 make
 make install
