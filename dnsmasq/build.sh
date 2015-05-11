@@ -1,2 +1,3 @@
 #!/bin/bash -eu
-make install
+
+make install PREFIX=$PREFIX
