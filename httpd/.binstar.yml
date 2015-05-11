@@ -8,6 +8,9 @@ env:
   - >
     HTTPD_VERSION=2.4.12
     HTTPD_HASH=ec8676a7fe62433883868b8341da6734
+  - >
+    HTTPD_VERSION=2.2.29
+    HTTPD_HASH=7036a6eb5fb3b85be7a804255438b795
 
 before_script:
   - conda update -n root conda-build
