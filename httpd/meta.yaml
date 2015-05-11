@@ -14,9 +14,11 @@ requirements:
   build:
     - openssl
     - pcre
+    - zlib
   run:
     - openssl
     - pcre
+    - zlib
 
 about:
   home: http://httpd.apache.org/
