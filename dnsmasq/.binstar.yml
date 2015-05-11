@@ -1,0 +1,22 @@
+package: dnsmasq
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    DNSMASQ_VERSION=2.72
+    DNSMASQ_HASH=635f1b47417d17cf32e45cfcfd0213ac39fd09918479a25373ba9b2ce4adc05d
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

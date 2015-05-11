@@ -1,0 +1,17 @@
+package:
+  name: dnsmasq
+  version: "{{ environ.get('DNSMASQ_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "dnsmasq-{{ environ.get('DNSMASQ_VERSION') }}.tar.gz"
+  url: "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-{{ environ.get('DNSMASQ_VERSION') }}.tar.gz"
+  sha256: "{{ environ.get('DNSMASQ_HASH') }}"
+
+about:
+  home: http://www.thekelleys.org.uk
+  license: GPL
+
+
