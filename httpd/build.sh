@@ -11,6 +11,7 @@ curl https://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz | tar -xz -C $SRC
 ./configure \
     --prefix=$PREFIX \
     --enable-ssl \
+    --enable-suexec \
     --with-ssl=$PREFIX \
     --with-z=$PREFIX \
     --enable-modules=all \
