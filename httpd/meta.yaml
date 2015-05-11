@@ -3,7 +3,7 @@ package:
   version: "{{ environ.get('HTTPD_VERSION') }}"
 
 build:
-  number: 1
+  number: 2
 
 source:
   fn: "httpd-{{ HTTPD_VERSION }}.tar.gz"
