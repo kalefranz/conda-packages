@@ -25,6 +25,10 @@ requirements:
         - pcre
         - zlib
 
+test:
+  commands:
+    - nginx --help
+
 about:
     home: http://www.nginx.org
     license: 2-clause BSD-like license
