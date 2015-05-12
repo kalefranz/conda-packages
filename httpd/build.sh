@@ -13,15 +13,26 @@ curl https://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz | tar -xz -C $SRC
     --with-mpm=worker \
     --enable-cache \
     --enable-cache-disk \
+    --enable-dir \
     --enable-disk-cache \
+    --enable-deflate \
+    --enable-env \
+    --enable-expires \
+    --enable-ext-filter \
     --enable-file-cache \
+    --enable-headers \
+    --enable-http \
     --enable-mem-cache \
+    --enable-mime \
+    --enable-mime-magic \
+    --enable-rewrite \
     --enable-ssl \
     --enable-suexec \
+    --enable-vhost-alias \
     --with-ssl=$PREFIX \
     --with-z=$PREFIX \
-    --enable-modules=all \
     --enable-unixd \
     --with-included-apr
+
 make
 make install
