@@ -10,6 +10,7 @@ curl https://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz | tar -xz -C $SRC
 
 ./configure \
     --prefix=$PREFIX \
+    --with-mpm=worker \
     --enable-cache \
     --enable-cache-disk \
     --enable-disk-cache \
