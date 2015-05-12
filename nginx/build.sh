@@ -9,6 +9,7 @@ export LDFLAGS="-L${PREFIX}/lib"
 
 mkdir -vp ${PREFIX}/bin || exit 1;
 mkdir -vp ${PREFIX}/var/log/nginx || exit 1;
+mkdir -vp ${PREFIX}/var/run/nginx || exit 1;
 touch ${PREFIX}/var/log/nginx/{access,error}.log || exit 1;
 
 cat > ${PREFIX}/bin/nginx <<EOF
@@ -36,9 +37,9 @@ chmod +x configure;
     --http-uwsgi-temp-path=etc/nginx/uwsgi \
     --http-log-path=var/log/nginx/access.log \
     --conf-path=etc/nginx/nginx.conf \
-    --lock-path=etc/nginx/nginx.lock \
+    --lock-path=var/run/nginx/nginx.lock \
     --error-log-path=var/log/nginx/error.log \
-    --pid-path=etc/nginx/nginx.pid \
+    --pid-path=var/run/nginx/nginx.pid \
     --with-cc-opt="-I$PREFIX/include" \
     --with-ld-opt="-L$PREFIX/lib" \
     --prefix="${PREFIX}" || return 1;
