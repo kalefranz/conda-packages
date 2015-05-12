@@ -24,12 +24,3 @@ curl https://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz | tar -xz -C $SRC
     --with-included-apr
 make
 make install
-
-
-# install mod_wsgi
-MOD_WSGI_URL=https://pypi.python.org/packages/source/m/mod_wsgi/mod_wsgi-4.4.11.tar.gz
-
-mkdir mod-wsgi
-curl "$MOD_WSGI_URL" | tar -xz -C mod-wsgi --strip-components=1
-pushd mod-wsgi
-$PYTHON setup.py install
