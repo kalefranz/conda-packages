@@ -1,0 +1,23 @@
+package: uwsgi
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    UWSGI_VERSION=2.0.10
+    UWSGI_HASH=7a9be0db5f6a8d4150dc5e9e0517ce80
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

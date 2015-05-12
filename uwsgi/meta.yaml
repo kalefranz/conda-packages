@@ -1,0 +1,25 @@
+package:
+  name: uwsgi
+  version: "{{ environ.get('UWSGI_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "uwsgi-{{ environ.get('UWSGI_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/u/uWSGI/uwsgi-{{ environ.get('UWSGI_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('UWSGI_HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - uwsgi --help
+
+about:
+  home: http://unbit.com/
+  license: GPL2
