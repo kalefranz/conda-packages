@@ -13,12 +13,18 @@ source:
 requirements:
   build:
     - python
+    - jansson
     - openssl
     - pcre
     - yaml
     - zlib
   run:
     - python
+    - jansson
+    - openssl
+    - pcre
+    - yaml
+    - zlib
 
 test:
   commands:
