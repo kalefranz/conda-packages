@@ -1,0 +1,23 @@
+package: nginx
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    NGINX_VERSION=1.9.0
+    NGINX_HASH=e12aa1d5b701edde880ebcc7be47ca171c3fbeed8fa7c8c62054a6f19d27f248
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
