@@ -13,10 +13,10 @@ source:
 requirements:
   build:
     - python
-    - httpd
+    - httpd 2.2*
   run:
     - python
-    - httpd
+    - httpd 2.2*
 
 about:
   home: https://pypi.python.org/pypi/mod_wsgi

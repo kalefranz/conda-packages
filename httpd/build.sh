@@ -13,6 +13,7 @@ curl https://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz | tar -xz -C $SRC
     --with-mpm=worker \
     --enable-cache \
     --enable-cache-disk \
+    --enable-cgi \
     --enable-dir \
     --enable-disk-cache \
     --enable-deflate \
@@ -22,6 +23,7 @@ curl https://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz | tar -xz -C $SRC
     --enable-file-cache \
     --enable-headers \
     --enable-http \
+    --enable-info \
     --enable-mem-cache \
     --enable-mime \
     --enable-mime-magic \
@@ -29,9 +31,9 @@ curl https://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz | tar -xz -C $SRC
     --enable-ssl \
     --enable-suexec \
     --enable-vhost-alias \
+    --enable-unixd \
     --with-ssl=$PREFIX \
     --with-z=$PREFIX \
-    --enable-unixd \
     --with-included-apr
 
 make
