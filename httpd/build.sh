@@ -10,34 +10,31 @@ curl https://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz | tar -xz -C $SRC
 
 ./configure \
     --prefix=$PREFIX \
+    --enable-cache \
+    --enable-cache-disk \
+    --enable-cgi \
+    --enable-dir \
+    --enable-disk-cache \
+    --enable-deflate \
+    --enable-env \
+    --enable-expires \
+    --enable-ext-filter \
+    --enable-file-cache \
+    --enable-headers \
+    --enable-http \
+    --enable-info \
+    --enable-mem-cache \
+    --enable-mime \
+    --enable-mime-magic \
+    --enable-rewrite \
+    --enable-ssl \
+    --enable-suexec \
+    --enable-vhost-alias \
+    --enable-unixd \
     --with-mpm=worker \
     --with-ssl=$PREFIX \
     --with-z=$PREFIX \
     --with-included-apr
-
-    # --enable-cache \
-    # --enable-cache-disk \
-    # --enable-cgi \
-    # --enable-dir \
-    # --enable-disk-cache \
-    # --enable-deflate \
-    # --enable-env \
-    # --enable-expires \
-    # --enable-ext-filter \
-    # --enable-file-cache \
-    # --enable-headers \
-    # --enable-http \
-    # --enable-info \
-    # --enable-mem-cache \
-    # --enable-mime \
-    # --enable-mime-magic \
-    # --enable-rewrite \
-    # --enable-ssl \
-    # --enable-suexec \
-    # --enable-vhost-alias \
-    # --enable-unixd \
-
-
 
 make
 make install
