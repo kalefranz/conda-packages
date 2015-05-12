@@ -3,7 +3,7 @@ package:
   version: "{{ environ.get('MOD_WSGI_VERSION') }}"
 
 build:
-  number: 0
+  number: 1
 
 source:
   fn: "mod_wsgi-{{ MOD_WSGI_VERSION }}.tar.gz"
