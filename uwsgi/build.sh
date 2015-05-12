@@ -1,3 +1,4 @@
 #/bin/bash -eu
 
-$PYTHON uwsgiconfig.py --build
+CFLAGS="-I${PREFIX}/include -I${PREFIX}/openssl/include" \
+    $PYTHON setup.py install
