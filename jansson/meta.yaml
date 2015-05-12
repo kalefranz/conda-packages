@@ -1,0 +1,25 @@
+package:
+  name: librabbitmq
+  version: "{{ environ.get('JANSSON_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "jansson-{{ environ.get('JANSSON_VERSION' }}.tar.gz"
+  url: "http://www.digip.org/jansson/releases/jansson-{{ environ.get('JANSSON_VERSION' }}.tar.gz"
+  sha256: "{{ environ.get('JANSSON_HASH') }}"
+
+# requirements:
+#   build:
+#     - rabbitmq-c
+#     - python
+#     - py-amqp
+#   run:
+#     - rabbitmq-c
+#     - python
+#     - py-amqp
+
+about:
+  home: http://www.digip.org/jansson/
+  license: MIT

@@ -1,0 +1,20 @@
+package: jansson
+user: kalefranz
+
+platform:
+  - linux-64
+
+env:
+  - >
+    JANSSON_VERSION=2.7
+    JANSSON_HASH=7905e6590fb316c0ff943df3dc6a21cd81a59cff7a6d12514054c359d04d78d7
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
