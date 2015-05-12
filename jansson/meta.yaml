@@ -6,8 +6,8 @@ build:
   number: 0
 
 source:
-  fn: "jansson-{{ environ.get('JANSSON_VERSION' }}.tar.gz"
-  url: "http://www.digip.org/jansson/releases/jansson-{{ environ.get('JANSSON_VERSION' }}.tar.gz"
+  fn: "jansson-{{ environ.get('JANSSON_VERSION') }}.tar.gz"
+  url: "http://www.digip.org/jansson/releases/jansson-{{ environ.get('JANSSON_VERSION') }}.tar.gz"
   sha256: "{{ environ.get('JANSSON_HASH') }}"
 
 # requirements:
