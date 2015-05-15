@@ -1,0 +1,15 @@
+package:
+  name: jemalloc
+  version: "{{ environ.get('JEMALLOC_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "jemalloc-{{ environ.get('JEMALLOC_VERSION') }}.tar.bz2"
+  url: "https://github.com/jemalloc/jemalloc/releases/download/3.6.0/jemalloc-{{ environ.get('JEMALLOC_VERSION') }}.tar.bz2"
+  sha256: "{{ environ.get('JEMALLOC_HASH') }}"
+
+about:
+  home: https://github.com/jemalloc/jemalloc
+  license: BSD
