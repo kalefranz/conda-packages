@@ -18,6 +18,8 @@ env:
     REDIS_VERSION=3.0.1
     REDIS_HASH=0e21be5d7c5e6ab6adcbed257619897db59be9e1ded7ef6fd1582d0cdb5e5bb7
 
+iotimeout: 180
+
 before_script:
   - conda update -n root conda-build
   - conda config --add channels kalefranz
