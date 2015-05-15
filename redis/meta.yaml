@@ -18,6 +18,8 @@ test:
   commands:
     - conda install -c kalefranz tcl
     - export LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH
+    - printenv
+    - find / -name "libtcl*.so"
     - $SRC_DIR/runtest
 
 about:
