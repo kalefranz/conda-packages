@@ -12,4 +12,3 @@ make distclean
 # make
 
 make PREFIX=$PREFIX install
-make test
