@@ -10,10 +10,6 @@ source:
   url: "http://download.redis.io/releases/redis-{{ environ.get('REDIS_VERSION') }}.tar.gz"
   sha256: "{{ environ.get('REDIS_HASH') }}"
 
-# requirements:
-#   build:
-#     - tcl
-
 test:
   commands:
     - conda install -c kalefranz tcl
