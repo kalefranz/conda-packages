@@ -17,7 +17,8 @@ source:
 test:
   commands:
     - conda install -c kalefranz tcl
-    - $CONDA_DEFAULT_ENV/bin/tclsh8.6 $SRC_DIR/tests/test_helper.tcl
+    - cd $SRC_DIR
+    - tclsh8.6 tests/test_helper.tcl
 
 about:
   home: http://redis.io
