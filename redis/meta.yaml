@@ -19,6 +19,7 @@ test:
     - conda install -c kalefranz tcl
     - printenv
     - conda install -c https://conda.binstar.org/dan_blanchard perl-file-which
+    - which -a which
     - which -a tclsh8.6
     - ls -al /home/binstar/env/bin/tclsh8.6
     - $SRC_DIR/runtest
