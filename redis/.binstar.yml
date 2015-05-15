@@ -12,8 +12,14 @@ env:
     REDIS_VERSION=2.8.19
     REDIS_HASH=29bb08abfc3d392b2f0c3e7f48ec46dd09ab1023f9a5575fc2a93546f4ca5145
   - >
+    REDIS_VERSION=2.8.20
+    REDIS_HASH=7586c665bbce76a91b68b482c993a71c6249fee05688262952c75eaf4da0b2d8
+  - >
     REDIS_VERSION=3.0.0
     REDIS_HASH=654c95c6236692dcb916fccba9a34d0877cc91338c8b6a372511e6eb080e34bf
+  - >
+    REDIS_VERSION=3.0.1
+    REDIS_HASH=0e21be5d7c5e6ab6adcbed257619897db59be9e1ded7ef6fd1582d0cdb5e5bb7
 
 before_script:
   - conda update -n root conda-build
