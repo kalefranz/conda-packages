@@ -19,6 +19,7 @@ test:
     - conda install -c kalefranz tcl
     - export LD_LIBRARY_PATH=$PREFIX/lib:$CONDA_DEFAULT_ENV/lib:$LD_LIBRARY_PATH
     - printenv
+    - find / -name "tclsh*"
     - $SRC_DIR/runtest
 
 about:
