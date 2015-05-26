@@ -1,0 +1,29 @@
+package: maven
+user: kalefranz
+
+platform:
+  - linux-64
+
+env:
+  - >
+    MAVEN_VERSION=3.3.3
+    MAVEN_HASH=794b3b7961200c542a7292682d21ba36
+
+
+  #   JAVA_JDK_FN=zulu1.8.0_40-8.6.0.1-x86lx64.zip
+  #   JAVA_JDK_URL=https://s3-us-west-2.amazonaws.com/repo.public.23andme.io/zulu1.8.0_40-8.6.0.1-x86lx64.zip
+  # - >
+  #   JAVA_JDK_VERSION=7.8.0.3
+  #   JAVA_JDK_FN=zulu1.7.0_76-7.8.0.3-x86lx64.zip
+  #   JAVA_JDK_URL=https://s3-us-west-2.amazonaws.com/repo.public.23andme.io/zulu1.7.0_76-7.8.0.3-x86lx64.zip
+  #   JAVA_JDK_HASH=6661d32656eed9640a52ee41250a64c8
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

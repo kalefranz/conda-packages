@@ -1,0 +1,27 @@
+package:
+  name: java-jdk
+  version: "{{ environ.get('MAVEN_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "apache-maven-{{ environ.get('MAVEN_VERSION') }}-bin.tar.gz"
+  url: "http://www.gtlib.gatech.edu/pub/apache/maven/maven-3/{{ environ.get('MAVEN_VERSION') }}/binaries/apache-maven-{{ environ.get('MAVEN_VERSION') }}-bin.tar.gz"
+  md5: "{{ environ.get('MAVEN_HASH') }}"
+
+requirements:
+  build:
+    - java-jdk
+  run:
+    - java-jdk
+
+test:
+  commands:
+    # - need to set JAVA_HOME, M2_HOME, and MAVEN_HOME
+    - export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
+    - mvn --version
+
+about:
+  home: https://maven.apache.org
+  license: Apache
