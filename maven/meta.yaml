@@ -18,7 +18,6 @@ requirements:
 
 test:
   commands:
-    # - need to set JAVA_HOME, M2_HOME, and MAVEN_HOME
     - export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
     - mvn --version
 
