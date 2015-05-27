@@ -9,6 +9,9 @@ engine:
 
 env:
   - >
+    NGINX_VERSION=1.9.1
+    NGINX_HASH=09f555fae694c0944f172b575ad239f56d40d14559d98e843de0a690f38c1dad
+  - >
     NGINX_VERSION=1.9.0
     NGINX_HASH=e12aa1d5b701edde880ebcc7be47ca171c3fbeed8fa7c8c62054a6f19d27f248
 
