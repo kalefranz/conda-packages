@@ -11,6 +11,9 @@ env:
   - >
     NODE_VERSION=0.12.2
     NODE_HASH=ac7e78ade93e633e7ed628532bb8e650caba0c9c33af33581957f3382e2a772d
+  - >
+    NODE_VERSION=0.12.4
+    NODE_HASH=3298d0997613a04ac64343e8316da134d04588132554ae402eb344e3369ec912
 
 before_script:
   - conda update -n root conda-build
