@@ -27,9 +27,15 @@ chmod 755 ${PREFIX}/bin/nginx
 
 chmod +x configure;
 
-./configure --help
+# ./configure --help
 
 ./configure \
+    --user=nginx \
+    --group=nginx \
+    --http-log-path=/var/log/nginx/access.log \
+    --error-log-path=/var/log/nginx/error.log \
+    --pid-path=/var/run/nginx/nginx.pid \
+    --lock-path=/var/run/nginx/nginx.lock \
     --with-pcre \
     --with-http_ssl_module \
     --http-client-body-temp-path=etc/nginx/client \
@@ -37,11 +43,7 @@ chmod +x configure;
     --http-fastcgi-temp-path=etc/nginx/fastcgi \
     --http-scgi-temp-path=etc/nginx/scgi \
     --http-uwsgi-temp-path=etc/nginx/uwsgi \
-    --http-log-path=var/log/nginx/access.log \
     --conf-path=etc/nginx/nginx.conf \
-    --lock-path=var/run/nginx/nginx.lock \
-    --error-log-path=var/log/nginx/error.log \
-    --pid-path=var/run/nginx/nginx.pid \
     --with-cc-opt="-I$PREFIX/include" \
     --with-ld-opt="-L$PREFIX/lib" \
     --prefix="${PREFIX}" || return 1;
