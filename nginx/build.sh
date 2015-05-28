@@ -32,10 +32,10 @@ chmod +x configure;
 ./configure \
     --user=nginx \
     --group=nginx \
-    --http-log-path=/var/log/nginx/access.log \
-    --error-log-path=/var/log/nginx/error.log \
-    --pid-path=/var/run/nginx/nginx.pid \
-    --lock-path=/var/run/nginx/nginx.lock \
+    --http-log-path=var/log/nginx/access.log \
+    --error-log-path=var/log/nginx/error.log \
+    --pid-path=var/run/nginx/nginx.pid \
+    --lock-path=var/run/nginx/nginx.lock \
     --with-pcre \
     --with-http_ssl_module \
     --http-client-body-temp-path=etc/nginx/client \
