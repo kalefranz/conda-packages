@@ -27,6 +27,8 @@ chmod 755 ${PREFIX}/bin/nginx
 
 chmod +x configure;
 
+./configure --help
+
 ./configure \
     --with-pcre \
     --with-http_ssl_module \
