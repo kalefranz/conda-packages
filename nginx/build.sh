@@ -27,7 +27,7 @@ chmod 755 ${PREFIX}/bin/nginx
 
 chmod +x configure
 
-# ./configure --help
+./configure --help || echo None
 
 ./configure \
     --user=nginx \
@@ -36,18 +36,17 @@ chmod +x configure
     --error-log-path=var/log/nginx/error.log \
     --pid-path=var/run/nginx/nginx.pid \
     --lock-path=var/run/nginx/nginx.lock \
+    --http-client-body-temp-path=/var/tmp/nginx/client \
+    --http-proxy-temp-path=/var/tmp/nginx/proxy \
+    --http-fastcgi-temp-path=/var/tmp/nginx/fastcgi \
+    --http-scgi-temp-path=/var/tmp/nginx/scgi \
+    --http-uwsgi-temp-path=/var/tmp/nginx/uwsgi \
     --with-pcre \
     --with-http_ssl_module \
     --conf-path=etc/nginx/nginx.conf \
     --with-cc-opt="-I$PREFIX/include" \
     --with-ld-opt="-L$PREFIX/lib" \
     --prefix="${PREFIX}" || return 1;
-
-    # --http-client-body-temp-path=etc/nginx/client \
-    # --http-proxy-temp-path=etc/nginx/proxy \
-    # --http-fastcgi-temp-path=etc/nginx/fastcgi \
-    # --http-scgi-temp-path=etc/nginx/scgi \
-    # --http-uwsgi-temp-path=etc/nginx/uwsgi \
 
 make || return 1;
 make install || return 1;
