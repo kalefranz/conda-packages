@@ -7,5 +7,5 @@ pushd build
 
 ../configure --prefix=$PREFIX
 make
-make tests
+# make tests
 make install
