@@ -1,0 +1,15 @@
+package:
+  name: glibc
+  version: "{{ environ.get('GLIBC_VERSION') }}"
+
+build:
+  number: 1
+
+source:
+  fn: "glibc-{{ environ.get('GLIBC_VERSION') }}.tar.gz"
+  url: "http://gnu.spinellicreations.com/libc/glibc-{{ environ.get('GLIBC_VERSION') }}.tar.gz"
+  sha256: "{{ environ.get('GLIBC_HASH') }}"
+
+about:
+  home: http://www.gnu.org/software/libc/
+  license: LGPL

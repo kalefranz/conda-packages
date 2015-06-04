@@ -1,0 +1,19 @@
+package: glibc
+user: kalefranz
+
+platform:
+  - linux-64
+
+env:
+  - >
+    GLIBC_VERSION=2.21
+    GLIBC_HASH=8d8f78058f2e9c7237700f76fe4e0ae500db31470290cd0b8a9739c0c8ce9738
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
