@@ -11,7 +11,7 @@ env:
     JAVA_JDK_VERSION=8.7.0.5
     JAVA_JDK_FN=zulu1.8.0_45-8.7.0.5-x86lx64.zip
     JAVA_JDK_URL=https://s3-us-west-2.amazonaws.com/repo.public.23andme.io/zulu1.8.0_45-8.7.0.5-x86lx64.zip
-    JAVA_JDK_HASH=e860784aacc77b2b865dd1e6a5d9392c
+    JAVA_JDK_HASH=2ab4a4f118c5450f90b50dee44935cdb
   - >
     JAVA_JDK_VERSION=8.6.0.1
     JAVA_JDK_FN=zulu1.8.0_40-8.6.0.1-x86lx64.zip
