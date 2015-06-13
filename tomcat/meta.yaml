@@ -6,7 +6,7 @@ build:
   number: 0
 
 source:
-  fn: "apache-tomcat-{{ environ.get('TOMCAT_VERSION') }}.tar.gz
+  fn: "apache-tomcat-{{ environ.get('TOMCAT_VERSION') }}.tar.gz"
   url: "http://mirrors.sonic.net/apache/tomcat/tomcat-{{ environ.get('TOMCAT_VERSION').split('.')|first }}/v{{ environ.get('TOMCAT_VERSION') }}/bin/apache-tomcat-{{ environ.get('TOMCAT_VERSION') }}.tar.gz"
   md5: "{{ environ.get('TOMCAT_HASH') }}"
 
