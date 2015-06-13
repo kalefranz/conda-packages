@@ -1,0 +1,27 @@
+package:
+  name: tomcat
+  version: "{{ environ.get('TOMCAT_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "apache-tomcat-{{ environ.get('TOMCAT_VERSION') }}.tar.gz
+  url: "http://mirrors.sonic.net/apache/tomcat/tomcat-{{ environ.get('TOMCAT_VERSION').split('.')|first }}/v{{ environ.get('TOMCAT_VERSION') }}/bin/apache-tomcat-{{ environ.get('TOMCAT_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('TOMCAT_HASH') }}"
+
+requirements:
+  build:
+    - java-jdk 8*
+  run:
+    - java-jdk 8*
+
+test:
+  commands:
+    - export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
+    - tomcat --version
+
+
+about:
+  home: https://maven.apache.org
+  license: Apache

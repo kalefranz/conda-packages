@@ -1,0 +1,20 @@
+package: tomcat
+user: kalefranz
+
+platform:
+  - linux-64
+
+env:
+  - >
+    TOMCAT_VERSION=8.0.23
+    TOMCAT_HASH=f4381824abf458650f72ec12d8e81fde
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
