@@ -20,7 +20,7 @@ test:
   commands:
     - export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
     - export CATALINA_HOME=$PREFIX/share/apache-tomcat
-    - tomcat --version
+    - cd $CATALINA_HOME && ./bin/version.sh
 
 
 about:
