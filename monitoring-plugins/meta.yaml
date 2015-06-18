@@ -19,6 +19,7 @@ requirements:
 test:
   commands:
     - ls -al
+    - $PREFIX/libexec/check_dummy --version
 
 about:
   home: https://www.monitoring-plugins.org
