@@ -1,0 +1,19 @@
+package: monitoring-plugins
+user: kalefranz
+
+platform:
+  - linux-64
+
+env:
+  - >
+    MP_VERSION=2.1.1
+    MP_HASH=44dbace8033eafb716cc501bfef26ca9071ae3d0329b2c118bd0230fd98dd1d3
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

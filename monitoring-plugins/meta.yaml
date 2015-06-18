@@ -1,0 +1,25 @@
+package:
+  name: monitoring-plugins
+  version: "{{ environ.get('MP_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "monitoring-plugins-{{ environ.get('MP_VERSION') }}.tar.gz"
+  url: "https://www.monitoring-plugins.org/download/monitoring-plugins-{{ environ.get('MP_VERSION') }}.tar.gz"
+  sha256: "{{ environ.get('MP_HASH') }}"
+
+requirements:
+  build:
+    - openssl
+  run:
+    - openssl
+
+test:
+  commands:
+    - nginx -V
+
+about:
+  home: https://www.monitoring-plugins.org
+  license: GPLv3
