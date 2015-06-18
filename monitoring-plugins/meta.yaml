@@ -19,7 +19,6 @@ requirements:
 test:
   commands:
     - ls -al
-    - $PREFIX/lib/check_swap -w 50% -c 25%
 
 about:
   home: https://www.monitoring-plugins.org
