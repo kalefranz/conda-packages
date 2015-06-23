@@ -13,8 +13,12 @@ source:
 requirements:
   build:
     - python
+    - greenlet
+    - gevent
   run:
     - python
+    - greenlet
+    - gevent
 
 test:
   commands:
