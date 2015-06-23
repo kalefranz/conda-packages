@@ -1,0 +1,25 @@
+package:
+  name: gunicorn
+  version: "{{ environ.get('GUNICORN_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "gunicorn-{{ environ.get('GUNICORN_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/g/gunicorn/gunicorn-{{ environ.get('GUNICORN_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('GUNICORN_HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - $PREFIX/bin/gunicorn --version
+
+about:
+  home: https://github.com/benoitc/gunicorn
+  license: MIT

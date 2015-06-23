@@ -1,0 +1,23 @@
+package: gunicorn
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    GUNICORN_VERSION=19.3.0
+    GUNICORN_HASH=faa3e80661efd67e5e06bba32699af20
+
+before_script:
+  - conda update -n root conda conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
