@@ -15,10 +15,12 @@ requirements:
     - python
     - greenlet
     - gevent
+    - trollius
   run:
     - python
     - greenlet
     - gevent
+    - trollius
 
 test:
   commands:
