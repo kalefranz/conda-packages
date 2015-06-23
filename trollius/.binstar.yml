@@ -9,8 +9,8 @@ engine:
 
 env:
   - >
-    GUNICORN_VERSION=1.0.4
-    GUNICORN_HASH=3631a464d49d0cbfd30ab2918ef2b783
+    TROLLIUS_VERSION=1.0.4
+    TROLLIUS_HASH=3631a464d49d0cbfd30ab2918ef2b783
 
 before_script:
   - conda update -n root conda conda-build
