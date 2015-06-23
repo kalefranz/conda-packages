@@ -1,0 +1,27 @@
+package:
+  name: trollius
+  version: "{{ environ.get('TROLLIUS_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "trollius-{{ environ.get('TROLLIUS_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/t/trollius/trollius-{{ environ.get('TROLLIUS_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('TROLLIUS_HASH') }}"
+
+requirements:
+  build:
+    - python
+    - futures
+  run:
+    - python
+    - futures
+
+test:
+  commands:
+    - python -c "from trollius import From"
+
+about:
+  home: https://bitbucket.org/enovance/trollius
+  license: Apache 2.0
