@@ -21,6 +21,7 @@ source:
 
 test:
   commands:
+    - export GOROOT=$PREFIX
     - go version
     - go gopath
     - go env
