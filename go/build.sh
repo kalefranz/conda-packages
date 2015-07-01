@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # export GOROOT
-# export GOROOT_FINAL
+export GOROOT_FINAL=$PREFIX
 # export GOBIN=$GOROOT/bin
 
 
