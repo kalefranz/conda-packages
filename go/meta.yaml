@@ -21,8 +21,9 @@ source:
 
 test:
   commands:
-    - echo $PATH
-    - $PREFIX/bin/go --version
+    - go version
+    - go gopath
+    - go env
 
 about:
   home: https://golang.org
