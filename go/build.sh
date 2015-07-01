@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# export GOROOT
+export GOROOT=$PREFIX
 export GOROOT_FINAL=$PREFIX
-# export GOBIN=$GOROOT/bin
+export GOBIN=$GOROOT/bin
 
 
 pwd
