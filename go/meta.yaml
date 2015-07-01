@@ -5,13 +5,15 @@ package:
 build:
   number: 0
 
-# requirements:
-#   build:
-#     - openssl
-#     - zlib
-#   run:
-#     - openssl
-#     - zlib
+requirements:
+  build:
+    - openssl
+    - pcre
+    - zlib
+  run:
+    - openssl
+    - pcre
+    - zlib
 
 source:
   git_url: https://go.googlesource.com/go
