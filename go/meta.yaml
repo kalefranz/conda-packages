@@ -1,0 +1,22 @@
+package:
+  name: go
+  version: "{{ environ.get('GO_VERSION') }}"
+
+build:
+  number: 0
+
+# requirements:
+#   build:
+#     - openssl
+#     - zlib
+#   run:
+#     - openssl
+#     - zlib
+
+source:
+  git_url: https://go.googlesource.com/go
+  git_tag: "go{{ environ.get('GO_VERSION') }}"
+
+about:
+  home: https://golang.org
+  license: BSD
