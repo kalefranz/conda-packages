@@ -9,5 +9,8 @@ pwd
 ls -al
 ls -al $PREFIX
 
-cd go/src
+cd src
+
+ls -al
+
 ./all.bash
