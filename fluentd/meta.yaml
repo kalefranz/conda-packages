@@ -16,8 +16,8 @@ requirements:
 test:
   commands:
     - |
-      ls -al $PREFIX/lib/libjemalloc.so
       export LD_PRELOAD=$PREFIX/lib/libjemalloc.so
       fluentd --setup ./fluent
       fluentd -c ./fluent/fluent.conf -vv &
+      sleep 5
       echo '{"json":"message"}' | fluent-cat debug.test
