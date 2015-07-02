@@ -13,7 +13,7 @@ requirements:
 
 test:
   commands:
-    - fluentd --setup ./fluent
-    - "fluentd -c ./fluent/fluent.conf -vv &"
-    - > 
+    - |
+      fluentd --setup ./fluent
+      fluentd -c ./fluent/fluent.conf -vv &
       echo '{"json":"message"}' | fluent-cat debug.test
