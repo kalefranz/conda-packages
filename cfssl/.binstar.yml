@@ -5,7 +5,9 @@ platform:
   - linux-64
 
 env:
-  - CFSSL_VERSION=20150701
+  - >
+    CFSSL_VERSION=20150701
+    CFSSL_COMMIT=5b34f85b80d0f6eaeafb2a66a444921b3c0b3f36
 
 before_script:
   - conda update -n root conda-build
