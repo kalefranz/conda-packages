@@ -12,7 +12,6 @@ env:
   - FLUENTD_VERSION=0.12.12
 
 before_script:
-  - printenv
   - conda update -n root conda-build
   - conda config --add channels kalefranz
 
