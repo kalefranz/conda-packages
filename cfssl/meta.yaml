@@ -1,0 +1,26 @@
+package:
+  name: cfssl
+  version: "{{ environ.get('CFSSL_VERSION') }}"
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - go
+    - openssl
+  # run:
+  #   - go
+  #   - openssl
+
+source:
+  git_url: https://github.com/cloudflare/cfssl.git
+  git_tag: "{{ environ.get('CFSSL_VERSION') }}"
+
+test:
+  commands:
+    - cfssl version
+
+about:
+  home: https://github.com/cloudflare/cfssl
+  license: https://github.com/cloudflare/cfssl/blob/master/LICENSE
