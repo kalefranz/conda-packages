@@ -13,9 +13,9 @@ requirements:
   #   - go
   #   - openssl
 
-source:
-  git_url: https://github.com/cloudflare/cfssl.git
-  git_tag: "{{ environ.get('CFSSL_COMMIT') }}"
+# source:
+#   git_url: https://github.com/cloudflare/cfssl.git
+#   git_tag: "{{ environ.get('CFSSL_COMMIT') }}"
 
 test:
   commands:
