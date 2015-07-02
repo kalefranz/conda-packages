@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export GOROOT=$PREFIX
-# export GOPATH=$PREFIX
+# export GOROOT=$PREFIX
+export GOPATH=$PREFIX
 
 ls -al $SRC_DIR
 ls -al $SRC_DIR/cmd
