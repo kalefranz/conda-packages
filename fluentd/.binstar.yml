@@ -1,0 +1,23 @@
+package: fluentd
+user: kalefranz
+
+platform:
+  - linux-64
+
+# engine:
+#   - ruby=1.9
+#   - ruby=2.1
+
+env:
+  - FLUENTD_VERSION=0.12.12
+
+before_script:
+  - printenv
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

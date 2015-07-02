@@ -1,0 +1,19 @@
+package:
+  name: fluentd #"{{ environ.get('PKG_NAME') }}"
+  version: "{{ environ.get('FLUENTD_VERSION') }}"
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - ruby >=1.9.3
+  run:
+    - ruby >=1.9.3
+
+test:
+  commands:
+    - |
+      fluentd --setup ./fluent
+      fluentd -c ./fluent/fluent.conf -vv &
+      echo '{"json":"message"}' | fluent-cat debug.test
