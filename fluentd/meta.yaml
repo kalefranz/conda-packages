@@ -1,5 +1,5 @@
 package:
-  name: fluentd #"{{ environ.get('PKG_NAME') }}"
+  name: "{{ environ.get('BINSTAR_PACKAGE') }}"
   version: "{{ environ.get('FLUENTD_VERSION') }}"
 
 build:
@@ -15,5 +15,5 @@ test:
   commands:
     - |
       fluentd --setup ./fluent
-      fluentd -c ./fluent/fluent.conf -vv &
+      fluentd -c ./fluent/fluent.conf -vv \&
       echo '{"json":"message"}' | fluent-cat debug.test
