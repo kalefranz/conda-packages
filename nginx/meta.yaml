@@ -1,34 +1,32 @@
 package:
-    name: nginx
-    version: "{{ environ.get('NGINX_VERSION') }}"
+  name: nginx
+  version: "{{ environ.get('NGINX_VERSION') }}"
 
 source:
-    fn: "nginx-{{ environ.get('NGINX_VERSION') }}.tar.gz"
-    url: "http://nginx.org/download/nginx-{{ environ.get('NGINX_VERSION') }}.tar.gz"
-    sha256: "{{ environ.get('NGINX_HASH') }}"
-    patches:
-       - configure.patch
-
-build:
+  fn: "nginx-{{ environ.get('NGINX_VERSION') }}.tar.gz"
+  url: "http://nginx.org/download/nginx-{{ environ.get('NGINX_VERSION') }}.tar.gz"
+  sha256: "{{ environ.get('NGINX_HASH') }}"
+  patches:
+    - configure.patch
+  build:
     number: 2
     no_link: etc/*
     detect_binary_files_with_prefix: true
 
 requirements:
-    build:
-        - openssl
-        - pcre
-        - zlib
-
-    run:
-        - openssl
-        - pcre
-        - zlib
+  build:
+    - openssl
+    - pcre
+    - zlib
+  run:
+    - openssl
+    - pcre
+    - zlib
 
 test:
   commands:
     - nginx -V
 
 about:
-    home: http://www.nginx.org
-    license: 2-clause BSD-like license
+  home: http://www.nginx.org
+  license: 2-clause BSD-like license
