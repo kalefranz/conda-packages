@@ -1,0 +1,19 @@
+package:
+  name: java-jdk
+  version: "{{ environ.get('JAVA_JDK_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "{{ environ.get('JAVA_JDK_FN') }}"
+  md5: "{{ environ.get('JAVA_JDK_HASH') }}"
+  url: "{{ environ.get('JAVA_JDK_URL') }}"
+
+test:
+  commands:
+    - java -version
+
+about:
+  home: http://www.azulsystems.com/products/zulu
+  license: GPL

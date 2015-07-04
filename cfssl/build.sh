@@ -1,6 +1,6 @@
 #!/bin/bash
 
-which -a go
+
 printenv
 
 
