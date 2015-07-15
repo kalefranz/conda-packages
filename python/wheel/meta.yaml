@@ -1,0 +1,25 @@
+package:
+  name: wheel
+  version: "{{ environ.get('WHEEL_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "wheel-{{ environ.get('WHEEL_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/w/wheel/wheel-{{ environ.get('WHEEL_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('WHEEL_HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - "python -c 'from wheel import etree, html'"
+
+about:
+  home: http://github.com/wheel/wheel
+  license: BSD

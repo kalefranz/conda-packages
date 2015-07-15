@@ -1,0 +1,23 @@
+package: wheel
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    WHEEL_VERSION=0.24.0
+    WHEEL_HASH=3b0d66f0d127ea8befaa5d11453107fd
+
+before_script:
+  - conda update -n root conda-build
+  - conda config --add channels kalefranz
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
