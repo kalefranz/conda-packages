@@ -18,8 +18,8 @@ requirements:
 
 test:
   commands:
-    - "python -c 'from wheel import etree, html'"
+    - python -c 'from wheel import paths'
 
 about:
-  home: http://github.com/wheel/wheel
-  license: BSD
+  home: https://bitbucket.org/pypa/wheel
+  license: MIT
