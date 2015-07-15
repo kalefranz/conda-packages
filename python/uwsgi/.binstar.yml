@@ -9,6 +9,9 @@ engine:
 
 env:
   - >
+    UWSGI_VERSION=2.0.11
+    UWSGI_HASH=c641966a6571d4386d607a87dfae5cb7
+  - >
     UWSGI_VERSION=2.0.10
     UWSGI_HASH=7a9be0db5f6a8d4150dc5e9e0517ce80
 

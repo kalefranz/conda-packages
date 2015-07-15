@@ -16,6 +16,7 @@ requirements:
     - jansson
     - openssl
     - pcre
+    - wheel
     - yaml
     - zlib
   run:
@@ -23,6 +24,7 @@ requirements:
     - jansson
     - openssl
     - pcre
+    - wheel
     - yaml
     - zlib
 
