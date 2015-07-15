@@ -6,7 +6,7 @@ import urllib
 import urllib2
 
 
-BASE_URL = 'https://conda.binstar.org'
+BASE_URL = 'https://conda.anaconda.org'
 REPO = 'kalefranz'
 ARCH = 'linux-64'
 
