@@ -1,0 +1,30 @@
+package:
+  name: lxml
+  version: "{{ environ.get('LXML_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "lxml-{{ environ.get('LXML_VERSION') }}.tar.gz"
+  url: "https://pypi.python.org/packages/source/l/lxml/lxml-{{ environ.get('LXML_VERSION') }}.tar.gz"
+  md5: "{{ environ.get('LXML_HASH') }}"
+
+requirements:
+  build:
+    - python
+    - cython
+    - libxml2
+    - libxslt
+  run:
+    - python
+    - libxml2
+    - libxslt
+
+test:
+  commands:
+    - "python -c 'from lxml import etree, html'"
+
+about:
+  home: http://github.com/lxml/lxml
+  license: BSD
