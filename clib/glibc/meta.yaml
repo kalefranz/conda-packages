@@ -1,15 +1,8 @@
 package:
   name: glibc
-  version: "{{ environ.get('GLIBC_VERSION') }}"
-
-build:
-  number: 1
-
-source:
-  fn: "glibc-{{ environ.get('GLIBC_VERSION') }}.tar.gz"
-  url: "http://gnu.spinellicreations.com/libc/glibc-{{ environ.get('GLIBC_VERSION') }}.tar.gz"
-  sha256: "{{ environ.get('GLIBC_HASH') }}"
+  version: 2.17
 
 about:
   home: http://www.gnu.org/software/libc/
   license: LGPL
+  summary: "Any Unix-like operating system needs a C library: the library which defines the ``system calls'' and other basic facilities such as open, malloc, printf, exit..."

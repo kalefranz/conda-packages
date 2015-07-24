@@ -1,11 +1,5 @@
-#/bin/bash -eu
+#!/bin/bash -eu
 
-mkdir build
-pushd build
-
-../configure --help
-
-../configure --prefix=$PREFIX
-make
-# make tests
-make install
+mkdir -p $PREFIX/lib/
+cp /lib/x86_64-linux-gnu/libc.* $PREFIX/lib/
+cp /lib/x86_64-linux-gnu/libc-* $PREFIX/lib/
