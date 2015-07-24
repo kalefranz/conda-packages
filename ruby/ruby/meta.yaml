@@ -18,13 +18,13 @@ test:
 
 requirements:
   build:
-    - -c asmeurer glibc
+    - glibc
     - openssl
     - readline
     - yaml
     - zlib
   run:
-    - -c asmeurer glibc
+    - glibc
     - openssl
     - readline
     - yaml
