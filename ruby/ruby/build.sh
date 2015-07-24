@@ -1,4 +1,7 @@
 #!/bin/bash -eu
+
+./configure --help
+
 ./configure \
         --prefix=$PREFIX \
         --enable-load-relative \
