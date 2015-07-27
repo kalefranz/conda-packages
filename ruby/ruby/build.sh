@@ -7,6 +7,7 @@
         --enable-load-relative \
         --disable-install-doc \
         --enable-shared \
+        --with-static-linked-ext \
         --with-opt-dir=$PREFIX \
         --with-libyaml-dir=$PREFIX \
         --with-openssl-dir=$PREFIX \
