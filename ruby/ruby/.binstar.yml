@@ -22,7 +22,6 @@ env:
     RUBY_HASH=bb5be55cd1f49c95bb05b6f587701376b53d310eb1bb7c76fbd445a1c75b51e8
 
 before_script:
-  - conda update conda
   - conda update -n root conda-build
   - conda config --add channels kalefranz
 
