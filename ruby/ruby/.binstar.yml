@@ -8,12 +8,12 @@ engine:
   - python=2
 
 env:
-  - >
-    RUBY_VERSION=2.1.6
-    RUBY_BUILD_NUM=0
-    RUBY_FN=ruby-2.1.6.tar.gz
-    RUBY_URL=http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.6.tar.gz
-    RUBY_HASH=1e1362ae7427c91fa53dc9c05aee4ee200e2d7d8970a891c5bd76bee28d28be4
+  # - >
+  #   RUBY_VERSION=2.1.6
+  #   RUBY_BUILD_NUM=0
+  #   RUBY_FN=ruby-2.1.6.tar.gz
+  #   RUBY_URL=http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.6.tar.gz
+  #   RUBY_HASH=1e1362ae7427c91fa53dc9c05aee4ee200e2d7d8970a891c5bd76bee28d28be4
   - >
     RUBY_VERSION=1.9.3
     RUBY_BUILD_NUM=551
