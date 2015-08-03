@@ -1,14 +1,14 @@
 package:
   name: ruby
-  version: "{{ environ.get('RUBY_VERSION') }}"
+  version: 1.9.3
 
 build:
-  number: "{{ environ.get('RUBY_BUILD_NUM') }}"
+  number: 551
 
 source:
-  fn: "{{ environ.get('RUBY_FN') }}"
-  url: "{{ environ.get('RUBY_URL') }}"
-  sha256: "{{ environ.get('RUBY_HASH') }}"
+  fn: ruby-1.9.3-p551.tar.gz
+  url: http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p551.tar.gz
+  sha256: bb5be55cd1f49c95bb05b6f587701376b53d310eb1bb7c76fbd445a1c75b51e8
 
 test:
   commands:
@@ -18,13 +18,11 @@ test:
 
 requirements:
   build:
-    - ncurses
     - openssl
     - readline
     - yaml
     - zlib
   run:
-    - ncurses
     - openssl
     - readline
     - yaml

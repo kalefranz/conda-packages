@@ -4,12 +4,8 @@ user: kalefranz
 platform:
   - linux-64
 
-# engine:
-#   - ruby=1.9
-#   - ruby=2.1
-
 env:
-  - FLUENTD_VERSION=0.12.12
+  - FLUENTD_VERSION=0.12.14
 
 before_script:
   - conda update -n root conda-build

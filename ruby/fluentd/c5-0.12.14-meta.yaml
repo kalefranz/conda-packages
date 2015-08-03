@@ -1,16 +1,16 @@
 package:
-  name: "{{ environ.get('BINSTAR_PACKAGE') }}"
-  version: "{{ environ.get('FLUENTD_VERSION') }}"
+  name: fluentd
+  version: 0.12.14
 
 build:
   number: 0
 
 requirements:
   build:
-    - ruby 1.9.3
+    - ruby >=1.9.3
     - jemalloc
   run:
-    - ruby 1.9.3
+    - ruby >=1.9.3
     - jemalloc
 
 test:

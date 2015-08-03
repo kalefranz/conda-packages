@@ -1,0 +1,80 @@
+#!/usr/bin/env python
+import hashlib
+import json
+import os
+import sys
+import urllib
+import urllib2
+
+
+BASE_URL = 'https://conda.anaconda.org'
+REPO = 'kalefranz'
+ARCH = 'linux-64'
+
+# DEST_DIR = os.path.dirname(os.path.realpath(__file__))
+BASE_LOCATION = sys.argv[1] if len(sys.argv) == 2 else os.getcwd()
+os.chdir(BASE_LOCATION)
+BASE_LOCATION = os.getcwd()
+
+ARCHS = [x[0].replace('./', '', 1) for x in os.walk('.') if x[0] != '.']
+print ARCHS
+
+def get_remote_repodata(arch):
+    url = "{}/{}/{}/repodata.json".format(BASE_URL, REPO, arch)
+    print url
+    response = urllib2.urlopen(url)
+    return json.loads(response.read())
+
+
+def get_local_repodata():
+    try:
+        return json.loads(open('repodata.json', 'r').read())
+    except IOError:
+        return dict(packages={})
+
+
+def expand(*path):
+    joined = os.path.join(*path)
+    return os.path.normpath(os.path.expanduser(os.path.expandvars(joined)))
+
+
+def download(filename, expected_hash):
+    url = "{}/{}/{}/{}".format(BASE_URL, REPO, ARCH, filename)
+    print url
+    urllib.urlretrieve(url, filename)
+    actual_hash = hashlib.md5(open(filename, 'rb').read()).hexdigest()
+    if actual_hash != expected_hash:
+        raise IOError(filename)
+    return actual_hash
+
+
+def update_directory(arch):
+    local_data = get_local_repodata()
+    remote_data = get_remote_repodata(arch)
+    local_packages = set(local_data['packages'].keys())
+    remote_packages = set(remote_data['packages'].keys())
+
+    remove_these = local_packages - remote_packages
+    download_these = remote_packages - local_packages
+    matched_names = local_packages.intersection(remote_packages)
+    for package_name in matched_names:
+        local_md5 = local_data.get('packages', {}).get(package_name, {}).get('md5', None)
+        if local_md5 != remote_data['packages'][package_name]['md5']:
+            download_these.add(package_name)
+
+    for filename in download_these:
+        expected_hash = remote_data['packages'][filename]['md5']
+        actual_hash = download(filename, expected_hash)
+
+    with open('repodata.json', 'w') as f:
+        f.write(json.dumps(remote_data))
+
+
+def main():
+    for arch in ARCHS:
+        os.chdir(expand(BASE_LOCATION, arch))
+        update_directory(arch)
+
+
+if __name__ == '__main__':
+    main()
