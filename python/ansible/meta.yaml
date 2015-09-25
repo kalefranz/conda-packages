@@ -1,0 +1,25 @@
+package:
+  name: ansible
+  version: "{{ environ.get('ANSIBLE_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "Ansible-{{ environ.get('ANSIBLE_VERSION') }}.tar.gz"
+  url: "{{ environ.get('ANSIBLE_URL') }}"
+  md5: "{{ environ.get('ANSIBLE_HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - python -c 'import ansible'
+
+about:
+  home: https://www.ansibleproject.com
+  license: BSD

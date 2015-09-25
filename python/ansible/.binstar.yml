@@ -1,0 +1,23 @@
+package: ansible
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    ANSIBLE_VERSION=1.9.3
+    ANSIBLE_URL=https://pypi.python.org/packages/source/a/ansible/ansible-1.9.3.tar.gz
+    ANSIBLE_HASH=55be10fca4e9e0172a15e88874028eff
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
