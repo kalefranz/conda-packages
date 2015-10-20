@@ -1,0 +1,25 @@
+package:
+  name: ansible
+  version: "{{ environ.get('VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "{{ environ.get('FILENAME') }}"
+  url: "{{ environ.get('URL') }}"
+  md5: "{{ environ.get('HASH') }}"
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - python -c 'import iptc'
+
+about:
+  home: https://github.com/ldx/python-iptables
+  license: Apache

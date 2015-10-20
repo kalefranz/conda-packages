@@ -1,6 +1,4 @@
 #/bin/bash -eu
 
 UWSGI_INCLUDES="${PREFIX}/include,${PREFIX}/openssl/include" \
-    $PYTHON uwsgiconfig.py --build
-
-mv uwsgi $PREFIX/bin
+    $PYTHON setup.py install

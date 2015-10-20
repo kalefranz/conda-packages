@@ -1,25 +1,37 @@
 package:
   name: ansible
-  version: "{{ environ.get('ANSIBLE_VERSION') }}"
+  version: 1.9.3
 
 build:
   number: 0
 
 source:
-  fn: "Ansible-{{ environ.get('ANSIBLE_VERSION') }}.tar.gz"
-  url: "{{ environ.get('ANSIBLE_URL') }}"
-  md5: "{{ environ.get('ANSIBLE_HASH') }}"
+  fn: Ansible-1.9.3.tar.gz
+  url: https://pypi.python.org/packages/source/a/ansible/ansible-1.9.3.tar.gz
+  md5: 55be10fca4e9e0172a15e88874028eff
 
 requirements:
   build:
-    - python
+    - python 2.7.*
+    - paramiko
+    - jinja2
+    - pyyaml
+    - setuptools
+    - pycrypto >=2.6
+    - six
   run:
-    - python
+    - python 2.7.*
+    - paramiko
+    - jinja2
+    - pyyaml
+    - setuptools
+    - pycrypto >=2.6
+    - six
 
 test:
   commands:
     - python -c 'import ansible'
 
 about:
-  home: https://www.ansibleproject.com
-  license: BSD
+  home: https://github.com/ansible/ansible
+  license: GPLv3

@@ -43,6 +43,7 @@ chmod +x configure
     --http-uwsgi-temp-path=/var/tmp/nginx/uwsgi \
     --with-pcre \
     --with-http_ssl_module \
+    --with-http_realip_module \
     --conf-path=etc/nginx/nginx.conf \
     --with-cc-opt="-I$PREFIX/include" \
     --with-ld-opt="-L$PREFIX/lib" \

@@ -1,0 +1,24 @@
+package: python-iptables
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    VERSION=0.9.0
+    FILENAME=python-iptables-0.9.0.tar.gz
+    URL=https://pypi.python.org/packages/source/p/python-iptables/python-iptables-0.9.0.tar.gz
+    HASH=249d39ce82a5fc23eca3c7e50aa55aeb
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda
