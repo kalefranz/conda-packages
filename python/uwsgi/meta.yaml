@@ -31,8 +31,7 @@ requirements:
 test:
   commands:
     - uwsgi --help
-    # - python -c "import uwsgi"
-    - python -c "import uwsgidecorators"
+    - uwsgi --version
 
 about:
   home: http://unbit.com/
