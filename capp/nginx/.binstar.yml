@@ -11,15 +11,15 @@ env:
   - >
     NGINX_VERSION=1.9.5
     NGINX_HASH=48e2787a6b245277e37cb7c5a31b1549a0bbacf288aa4731baacf9eaacdb481b
-  - >
-    NGINX_VERSION=1.9.2
-    NGINX_HASH=80b6425be14a005c8cb15115f3c775f4bc06bf798aa1affaee84ed9cf641ed78
-  - >
-    NGINX_VERSION=1.9.1
-    NGINX_HASH=09f555fae694c0944f172b575ad239f56d40d14559d98e843de0a690f38c1dad
-  - >
-    NGINX_VERSION=1.9.0
-    NGINX_HASH=e12aa1d5b701edde880ebcc7be47ca171c3fbeed8fa7c8c62054a6f19d27f248
+  # - >
+  #   NGINX_VERSION=1.9.2
+  #   NGINX_HASH=80b6425be14a005c8cb15115f3c775f4bc06bf798aa1affaee84ed9cf641ed78
+  # - >
+  #   NGINX_VERSION=1.9.1
+  #   NGINX_HASH=09f555fae694c0944f172b575ad239f56d40d14559d98e843de0a690f38c1dad
+  # - >
+  #   NGINX_VERSION=1.9.0
+  #   NGINX_HASH=e12aa1d5b701edde880ebcc7be47ca171c3fbeed8fa7c8c62054a6f19d27f248
 
 before_script:
   - conda update -n root conda-build
