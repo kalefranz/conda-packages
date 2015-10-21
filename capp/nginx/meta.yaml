@@ -8,10 +8,11 @@ source:
   sha256: "{{ environ.get('NGINX_HASH') }}"
   patches:
     - configure.patch
-  build:
-    number: 2
-    no_link: etc/*
-    detect_binary_files_with_prefix: true
+
+build:
+  number: 2
+  no_link: etc/*
+  detect_binary_files_with_prefix: true
 
 requirements:
   build:
