@@ -1,0 +1,35 @@
+package:
+  name: nginx
+  version: 1.9.5
+
+source:
+  fn: nginx-1.9.5.tar.gz
+  url: http://nginx.org/download/nginx-1.9.5.tar.gz
+  sha256: 48e2787a6b245277e37cb7c5a31b1549a0bbacf288aa4731baacf9eaacdb481b
+  patches:
+    - configure.patch
+
+build:
+  number: 2
+  no_link: etc/*
+  detect_binary_files_with_prefix: true
+
+requirements:
+  build:
+    - gcc
+    - openssl
+    - pcre
+    - zlib
+  run:
+    - openssl
+    - pcre
+    - zlib
+
+test:
+  commands:
+    - nginx -V
+
+about:
+  home: http://www.nginx.org
+  license: 2-clause BSD-like license
+

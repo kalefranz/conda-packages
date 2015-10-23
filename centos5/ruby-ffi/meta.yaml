@@ -1,0 +1,27 @@
+package:
+  name: ruby-ffi
+  version: 1.9.8
+
+build:
+  number: 0
+
+source:
+  git_url: https://github.com/ffi/ffi.git
+  git_tag: d9db89
+
+test:
+  commands:
+    - ruby -e 'require "ffi"'
+
+requirements:
+  build:
+    - libffi
+    - ruby
+  run:
+    - libffi
+    - ruby
+
+about:
+  home: https://github.com/ffi/ffi
+  license: BSD
+
