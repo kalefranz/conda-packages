@@ -1,0 +1,21 @@
+package:
+  name: vault
+  version: 0.3.1
+
+build:
+  number: 0
+
+source:
+  fn: vault_0.3.1_linux_amd64.zip
+  url: https://releases.hashicorp.com/vault/0.3.1/vault_0.3.1_linux_amd64.zip
+  sha256: 4005f0ae1bd88ad2676859430209129ed13bc3ade6b64fcf40cc3a6d4d9469e7
+
+test:
+  commands:
+    - vault help || true
+    - vault version
+
+about:
+  home: https://vaultproject.io
+  license: https://github.com/hashicorp/vault/blob/master/LICENSE
+
