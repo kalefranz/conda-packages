@@ -42,8 +42,10 @@ chmod +x configure
     --http-scgi-temp-path=/var/tmp/nginx/scgi \
     --http-uwsgi-temp-path=/var/tmp/nginx/uwsgi \
     --with-pcre \
-    --with-http_ssl_module \
+    --with-pcre-jit \
     --with-http_realip_module \
+    --with-http_ssl_module \
+    --with-http_stub_status_module \
     --conf-path=etc/nginx/nginx.conf \
     --with-cc-opt="-I$PREFIX/include" \
     --with-ld-opt="-L$PREFIX/lib" \
