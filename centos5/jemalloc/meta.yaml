@@ -1,0 +1,15 @@
+package:
+  name: jemalloc
+  version: 4.0.4
+
+build:
+  number: 0
+
+source:
+  fn: jemalloc-4.0.4.tar.bz2
+  url: https://github.com/jemalloc/jemalloc/releases/download/4.0.4/jemalloc-4.0.4.tar.bz2
+  sha256: 3fda8d8d7fcd041aa0bebbecd45c46b28873cf37bd36c56bf44961b36d0f42d0
+
+about:
+  home: https://github.com/jemalloc/jemalloc
+  license: BSD
