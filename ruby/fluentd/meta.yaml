@@ -7,10 +7,10 @@ build:
 
 requirements:
   build:
-    - ruby 1.9.3
+    - ruby 2.2.3
     - jemalloc
   run:
-    - ruby 1.9.3
+    - ruby 2.2.3
     - jemalloc
 
 test:
