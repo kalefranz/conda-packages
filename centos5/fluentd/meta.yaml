@@ -1,24 +1,23 @@
 package:
   name: fluentd
-  version: 0.12.14
+  version: 0.12.17
 
 build:
   number: 0
 
 requirements:
   build:
-    - ruby 1.9.3
-    - jemalloc
+    - ruby >=2.2.3
   run:
-    - ruby 1.9.3
-    - jemalloc
+    - ruby >=2.2.3
 
 test:
   commands:
     - |
-      export LD_PRELOAD=$PREFIX/lib/libjemalloc.so
       fluentd --setup ./fluent
-      fluentd -c ./fluent/fluent.conf -vv &
+      fluentd -c ./fluent/fluent.conf -vv > test_output.log &
       sleep 5
-      echo '{"json":"message"}' | fluent-cat debug.test
-
+      echo '{"json":"very unique message"}' | fluent-cat debug.test
+      grep "very unique message" test_output.log
+      kill %1
+      wait
