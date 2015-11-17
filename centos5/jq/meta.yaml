@@ -9,7 +9,6 @@ requirements:
   build:
     - ruby
 
-
 source:
   fn: jq-1.5.tar.gz
   url: https://github.com/stedolan/jq/releases/download/jq-1.5/jq-1.5.tar.gz
