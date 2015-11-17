@@ -18,6 +18,7 @@ test:
 
 requirements:
   build:
+    - gcc
     - jemalloc
     - openssl
     - readline
