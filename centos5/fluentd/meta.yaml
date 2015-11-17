@@ -17,7 +17,7 @@ test:
     - fluentd --setup ./fluent
     - fluentd -c ./fluent/fluent.conf -vv > test_output.log &
     - sleep 5
-    - echo '{"json":"very unique message"}' | fluent-cat debug.test
+    - echo "a very unique message indeed" | fluent-cat debug.test
     - grep "very unique message" test_output.log
     - kill %1
     - wait
