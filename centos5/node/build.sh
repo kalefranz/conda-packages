@@ -1,8 +1,13 @@
 #!/bin/bash -eu
 
+ldd --version
+
 ./configure --help
 
-$PYTHON ./configure --prefix=$PREFIX
+export CFLAGS="-I$PREFIX/include"
+export CPPFLAGS="-I$PREFIX/include"
+
+$PYTHON ./configure --prefix=$PREFIX --fully-static
 
 #    --shared-openssl \
 #    --shared-openssl-includes=$PREFIX/include \

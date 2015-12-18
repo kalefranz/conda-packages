@@ -8,7 +8,7 @@ build:
 requirements:
   build:
     - gcc
-    - llvm
+    - libc-musl
     - python
 
 test:
