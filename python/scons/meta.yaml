@@ -18,5 +18,5 @@ requirements:
 
 test:
   commands:
-    - python -c 'import SCons.Action'
+    - python -c 'import SCons'
 
