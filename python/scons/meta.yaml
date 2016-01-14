@@ -7,7 +7,7 @@ build:
 
 source:
   fn: "scons-{{ environ.get('SCONS_VERSION') }}.tar.gz"
-  url: "{{ environ.get('SCONS_URL') }}.tar.gz"
+  url: "{{ environ.get('SCONS_URL') }}"
   md5: "{{ environ.get('SCONS_HASH') }}"
 
 requirements:
