@@ -1,0 +1,23 @@
+package: scons
+user: kalefranz
+
+platform:
+  - linux-64
+
+engine:
+  - python=2
+
+env:
+  - >
+    SCONS_VERSION=2.4.1
+    SCONS_URL=https://pypi.python.org/packages/source/S/SCons/scons-2.4.1.tar.gz
+    SCONS_HASH=78a7e0d8ae778474ad02f75256d28897
+
+before_script:
+  - conda update -n root conda-build
+
+script:
+  - conda build .
+
+build_targets:
+  - conda

@@ -1,0 +1,22 @@
+package:
+  name: scons
+  version: "{{ environ.get('SCONS_VERSION') }}"
+
+build:
+  number: 0
+
+source:
+  fn: "scons-{{ environ.get('SCONS_VERSION') }}.tar.gz"
+  url: "{{ environ.get('SCONS_URL') }}.tar.gz"
+  md5: "{{ environ.get('SCONS_HASH') }}"
+
+requirements:
+  build:
+    - python 2.7.*
+  run:
+    - python 2.7.*
+
+test:
+  commands:
+    - python -c 'import SCons.Action'
+
