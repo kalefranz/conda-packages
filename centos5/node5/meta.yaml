@@ -1,0 +1,30 @@
+package:
+  name: node
+  version: 5.5.0
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - gcc
+    - python
+    - openssl
+    - zlib
+  run:
+    - openssl
+    - zlib
+
+test:
+  commands:
+    - node -e "console.log('Hello from node.js ' + process.version)"
+
+source:
+  fn: node-v5.5.0.tar.gz
+  url: https://nodejs.org/dist/v5.5.0/node-v5.5.0.tar.gz
+  sha256: d69b18cc20699a35434858fb853997616762280610a510ec4b4ff1a94798b432
+
+about:
+  home: https://nodejs.org
+  license: MIT
+

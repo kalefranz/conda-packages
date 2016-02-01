@@ -1,0 +1,30 @@
+package:
+  name: node
+  version: 4.2.6
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - gcc
+    - python
+    - openssl
+    - zlib
+  run:
+    - openssl
+    - zlib
+
+test:
+  commands:
+    - node -e "console.log('Hello from node.js ' + process.version)"
+
+source:
+  fn: node-v4.2.6.tar.gz
+  url: https://nodejs.org/dist/v4.2.6/node-v4.2.6.tar.gz
+  sha256: ea5e357db8817052b17496d607c719d809ed1383e8fcf7c8ffc5214e705aefdd
+
+about:
+  home: https://nodejs.org
+  license: MIT
+
