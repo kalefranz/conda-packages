@@ -2,10 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "chef/centos-6.6"
-
-    # config.ssh.username = "ttam"
-    # config.ssh.private_key_path = "~/ttam/ansible/keys/ttam-shared"
+    config.vm.box = "bento/centos-5.11"
 
     config.vm.synced_folder ".", "/vagrant", type: "nfs", nfs_udp: false
 
@@ -15,13 +12,14 @@ Vagrant.configure("2") do |config|
       v.vmx["cpuid.coresPerSocket"] = "2"
     end
 
-    config.vm.provision "ansible" do |ansible|
-        ansible.playbook = "/Users/kfranz/ttam/ansible/pb/vagrant-bootstrap.yml"
-    end
+    config.vm.provision "shell", inline: "sudo yum install -y python-simplejson"
 
     config.vm.provision "ansible" do |ansible|
-        ansible.playbook = "/Users/kfranz/ttam/ansible/pb/role.yml"
-        ansible.extra_vars = {:ROLE => 'python'}
+      ansible.playbook = "../ansible/vagrant-bootstrap.yml"
     end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "../ansible/vagrant-conda.yml"
+  end
 
 end
