@@ -1,0 +1,30 @@
+package:
+  name: mongodb
+  {#version: "{{ environ.get('GIT_VERSION') }}" #}
+  version: 3.2.1
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - gcc >=4.8.2
+    - scons
+    - python 2.7*
+    - scons
+    - openssl
+    - pip
+  run:
+    - openssl
+
+source:
+  {# fn: "mod_wsgi-httpd-{{ APACHE_VERSION }}.tar.gz"
+  # url: "https://pypi.python.org/packages/source/m/mod_wsgi-httpd/mod_wsgi-httpd-{{ APACHE_VERSION }}.tar.gz"
+  # sha256: "{{ environ.get('APACHE_HASH') }}"#}
+  fn: mongodb-src-r3.2.1.tar.gz
+  url: https://fastdl.mongodb.org/src/mongodb-src-r3.2.1.tar.gz
+  sha256: 50431a3ba5ab68bd0bed4a157a8528ca27753a63cf101f13135255e4e9d42f15
+
+about:
+  home: https://www.mongodb.org/
+  license: AGPL
