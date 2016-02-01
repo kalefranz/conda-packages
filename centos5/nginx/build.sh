@@ -2,6 +2,8 @@
 
 MACHINE="$(uname 2>/dev/null)"
 
+export CC="$PREFIX/bin/gcc"
+export CXX="$PREFIX/bin/g++"
 export CFLAGS="-Wall -g -m64 -pipe -O2 -march=x86-64 -fPIC"
 export CXXLAGS="${CFLAGS}"
 export CPPFLAGS="-I${PREFIX}/include"

@@ -1,16 +1,16 @@
 package:
   name: nginx
-  version: 1.9.6
+  version: 1.9.10
 
 source:
-  fn: nginx-1.9.6.tar.gz
-  url: http://nginx.org/download/nginx-1.9.6.tar.gz
-  sha256: ed501fc6d0eff9d3bc1049cc1ba3a3ac8c602de046acb2a4c108392bbfa865ea
+  fn: nginx-1.9.10.tar.gz
+  url: http://nginx.org/download/nginx-1.9.10.tar.gz
+  sha256: fb14d76844cab0a5a0880768be28965e74f9956790f618c454ef6098e26631d9
   patches:
     - configure.patch
 
 build:
-  number: 2
+  number: 1
   no_link: etc/*
   detect_binary_files_with_prefix: true
 
