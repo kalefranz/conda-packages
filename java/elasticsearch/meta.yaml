@@ -1,0 +1,28 @@
+package:
+  name: elasticsearch
+  version: 1.7.5
+
+build:
+  number: 0
+
+source:
+  git_rev: v1.7.5
+  git_url: https://github.com/elastic/elasticsearch.git
+
+
+requirements:
+  build:
+    - java-jdk
+    - maven
+  run:
+    - java-jdk
+
+test:
+  commands:
+    - export JAVA_HOME=$(readlink -f $PREFIX/bin/java | sed "s:/bin/java::")
+    - elasticsearch --help
+    - elasticsearch -v
+
+about:
+  home: https://www.elastic.co
+  license: Apache
