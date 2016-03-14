@@ -1,0 +1,231 @@
+package:
+  name: anaconda
+  version: latest
+
+build:
+  number: 0
+  string: "{{ 'np' ~ os.environ['CONDA_NPY'] ~ 'py' ~ os.environ['CONDA_PY'] }}"
+
+requirements:
+  run:
+                                               # Apps
+    - launcher            [(osx or win) and (py27 or py >= 34)]
+    - node-webkit         [(osx or win) and (py27 or py >= 34)]
+    - ipython-qtconsole   [py >= 27]
+    - ipython-notebook    [py >= 27]
+
+                                               # all Python versions
+    - abstract-rendering  [unix]
+    - alabaster
+    - anaconda-client
+    - appnope             [osx]
+    - argcomplete
+    - astropy
+    - babel
+    - backports_abc       [py < 35]
+    - beautifulsoup4
+    - bitarray
+    - blaze
+    - bokeh
+    - boto
+    - bottleneck
+    - bzip2               [win]
+    - chest
+    - cffi
+    - cloudpickle
+    - clyent
+    - colorama
+    - comtypes            [win]
+    - configobj
+    - console_shortcut    [win]
+    - cryptography
+    - curl
+    - cycler
+    - cython
+    - cytoolz
+    - dask
+    - datashape
+    - decorator
+    - dill
+    - docutils
+    - dynd-python       [not (linux32 or py34 or (win and py27))]
+    - libdynd           [not (linux32 or py34 or (win and py27))]
+    - et_xmlfile
+    - fastcache
+    - flask
+    - flask-cors
+    - fontconfig        [linux]
+    - freetype
+    - futures
+    - gevent
+    - greenlet
+    - h5py
+    - hdf5
+    - heapdict
+    - idna
+    - ipykernel
+    - ipython
+    - ipython_genutils
+    - ipywidgets
+    - itsdangerous
+    - jbig              [unix]
+    - jdcal
+    - jedi
+    - jinja2
+    - jpeg
+    - jsonschema
+    - jupyter
+    - jupyter_client
+    - jupyter_console
+    - jupyter_core
+    - libffi            [linux]
+    - libgfortran       [linux]
+    - libpng
+    - libsodium         [not osx]
+    - libtiff
+    - libxml2           [unix]
+    - libxslt           [unix]
+    - llvmlite
+    - locket
+    - lxml
+    - markupsafe
+    - matplotlib
+    - mpmath
+    - mistune
+    - mkl
+    - mkl-service
+    - vs2008_runtime    [win and py27]
+    - vs2010_runtime    [win and py34]
+    - vs2015_runtime    [win and py35]
+    - multipledispatch
+    - nbconvert
+    - nbformat
+    - networkx
+    - nltk
+    - nose
+    - notebook
+    - numba
+    - numexpr
+    - numpy >=1.6,<1.7    [np == 16]
+    - numpy >=1.7,<1.8    [np == 17]
+    - numpy >=1.8,<1.9    [np == 18]
+    - numpy >=1.9,<1.10   [np == 19]
+    - numpy >=1.10,<1.11  [np == 110]
+    - odo
+    - openpyxl
+    - openssl           [unix]
+    - pandas
+    - partd
+    - patchelf          [linux]
+    - path.py
+    - patsy
+    - pep8
+    - pexpect           [unix]
+    - pickleshare
+    - pillow
+    - pip
+    - ply
+    - psutil
+    - ptyprocess        [unix]
+    - py
+    - pyasn1
+    - pycosat
+    - pycparser
+    - pycrypto
+    - pycurl            [unix]
+    - pyflakes
+    - pygments
+    - pyopenssl
+    - pyparsing
+    - pyqt
+    - pyreadline        [win]
+    - pytables
+    - pytest
+    - python >=2.6,<2.7   [py26]
+    - python >=2.7,<2.8   [py27]
+    - python >=3.3,<3.4   [py33]
+    - python >=3.4,<3.5   [py34]
+    - python >=3.5,<3.6   [py35]
+    - python-dateutil
+    - pytz
+    - pyyaml
+    - pyzmq
+    - qt
+    - qtconsole
+    - readline          [unix]
+    - requests
+    - rope
+    - scikit-image
+    - scikit-learn
+    - scipy
+    - setuptools
+    - simplegeneric
+    - singledispatch
+    - sip
+    - six
+    - snowballstemmer
+    - sockjs-tornado
+    - sphinx
+    - sphinx_rtd_theme
+    - spyder
+    - sqlalchemy
+    - sqlite             [unix]
+    - ssl_match_hostname [py2k]
+    - statsmodels
+    - sympy
+    - terminado         [unix]
+    - tk
+    - toolz
+    - tornado
+    - traitlets
+    - unicodecsv
+    - werkzeug
+    - wheel
+    - xlrd
+    - xlsxwriter
+    - xlwt
+    - xz                 [unix]
+    - yaml               [unix]
+    - zeromq             [unix]
+    - zlib
+
+                                               # Python 2.7
+    - pyaudio           [py27 and osx]
+
+                                               # below Python 3.4
+    - enum34            [py < 34]
+
+                                               # Python 2.x
+    - cdecimal           [py2k]
+    - funcsigs           [py2k]
+    - gevent-websocket   [py2k]
+    - grin               [py2k]
+    - ipaddress          [py2k]
+
+                                               # Linux
+    - pycairo           [linux and py2k]
+    - cairo             [linux and py2k]
+    - util-linux        [linux]
+    - pixman            [linux and py2k]
+
+                                               # Linux 64 + Mac
+    - redis             [linux64 or osx]
+    - redis-py          [linux64 or osx]
+
+                                               # Mac
+    - appscript         [osx]
+    - python.app        [osx]
+
+                                               # Windows
+    - menuinst          [win]
+    - pywin32           [win]
+
+                                               # Mac + Windows
+    - xlwings           [osx or win]
+
+
+about:
+  home: http://continuum.io/
+  license: BSD
+  license_file: EULA-Anaconda.txt
+  summary: simplifies package management and deployment
