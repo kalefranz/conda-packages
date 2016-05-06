@@ -1,18 +1,21 @@
+{% set buildnum = 3 %}
+
 package:
   name: ansible
-  version: 1.9.3
+  version: 2.0.0.2
 
 build:
-  number: 0
+  number: {{ buildnum + 5 }}    [osx]
+  number: {{ buildnum }}    [linux]
 
 source:
-  fn: Ansible-1.9.3.tar.gz
-  url: https://pypi.python.org/packages/source/a/ansible/ansible-1.9.3.tar.gz
-  md5: 55be10fca4e9e0172a15e88874028eff
+  fn: 'Ansible-2.0.0.2#{ extra_var }.tar.gz'
+  url: https://pypi.python.org/packages/source/a/ansible/ansible-2.0.0.2.tar.gz
+  md5: 816d0c49e084383e47a725c761a0e413 
 
 requirements:
   build:
-    - python 2.7.*
+    - python
     - paramiko
     - jinja2
     - pyyaml
@@ -20,7 +23,7 @@ requirements:
     - pycrypto >=2.6
     - six
   run:
-    - python 2.7.*
+    - python
     - paramiko
     - jinja2
     - pyyaml
