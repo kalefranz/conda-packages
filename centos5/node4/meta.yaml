@@ -1,28 +1,28 @@
 package:
   name: node
-  version: 4.2.6
+  version: 4.4.4
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
-    - gcc
-    - python
-    - openssl
-    - zlib
+    - gcc >=4.8
+    - python 2.*,>=2.6
+    - openssl 1.0.*
+    - zlib 1.2*
   run:
-    - openssl
-    - zlib
+    - openssl 1.0.*
+    - zlib 1.2*
 
 test:
   commands:
     - node -e "console.log('Hello from node.js ' + process.version)"
 
 source:
-  fn: node-v4.2.6.tar.gz
-  url: https://nodejs.org/dist/v4.2.6/node-v4.2.6.tar.gz
-  sha256: ea5e357db8817052b17496d607c719d809ed1383e8fcf7c8ffc5214e705aefdd
+  fn: node-v4.4.4.tar.gz
+  url: https://nodejs.org/dist/v4.4.4/node-v4.4.4.tar.gz
+  sha256: 53c694c203ee18e7cd393612be08c61ed6ab8b2a165260984a99c014d1741414
 
 about:
   home: https://nodejs.org
