@@ -1,0 +1,37 @@
+{% set version = version|default("2.2.1") %}
+
+package:
+  name: pytest-cov
+  version: '{{ version }}'
+
+
+source:
+  git_url: https://github.com/pytest-dev/pytest-cov
+  git_rev: 'v{{ version }}'
+
+
+build:
+  number: 0
+  noarch_python: True
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+
+test:
+  imports:
+    - pytest_cov.embed
+
+
+about:
+    home: https://github.com/pytest-dev/pytest-cov
+    license: MIT
+    summary: >
+      A pytest plugin that produces coverage reports. It supports centralised
+      testing and distributed testing in both load and each modes. It also
+      supports coverage of subprocesses.
