@@ -1,27 +1,25 @@
 package:
   name: nginx
-  version: 1.9.10
+  version: 1.9.15
 
 source:
-  fn: nginx-1.9.10.tar.gz
-  url: http://nginx.org/download/nginx-1.9.10.tar.gz
-  sha256: fb14d76844cab0a5a0880768be28965e74f9956790f618c454ef6098e26631d9
-  patches:
-    - configure.patch
+  fn: nginx-1.9.15.tar.gz
+  url: http://nginx.org/download/nginx-1.9.15.tar.gz
+  sha256: cc89b277cc03f403c0b746d60aa5943cdecf59ae48278f8cb7e2df0cbdb6dac3
 
 build:
-  number: 1
+  number: 0
   no_link: etc/*
   detect_binary_files_with_prefix: true
 
 requirements:
   build:
     - gcc
-    - openssl
+    - openssl 1.0.2*
     - pcre
     - zlib
   run:
-    - openssl
+    - openssl 1.0.2*
     - pcre
     - zlib
 
