@@ -1,23 +1,27 @@
+{% set version = '3.2.0' %}
+
 package:
   name: redis
-  version: "{{ environ.get('REDIS_VERSION') }}"
+  version: "{{ version }}"
 
 build:
   number: 0
+  skip: true  # [win]
 
 source:
-  fn: "redis-{{ environ.get('REDIS_VERSION') }}.tar.gz"
-  url: "http://download.redis.io/releases/redis-{{ environ.get('REDIS_VERSION') }}.tar.gz"
-  sha256: "{{ environ.get('REDIS_HASH') }}"
+  git_url: https://github.com/antirez/redis.git
+  git_rev: "{{ version }}"
 
 test:
+  requires:
+    - tk 8.5*
   commands:
-    - conda install -c kalefranz tcl
-    - cd $SRC_DIR
-    - tclsh8.6 tests/test_helper.tcl
+    - "cd {{ SRC_DIR }} && tclsh8.5 tests/test_helper.tcl"
 
 about:
   home: http://redis.io
   license: BSD
-
-
+  summary: >
+    Redis is an in-memory database that persists on disk. The data model is
+    key-value, but many different kind of values are supported: Strings, Lists,
+    Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
